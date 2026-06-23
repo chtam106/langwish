@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
@@ -45,41 +45,22 @@ function NavItemIcon({ item }: { item: Pick<NavItem, 'icon' | 'symbol'> }) {
   )
 }
 
-function getGroupToggleKey(groupPath: string, pathname: string) {
-  return `${groupPath}:${pathname}`
-}
-
 function AppLayout() {
   const location = useLocation()
   const theme = useTheme()
   const { locale, t } = useTranslation()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [groupToggleState, setGroupToggleState] = useState<Record<string, boolean>>({})
-
-  const expandedGroups = useMemo(
-    () =>
-      Object.fromEntries(
-        navGroups.map((group) => {
-          const toggleKey = getGroupToggleKey(group.path, location.pathname)
-          const toggled = groupToggleState[toggleKey]
-
-          if (toggled !== undefined) {
-            return [group.path, toggled]
-          }
-
-          return [group.path, isNavGroupActive(group, location.pathname)]
-        }),
-      ),
-    [groupToggleState, location.pathname],
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(
+      navGroups.map((group) => [group.path, isNavGroupActive(group, location.pathname)]),
+    ),
   )
 
   const toggleGroup = (path: string) => {
-    const toggleKey = getGroupToggleKey(path, location.pathname)
-
-    setGroupToggleState((previous) => ({
+    setExpandedGroups((previous) => ({
       ...previous,
-      [toggleKey]: !expandedGroups[path],
+      [path]: !previous[path],
     }))
   }
 
