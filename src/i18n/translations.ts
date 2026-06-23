@@ -6,7 +6,7 @@ export type TranslationParams = Record<string, string | number>
 
 const en: TranslationTree = {
   app: {
-    title: 'Learn Japanese',
+    title: 'Langwish',
   },
   seo: {
     defaultTitle: 'Langwish - Learn Japanese Hiragana, Katakana & Kana Quiz',
@@ -157,7 +157,7 @@ const en: TranslationTree = {
 
 const vi: TranslationTree = {
   app: {
-    title: 'Học tiếng Nhật',
+    title: 'Langwish',
   },
   seo: {
     defaultTitle: 'Langwish - Học Hiragana, Katakana & Luyện Kana',
@@ -312,7 +312,7 @@ export const translations: Record<Locale, TranslationTree> = { en, vi }
 
 export const DEFAULT_LOCALE: Locale = 'en'
 
-export const LOCALE_STORAGE_KEY = 'learn-japanese-locale'
+export const LOCALE_STORAGE_KEY = 'langwish-locale'
 
 export function getChartSectionLabels(t: (key: string, params?: TranslationParams) => string) {
   return {
