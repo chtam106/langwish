@@ -86,7 +86,10 @@ function AppLayout() {
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Toolbar />
 
-      <List sx={{ px: 1, flex: 1 }}>
+      <List
+        className="thin-scrollbar"
+        sx={{ px: 1, flex: 1, overflowY: 'auto', overflowX: 'hidden', minHeight: 0 }}
+      >
         {navGroups.map((group) => {
           const groupLabel = group.label ? group.label[locale] : t(group.labelKey ?? '')
           const isExpanded = expandedGroups[group.path] ?? false
@@ -251,6 +254,7 @@ function AppLayout() {
               width: drawerWidth,
               boxSizing: 'border-box',
               border: 'none',
+              overflow: 'hidden',
               boxShadow: '1px 0 2px rgba(0, 0, 0, 0.06), 2px 0 8px rgba(0, 0, 0, 0.04)',
             },
           }}

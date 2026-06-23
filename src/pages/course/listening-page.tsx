@@ -13,6 +13,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import { pink } from '@mui/material/colors'
 import {
   getCourse,
   getLesson,
@@ -224,7 +225,7 @@ function ListeningQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                     variant="subtitle1"
                     sx={{
                       fontWeight: 600,
-                      color: selectedId === question.correctId ? 'success.main' : 'error.main',
+                      color: selectedId === question.correctId ? 'info.main' : pink[500],
                     }}
                   >
                     {selectedId === question.correctId

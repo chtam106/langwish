@@ -24,11 +24,13 @@ alwaysApply: true
 ## i18n
 - UI chrome text lives in `src/i18n/translations.ts` as nested keys; both `en` and `vi` MUST be kept in sync. Read via `const { t, locale } = useTranslation()`.
 - Bilingual CONTENT data (Japanese + meanings) is stored in data files as `Record<Locale, string>` (type `Bilingual`) and rendered with `value[locale]`, not as translation keys.
+- Quiz answer feedback labels should use the exact English words `Correct` and `Incorrect` (keep these two labels in English for both locales).
 - The header slogan (Brand tagline) and the site footer text stay in ENGLISH regardless of locale — hardcode them in the component, do not run them through `t()`.
 
 ## Audio / pronunciation
 - Japanese is spoken via the Web Speech API: `speakJapanese(text)` in `src/utils/speech.ts` (lang `ja-JP`). Voice + speed are user-configurable (persisted in localStorage) via `<AudioSettings />` in the header; voices load async (use `subscribeVoices`).
 - Anywhere Japanese text is shown, add `<SpeakButton text={...} />` (`src/components/speak-button.tsx`). Pass kana for single words, full sentence for examples. Do NOT add it to quiz answer options (would leak the answer) or to grammar patterns containing `N` placeholders.
+- Do not make audio interaction icon-only. Wherever practical, make the related Japanese text/surface itself clickable (and keyboard-accessible with Enter/Space) so users do not need to tap precisely on the speaker icon.
 - Default voice: prefer the macOS "O-ren" voice when no user choice is stored (`getDefaultJapaneseVoice` in `src/utils/speech.ts`, matches name containing `o-ren`, else first Japanese voice). Only display/play it — do NOT pin it to localStorage so the default stays adaptive per device.
 
 ## Surfaces & cards (Material style) — ALWAYS follow
@@ -40,6 +42,13 @@ alwaysApply: true
   - `tonalSurfaceSx` — primary-tinted tonal (call-to-action surfaces).
 - Chrome regions (header, drawer, footer) separate by a soft shadow only — NO background tint and NO divider lines. Header casts the shadow downward, the drawer to the right, the footer upward.
 - Buttons/Chips may keep `variant="outlined"` — those are controls, not content surfaces.
+
+## Quiz feedback styling
+- Keep answer feedback colors consistent across course quizzes and alphabet quizzes: correct uses a light blue tone, wrong uses a light pink tone (soft fill + soft border, not saturated green/red).
+- Do not show success/error icons inside answer choice buttons; rely on color and text feedback.
+
+## Scrollbars
+- Use one unified thin scrollbar style across the app. Global/page scrollbars and local scroll containers (e.g. drawer/menu lists) must use the same `thin-scrollbar` appearance defined in `src/index.css`.
 
 ## Page layout
 - Wrap every page's content in the shared `<PageContainer>` (`src/components/page-container.tsx`) — do NOT use `<Container>` directly in pages. It is full-width and left-aligned (`maxWidth={false}`); width/padding live in `PageContainer` + the `MuiContainer` theme overrides in `main.tsx`. Never center content in a narrow fixed-width column.

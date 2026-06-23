@@ -1,10 +1,8 @@
 import { Link as RouterLink } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import {
   Box,
   Button,
-  IconButton,
   Paper,
   Table,
   TableBody,
@@ -120,9 +118,17 @@ function PlayableChartCell({ cell, compact = false }: { cell: AlphabetCell; comp
   return (
     <Box
       className="playable-cell"
+      role="button"
+      tabIndex={0}
+      aria-label={t('chart.playAudio', { char: cell.char, romaji: cell.romaji })}
       onClick={handlePlay}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          handlePlay()
+        }
+      }}
       sx={{
-        position: 'relative',
         width: '100%',
         height: '100%',
         display: 'flex',
@@ -137,36 +143,14 @@ function PlayableChartCell({ cell, compact = false }: { cell: AlphabetCell; comp
           bgcolor: 'action.selected',
           boxShadow: '0 1px 3px rgba(0, 0, 0, 0.12)',
         },
-        '&:hover .speaker-button': { opacity: 1 },
-        '&:focus-within .speaker-button': { opacity: 1 },
-        '@media (hover: none)': {
-          '& .speaker-button': { opacity: 0.85 },
+        '&:focus-visible': {
+          outline: '2px solid',
+          outlineColor: 'primary.main',
+          outlineOffset: 2,
         },
       }}
     >
       <ChartCell cell={cell} compact={compact} />
-      <IconButton
-        className="speaker-button"
-        size="small"
-        aria-label={t('chart.playAudio', { char: cell.char, romaji: cell.romaji })}
-        onClick={(event) => {
-          event.stopPropagation()
-          handlePlay()
-        }}
-        sx={{
-          position: 'absolute',
-          right: 0,
-          bottom: { xs: 0, md: 4 },
-          p: { xs: 0.25, md: 1 },
-          opacity: 0,
-          transition: 'opacity 0.15s',
-          '&:focus-visible': {
-            opacity: 1,
-          },
-        }}
-      >
-        <VolumeUpIcon sx={{ fontSize: compact ? 14 : 20 }} />
-      </IconButton>
     </Box>
   )
 }
@@ -420,8 +404,11 @@ export function AlphabetChartPage({
       >
         {title}
       </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: { xs: 2, md: 3 } }}>
+      <Typography variant="body1" color="text.secondary" sx={{ mb: 0.5 }}>
         {description}
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ mb: { xs: 2, md: 3 } }}>
+        {t('alphabet.tapHint')}
       </Typography>
 
       <ChartSection chartRows={chartRows} />

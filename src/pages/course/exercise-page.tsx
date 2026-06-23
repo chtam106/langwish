@@ -11,6 +11,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
+import { pink } from '@mui/material/colors'
 import {
   getCourse,
   getLesson,
@@ -22,6 +23,7 @@ import {
 import { PageContainer } from '@/components/page-container.tsx'
 import { SpeakButton } from '@/components/speak-button.tsx'
 import { useTranslation } from '@/i18n/use-translation.ts'
+import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
 import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
 import { ChoiceButton } from './choice-button.tsx'
 import { buildLessonQuiz, normalizeAnswer, type QuizQuestion } from './course-quiz.ts'
@@ -29,6 +31,7 @@ import { LessonNotFound, ResultScreen } from './shared.tsx'
 
 function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
   const { locale, t } = useTranslation()
+  const canSpeak = isSpeechSupported()
 
   const [questions, setQuestions] = useState<QuizQuestion[]>(() =>
     buildLessonQuiz(course, lesson, locale),
@@ -48,6 +51,11 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
     question.format === 'choice'
       ? selectedId === question.correctId
       : question.accepted.includes(normalizeAnswer(inputValue))
+  const canPlayPromptAudio =
+    canSpeak &&
+    Boolean(question.promptJa) &&
+    question.kind !== 'grammar-pattern' &&
+    question.kind !== 'grammar-cloze'
 
   const handleSelect = (optionId: string) => {
     if (question.format !== 'choice' || answered) {
@@ -160,14 +168,32 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                 <Typography
                   variant="h4"
                   component="p"
-                  sx={{ flex: 1, fontWeight: 600 }}
+                  onClick={
+                    canPlayPromptAudio ? () => speakJapanese(question.promptPrimary) : undefined
+                  }
+                  role={canPlayPromptAudio ? 'button' : undefined}
+                  tabIndex={canPlayPromptAudio ? 0 : undefined}
+                  aria-label={canPlayPromptAudio ? t('common.playAudio') : undefined}
+                  onKeyDown={
+                    canPlayPromptAudio
+                      ? (event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault()
+                            speakJapanese(question.promptPrimary)
+                          }
+                        }
+                      : undefined
+                  }
+                  sx={{
+                    flex: 1,
+                    fontWeight: 600,
+                    cursor: canPlayPromptAudio ? 'pointer' : undefined,
+                  }}
                   lang={question.promptJa ? 'ja' : undefined}
                 >
                   {question.promptPrimary}
                 </Typography>
-                {question.promptJa &&
-                question.kind !== 'grammar-pattern' &&
-                question.kind !== 'grammar-cloze' ? (
+                {canPlayPromptAudio ? (
                   <SpeakButton text={question.promptPrimary} size="medium" />
                 ) : null}
               </Stack>
@@ -247,7 +273,7 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                   <Box>
                     <Typography
                       variant="subtitle1"
-                      sx={{ fontWeight: 600, color: isCorrect ? 'success.main' : 'error.main' }}
+                      sx={{ fontWeight: 600, color: isCorrect ? 'info.main' : pink[500] }}
                     >
                       {isCorrect ? t('course.correct') : t('course.incorrect')}
                     </Typography>
