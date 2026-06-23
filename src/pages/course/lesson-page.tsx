@@ -204,8 +204,8 @@ function PracticePanel({ level, lesson }: { level: CourseLevel; lesson: Lesson }
         {
           p: { xs: 2.5, md: 3 },
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { md: 'center' },
+          flexDirection: { xs: 'column', xl: 'row' },
+          alignItems: { xl: 'center' },
           justifyContent: 'space-between',
           gap: 2,
         },
@@ -222,7 +222,7 @@ function PracticePanel({ level, lesson }: { level: CourseLevel; lesson: Lesson }
       <Stack
         direction={{ xs: 'column', sm: 'row' }}
         spacing={1.5}
-        sx={{ flexShrink: 0, width: { xs: '100%', md: 'auto' }, flexWrap: 'wrap' }}
+        sx={{ flexShrink: 0, width: { xs: '100%', xl: 'auto' }, flexWrap: 'wrap' }}
         useFlexGap
       >
         <Button
