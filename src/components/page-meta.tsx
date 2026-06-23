@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getSeoRouteKey, type SeoRouteKey } from '@/constants/seo-routes.ts'
+import { getSeoRouteKey, type SeoRouteKey } from '@/constants/routes.ts'
 import { SITE_NAME, SITE_URL } from '@/constants/site.ts'
 import { useTranslation } from '@/i18n/use-translation.ts'
 
