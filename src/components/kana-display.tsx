@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material'
-import type { AlphabetCell } from '@/constants/alphabet-charts.ts'
-import { YoonGlyph } from '@/components/yoon-glyph.tsx'
-import { FONT_FAMILY_JP } from '@/theme/fonts.ts'
+import { Typography } from '@mui/material';
+import type { AlphabetCell } from '@/constants/alphabet-charts.ts';
+import { YoonGlyph } from '@/components/yoon-glyph.tsx';
+import { FONT_FAMILY_JP } from '@/theme/fonts.ts';
 
 type KanaDisplayProps = {
   cell: AlphabetCell
@@ -9,7 +9,7 @@ type KanaDisplayProps = {
   compact?: boolean
 }
 
-const kanaFontSx = { fontFamily: FONT_FAMILY_JP, fontWeight: 400 } as const
+const kanaFontSx = { fontFamily: FONT_FAMILY_JP, fontWeight: 400 } as const;
 
 export function KanaDisplay({ cell, variant = 'option', compact = false }: KanaDisplayProps) {
   if (cell.yoonBase && cell.yoonSuffix) {
@@ -20,7 +20,7 @@ export function KanaDisplay({ cell, variant = 'option', compact = false }: KanaD
         compact={variant === 'option' || compact}
         large={variant === 'prompt'}
       />
-    )
+    );
   }
 
   if (variant === 'prompt') {
@@ -28,7 +28,7 @@ export function KanaDisplay({ cell, variant = 'option', compact = false }: KanaD
       <Typography variant="h2" component="span" sx={{ ...kanaFontSx, lineHeight: 1.1 }}>
         {cell.char}
       </Typography>
-    )
+    );
   }
 
   if (variant === 'chart') {
@@ -40,12 +40,12 @@ export function KanaDisplay({ cell, variant = 'option', compact = false }: KanaD
       >
         {cell.char}
       </Typography>
-    )
+    );
   }
 
   return (
     <Typography component="span" sx={{ ...kanaFontSx, fontSize: '1.5rem', lineHeight: 1.1 }}>
       {cell.char}
     </Typography>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { Link as RouterLink, useParams } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { useState } from 'react';
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {
   Box,
   Button,
@@ -10,8 +10,8 @@ import {
   Stack,
   TextField,
   Typography,
-} from '@mui/material'
-import { pink } from '@mui/material/colors'
+} from '@mui/material';
+import { pink } from '@mui/material/colors';
 import {
   getCourse,
   getLesson,
@@ -19,91 +19,91 @@ import {
   type Course,
   type CourseLevel,
   type Lesson,
-} from '@/constants/courses/index.ts'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { SpeakButton } from '@/components/speak-button.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
-import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
-import { ChoiceButton } from './choice-button.tsx'
-import { buildLessonQuiz, normalizeAnswer, type QuizQuestion } from './course-quiz.ts'
-import { LessonNotFound, ResultScreen } from './shared.tsx'
+} from '@/constants/courses/index.ts';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { SpeakButton } from '@/components/speak-button.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
+import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
+import { ChoiceButton } from './choice-button.tsx';
+import { buildLessonQuiz, normalizeAnswer, type QuizQuestion } from './course-quiz.ts';
+import { LessonNotFound, ResultScreen } from './shared.tsx';
 
 function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
-  const { locale, t } = useTranslation()
-  const canSpeak = isSpeechSupported()
+  const { locale, t } = useTranslation();
+  const canSpeak = isSpeechSupported();
 
   const [questions, setQuestions] = useState<QuizQuestion[]>(() =>
     buildLessonQuiz(course, lesson, locale),
-  )
-  const [index, setIndex] = useState(0)
-  const [selectedId, setSelectedId] = useState<string | undefined>(undefined)
-  const [inputValue, setInputValue] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [score, setScore] = useState(0)
-  const [finished, setFinished] = useState(false)
+  );
+  const [index, setIndex] = useState(0);
+  const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
+  const [inputValue, setInputValue] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
 
-  const total = questions.length
-  const question = questions[index]
-  const isLast = index === total - 1
-  const answered = question.format === 'choice' ? selectedId !== undefined : submitted
+  const total = questions.length;
+  const question = questions[index];
+  const isLast = index === total - 1;
+  const answered = question.format === 'choice' ? selectedId !== undefined : submitted;
   const isCorrect =
     question.format === 'choice'
       ? selectedId === question.correctId
-      : question.accepted.includes(normalizeAnswer(inputValue))
+      : question.accepted.includes(normalizeAnswer(inputValue));
   const canPlayPromptAudio =
     canSpeak &&
     Boolean(question.promptJa) &&
     question.kind !== 'grammar-pattern' &&
-    question.kind !== 'grammar-cloze'
+    question.kind !== 'grammar-cloze';
 
   const handleSelect = (optionId: string) => {
     if (question.format !== 'choice' || answered) {
-      return
+      return;
     }
 
-    setSelectedId(optionId)
+    setSelectedId(optionId);
 
     if (optionId === question.correctId) {
-      setScore((previous) => previous + 1)
+      setScore((previous) => previous + 1);
     }
-  }
+  };
 
   const handleSubmitInput = () => {
     if (question.format !== 'input' || submitted || inputValue.trim() === '') {
-      return
+      return;
     }
 
-    setSubmitted(true)
+    setSubmitted(true);
 
     if (question.accepted.includes(normalizeAnswer(inputValue))) {
-      setScore((previous) => previous + 1)
+      setScore((previous) => previous + 1);
     }
-  }
+  };
 
   const handleNext = () => {
     if (isLast) {
-      setFinished(true)
+      setFinished(true);
 
-      return
+      return;
     }
 
-    setIndex((previous) => previous + 1)
-    setSelectedId(undefined)
-    setInputValue('')
-    setSubmitted(false)
-  }
+    setIndex((previous) => previous + 1);
+    setSelectedId(undefined);
+    setInputValue('');
+    setSubmitted(false);
+  };
 
   const handleRetry = () => {
-    setQuestions(buildLessonQuiz(course, lesson, locale))
-    setIndex(0)
-    setSelectedId(undefined)
-    setInputValue('')
-    setSubmitted(false)
-    setScore(0)
-    setFinished(false)
-  }
+    setQuestions(buildLessonQuiz(course, lesson, locale));
+    setIndex(0);
+    setSelectedId(undefined);
+    setInputValue('');
+    setSubmitted(false);
+    setScore(0);
+    setFinished(false);
+  };
 
   return (
     <PageContainer>
@@ -179,8 +179,8 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                     canPlayPromptAudio
                       ? (event) => {
                           if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault()
-                            speakJapanese(question.promptPrimary)
+                            event.preventDefault();
+                            speakJapanese(question.promptPrimary);
                           }
                         }
                       : undefined
@@ -208,9 +208,9 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
             {question.format === 'choice' ? (
               <Stack spacing={1.5}>
                 {question.options.map((option) => {
-                  const isCorrectOption = option.id === question.correctId
-                  const showCorrect = answered && isCorrectOption
-                  const showWrong = answered && option.id === selectedId && !isCorrectOption
+                  const isCorrectOption = option.id === question.correctId;
+                  const showCorrect = answered && isCorrectOption;
+                  const showWrong = answered && option.id === selectedId && !isCorrectOption;
 
                   return (
                     <ChoiceButton
@@ -222,15 +222,15 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                     >
                       {option.label}
                     </ChoiceButton>
-                  )
+                  );
                 })}
               </Stack>
             ) : (
               <Box
                 component="form"
                 onSubmit={(event) => {
-                  event.preventDefault()
-                  handleSubmitInput()
+                  event.preventDefault();
+                  handleSubmitInput();
                 }}
               >
                 <Stack direction="row" spacing={1.5}>
@@ -294,21 +294,21 @@ function LessonQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
         )}
       </Stack>
     </PageContainer>
-  )
+  );
 }
 
 function ExercisePage({ level }: { level: CourseLevel }) {
-  const { lessonId } = useParams<{ lessonId: string }>()
-  const { locale } = useTranslation()
-  const lesson = lessonId ? getLesson(level, lessonId) : undefined
+  const { lessonId } = useParams<{ lessonId: string }>();
+  const { locale } = useTranslation();
+  const lesson = lessonId ? getLesson(level, lessonId) : undefined;
 
   if (!lesson) {
-    return <LessonNotFound level={level} />
+    return <LessonNotFound level={level} />;
   }
 
   return (
     <LessonQuiz key={`${level}:${lesson.id}:${locale}`} course={getCourse(level)} lesson={lesson} />
-  )
+  );
 }
 
-export default ExercisePage
+export default ExercisePage;

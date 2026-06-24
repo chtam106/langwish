@@ -1,5 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { Link as RouterLink } from 'react-router-dom';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {
   Box,
   Button,
@@ -9,18 +9,18 @@ import {
   Chip,
   Stack,
   Typography,
-} from '@mui/material'
-import { Heading } from '@/components/heading.tsx'
-import { getCourse, lessonPath, type CourseLevel } from '@/constants/courses/index.ts'
-import { PageContainer } from '@/components/page-container.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { interactiveSurfaceSx } from '@/theme/surfaces.ts'
+} from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
+import { getCourse, lessonPath, type CourseLevel } from '@/constants/courses/index.ts';
+import { PageContainer } from '@/components/page-container.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { interactiveSurfaceSx } from '@/theme/surfaces.ts';
 
 function CoursePage({ level }: { level: CourseLevel }) {
-  const { locale, t } = useTranslation()
-  const course = getCourse(level)
-  const coreLessons = course.lessons.filter((lesson) => lesson.track !== 'frontend')
-  const frontendLessons = course.lessons.filter((lesson) => lesson.track === 'frontend')
+  const { locale, t } = useTranslation();
+  const course = getCourse(level);
+  const coreLessons = course.lessons.filter((lesson) => lesson.track !== 'frontend');
+  const frontendLessons = course.lessons.filter((lesson) => lesson.track === 'frontend');
 
   const renderLessonCards = (trackLessons: typeof course.lessons) => (
     <Stack spacing={1.5}>
@@ -77,7 +77,7 @@ function CoursePage({ level }: { level: CourseLevel }) {
         </Card>
       ))}
     </Stack>
-  )
+  );
 
   return (
     <PageContainer>
@@ -150,7 +150,7 @@ function CoursePage({ level }: { level: CourseLevel }) {
         ) : null}
       </Stack>
     </PageContainer>
-  )
+  );
 }
 
-export default CoursePage
+export default CoursePage;

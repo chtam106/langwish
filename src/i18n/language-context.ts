@@ -1,5 +1,5 @@
-import { createContext } from 'react'
-import type { Locale, TranslationParams } from '@/i18n/translations.ts'
+import { createContext } from 'react';
+import type { Locale, TranslationParams } from '@/i18n/translations.ts';
 
 export type TranslateFn = (key: string, params?: TranslationParams) => string
 
@@ -9,4 +9,4 @@ export type LanguageContextValue = {
   t: TranslateFn
 }
 
-export const LanguageContext = createContext<LanguageContextValue | null>(null)
+export const LanguageContext = createContext<LanguageContextValue | null>(null);

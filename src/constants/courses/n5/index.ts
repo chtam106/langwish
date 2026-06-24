@@ -1,6 +1,6 @@
-import { withSequentialNumbers, type Course } from '../types.ts'
-import { n5LessonsB } from './lessons-2.ts'
-import { n5LessonsC } from './lessons-3.ts'
+import { withSequentialNumbers, type Course } from '../types.ts';
+import { n5LessonsB } from './lessons-2.ts';
+import { n5LessonsC } from './lessons-3.ts';
 
 export const n5Course: Course = {
   level: 'n5',
@@ -1510,4 +1510,4 @@ export const n5Course: Course = {
     ...n5LessonsB,
     ...n5LessonsC,
   ]),
-}
+};

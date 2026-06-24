@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
-import { Container } from '@mui/material'
+import type { ReactNode } from 'react';
+import { Container } from '@mui/material';
 
 /**
  * Shared page wrapper. Width and padding are centralised here (and in the
@@ -10,5 +10,5 @@ export function PageContainer({ children }: { children: ReactNode }) {
     <Container maxWidth={false} sx={{ width: '100%', maxWidth: 1200, mx: 'auto' }}>
       {children}
     </Container>
-  )
+  );
 }

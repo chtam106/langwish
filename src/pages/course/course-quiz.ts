@@ -1,5 +1,5 @@
-import type { Course, Lesson } from '@/constants/courses/index.ts'
-import type { Locale } from '@/i18n/translations.ts'
+import type { Course, Lesson } from '@/constants/courses/index.ts';
+import type { Locale } from '@/i18n/translations.ts';
 
 export type QuestionKind =
   | 'vocab-meaning'
@@ -38,8 +38,8 @@ export type InputQuestion = {
 
 export type QuizQuestion = ChoiceQuestion | InputQuestion
 
-const QUESTION_LIMIT = 12
-const OPTION_COUNT = 4
+const QUESTION_LIMIT = 12;
+const OPTION_COUNT = 4;
 
 const PARTICLES = new Set([
   'wa',
@@ -54,13 +54,13 @@ const PARTICLES = new Set([
   'ka',
   'kara',
   'made',
-])
+]);
 
 const PARTICLE_ALTERNATES: Record<string, string[]> = {
   o: ['wo'],
   e: ['he'],
   wa: ['ha'],
-}
+};
 
 const PARTICLE_KANA: Record<string, string> = {
   wa: 'は',
@@ -75,34 +75,34 @@ const PARTICLE_KANA: Record<string, string> = {
   ka: 'か',
   kara: 'から',
   made: 'まで',
-}
+};
 
-const CLOZE_BLANK = '＿＿'
+const CLOZE_BLANK = '＿＿';
 
 function countOccurrences(haystack: string, needle: string): number {
-  return haystack.split(needle).length - 1
+  return haystack.split(needle).length - 1;
 }
 
 function shuffle<T>(items: T[]): T[] {
-  const copy = [...items]
+  const copy = [...items];
 
   for (let index = copy.length - 1; index > 0; index -= 1) {
     const randomIndex = Math.floor(Math.random() * (index + 1))
-    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]]
+    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
   }
 
-  return copy
+  return copy;
 }
 
 export function normalizeAnswer(value: string): string {
   return value
     .trim()
     .toLowerCase()
-    .replace(/[.。!?！？、，,]/g, '')
+    .replace(/[.。!?！？、，,]/g, '');
 }
 
 function vocabWord(item: { kana: string; kanji?: string }): string {
-  return item.kanji ?? item.kana
+  return item.kanji ?? item.kana;
 }
 
 function buildOptions(
@@ -112,13 +112,13 @@ function buildOptions(
 ): { options: QuizOption[]; correctId: string } {
   const distractors = shuffle(
     Array.from(new Set(pool.filter((label) => label !== correctLabel))),
-  ).slice(0, OPTION_COUNT - 1)
+  ).slice(0, OPTION_COUNT - 1);
 
-  const labels = shuffle([correctLabel, ...distractors])
-  const options = labels.map((label, index) => ({ id: `opt-${index}`, label, ja }))
-  const correctId = options.find((option) => option.label === correctLabel)!.id
+  const labels = shuffle([correctLabel, ...distractors]);
+  const options = labels.map((label, index) => ({ id: `opt-${index}`, label, ja }));
+  const correctId = options.find((option) => option.label === correctLabel)!.id;
 
-  return { options, correctId }
+  return { options, correctId };
 }
 
 type CoursePools = {
@@ -129,27 +129,27 @@ type CoursePools = {
 }
 
 function buildCoursePools(course: Course, locale: Locale): CoursePools {
-  const meanings: string[] = []
-  const words: string[] = []
-  const exampleMeanings: string[] = []
-  const patternTitles: string[] = []
+  const meanings: string[] = [];
+  const words: string[] = [];
+  const exampleMeanings: string[] = [];
+  const patternTitles: string[] = [];
 
   for (const lesson of course.lessons) {
     for (const item of lesson.vocab) {
-      meanings.push(item.meaning[locale])
-      words.push(vocabWord(item))
+      meanings.push(item.meaning[locale]);
+      words.push(vocabWord(item));
     }
 
     for (const point of lesson.grammar) {
-      patternTitles.push(point.title[locale])
+      patternTitles.push(point.title[locale]);
 
       for (const example of point.examples) {
-        exampleMeanings.push(example.meaning[locale])
+        exampleMeanings.push(example.meaning[locale]);
       }
     }
   }
 
-  return { meanings, words, exampleMeanings, patternTitles }
+  return { meanings, words, exampleMeanings, patternTitles };
 }
 
 function buildClozeQuestion(
@@ -161,19 +161,19 @@ function buildClozeQuestion(
   const particles = romaji
     .split(' ')
     .map((token) => normalizeAnswer(token))
-    .filter((token) => PARTICLES.has(token))
+    .filter((token) => PARTICLES.has(token));
 
   if (particles.length === 0) {
-    return null
+    return null;
   }
 
   // Blank the particle directly in the Japanese sentence, but only when its kana occurs
   // exactly once so the blank is unambiguous. Otherwise fall back to a choice question.
   for (const particle of shuffle(Array.from(new Set(particles)))) {
-    const kana = PARTICLE_KANA[particle]
+    const kana = PARTICLE_KANA[particle];
 
     if (!kana || countOccurrences(jp, kana) !== 1) {
-      continue
+      continue;
     }
 
     return {
@@ -185,22 +185,22 @@ function buildClozeQuestion(
       promptJa: true,
       accepted: [kana, particle, ...(PARTICLE_ALTERNATES[particle] ?? [])],
       answer: kana,
-    }
+    };
   }
 
-  return null
+  return null;
 }
 
 export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale): QuizQuestion[] {
-  const pools = buildCoursePools(course, locale)
-  const candidates: QuizQuestion[] = []
+  const pools = buildCoursePools(course, locale);
+  const candidates: QuizQuestion[] = [];
 
   lesson.vocab.forEach((item, index) => {
-    const word = vocabWord(item)
-    const meaning = item.meaning[locale]
+    const word = vocabWord(item);
+    const meaning = item.meaning[locale];
 
     if (index % 2 === 0) {
-      const { options, correctId } = buildOptions(meaning, false, pools.meanings)
+      const { options, correctId } = buildOptions(meaning, false, pools.meanings);
       candidates.push({
         format: 'choice',
         id: `vocab-meaning-${index}`,
@@ -209,9 +209,9 @@ export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale):
         promptJa: true,
         options,
         correctId,
-      })
+      });
     } else {
-      const { options, correctId } = buildOptions(word, true, pools.words)
+      const { options, correctId } = buildOptions(word, true, pools.words);
       candidates.push({
         format: 'choice',
         id: `vocab-word-${index}`,
@@ -220,16 +220,16 @@ export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale):
         promptJa: false,
         options,
         correctId,
-      })
+      });
     }
-  })
+  });
 
   lesson.grammar.forEach((point, pointIndex) => {
     const { options: patternOptions, correctId: patternCorrect } = buildOptions(
       point.title[locale],
       false,
       pools.patternTitles,
-    )
+    );
     candidates.push({
       format: 'choice',
       id: `grammar-pattern-${pointIndex}`,
@@ -238,7 +238,7 @@ export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale):
       promptJa: true,
       options: patternOptions,
       correctId: patternCorrect,
-    })
+    });
 
     point.examples.forEach((example, exampleIndex) => {
       const cloze =
@@ -249,19 +249,19 @@ export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale):
               example.meaning[locale],
               `grammar-cloze-${pointIndex}-${exampleIndex}`,
             )
-          : null
+          : null;
 
       if (cloze) {
-        candidates.push(cloze)
+        candidates.push(cloze);
 
-        return
+        return;
       }
 
       const { options, correctId } = buildOptions(
         example.meaning[locale],
         false,
         pools.exampleMeanings,
-      )
+      );
       candidates.push({
         format: 'choice',
         id: `grammar-translate-${pointIndex}-${exampleIndex}`,
@@ -270,9 +270,9 @@ export function buildLessonQuiz(course: Course, lesson: Lesson, locale: Locale):
         promptJa: true,
         options,
         correctId,
-      })
-    })
-  })
+      });
+    });
+  });
 
-  return shuffle(candidates).slice(0, Math.min(QUESTION_LIMIT, candidates.length))
+  return shuffle(candidates).slice(0, Math.min(QUESTION_LIMIT, candidates.length));
 }

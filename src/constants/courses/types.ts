@@ -1,4 +1,4 @@
-import type { Locale } from '@/i18n/translations.ts'
+import type { Locale } from '@/i18n/translations.ts';
 
 export type Bilingual = Record<Locale, string>
 
@@ -81,5 +81,5 @@ export function withSequentialNumbers(lessons: Lesson[]): Lesson[] {
     ...lesson,
     number: index + 1,
     id: `lesson-${index + 1}`,
-  }))
+  }));
 }

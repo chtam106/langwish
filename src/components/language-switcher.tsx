@@ -1,15 +1,15 @@
-import LanguageIcon from '@mui/icons-material/Language'
-import { Box, ButtonBase, Typography } from '@mui/material'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import type { Locale } from '@/i18n/translations.ts'
+import LanguageIcon from '@mui/icons-material/Language';
+import { Box, ButtonBase, Typography } from '@mui/material';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import type { Locale } from '@/i18n/translations.ts';
 
 const locales: { code: Locale; shortLabel: string; labelKey: 'language.en' | 'language.vi' }[] = [
   { code: 'en', shortLabel: 'EN', labelKey: 'language.en' },
   { code: 'vi', shortLabel: 'VI', labelKey: 'language.vi' },
-]
+];
 
 export function LanguageSwitcher() {
-  const { locale, setLocale, t } = useTranslation()
+  const { locale, setLocale, t } = useTranslation();
 
   return (
     <Box
@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
       <LanguageIcon sx={{ fontSize: 17, ml: 0.75, mr: 0.25, color: 'text.secondary' }} />
 
       {locales.map(({ code, shortLabel, labelKey }) => {
-        const selected = locale === code
+        const selected = locale === code;
 
         return (
           <ButtonBase
@@ -63,8 +63,8 @@ export function LanguageSwitcher() {
               {shortLabel}
             </Typography>
           </ButtonBase>
-        )
+        );
       })}
     </Box>
-  )
+  );
 }

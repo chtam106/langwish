@@ -1,9 +1,9 @@
-import type { AlphabetCell, AlphabetChartRow } from '@/pages/alphabet/alphabet-chart.tsx'
-import { DAKUTEN_MARK, HANDAKUTEN_MARK, voicedVariantMark } from '@/constants/kana-terminology.ts'
-import type { TranslationParams } from '@/i18n/translations.ts'
-import { getYoonDisplayParts } from '@/utils/yoon-display.ts'
+import type { AlphabetCell, AlphabetChartRow } from '@/pages/alphabet/alphabet-chart.tsx';
+import { DAKUTEN_MARK, HANDAKUTEN_MARK, voicedVariantMark } from '@/constants/kana-terminology.ts';
+import type { TranslationParams } from '@/i18n/translations.ts';
+import { getYoonDisplayParts } from '@/utils/yoon-display.ts';
 
-export type { AlphabetCell }
+export type { AlphabetCell };
 
 type TranslateFn = (key: string, params?: TranslationParams) => string
 
@@ -148,7 +148,7 @@ const bilingualChartRows: BilingualChartRow[] = [
   {
     seion: [{ romaji: 'n', hiragana: 'ん', katakana: 'ン' }, null, null, null, null],
   },
-]
+];
 
 const bilingualYoonRows: BilingualChartRow[] = [
   {
@@ -242,29 +242,29 @@ const bilingualYoonRows: BilingualChartRow[] = [
       { romaji: 'ryo', hiragana: 'りょ', katakana: 'リョ' },
     ],
   },
-]
+];
 
 function buildRomajiToCharMap(
   rows: BilingualChartRow[],
   script: 'hiragana' | 'katakana',
 ): Record<string, string> {
-  const map: Record<string, string> = {}
+  const map: Record<string, string> = {};
 
   for (const row of rows) {
     for (const group of [row.seion, row.dakuten, row.handakuten]) {
       if (!group) {
-        continue
+        continue;
       }
 
       for (const cell of group) {
         if (cell) {
-          map[cell.romaji] = cell[script]
+          map[cell.romaji] = cell[script];
         }
       }
     }
   }
 
-  return map
+  return map;
 }
 
 function toChartRows(
@@ -272,29 +272,29 @@ function toChartRows(
   script: 'hiragana' | 'katakana',
 ): AlphabetChartRow[] {
   const mapCell = (value: BilingualCell | null) =>
-    value ? { char: value[script], romaji: value.romaji } : null
+    value ? { char: value[script], romaji: value.romaji } : null;
 
-  const mapRow = (row: (BilingualCell | null)[] | undefined) => row?.map(mapCell)
+  const mapRow = (row: (BilingualCell | null)[] | undefined) => row?.map(mapCell);
 
   return rows.map((row) => ({
     seion: row.seion.map(mapCell),
     dakuten: mapRow(row.dakuten),
     handakuten: mapRow(row.handakuten),
-  }))
+  }));
 }
 
 function toYoonChartRows(
   rows: BilingualChartRow[],
   script: 'hiragana' | 'katakana',
 ): AlphabetChartRow[] {
-  const romajiToChar = buildRomajiToCharMap(bilingualChartRows, script)
+  const romajiToChar = buildRomajiToCharMap(bilingualChartRows, script);
 
   const mapCell = (value: BilingualCell | null): AlphabetCell | null => {
     if (!value) {
-      return null
+      return null;
     }
 
-    const yoonParts = getYoonDisplayParts(value.romaji, script, romajiToChar)
+    const yoonParts = getYoonDisplayParts(value.romaji, script, romajiToChar);
 
     return {
       char: value[script],
@@ -303,40 +303,40 @@ function toYoonChartRows(
         yoonBase: yoonParts.base,
         yoonSuffix: yoonParts.suffix,
       }),
-    }
-  }
+    };
+  };
 
-  const mapRow = (row: (BilingualCell | null)[] | undefined) => row?.map(mapCell)
+  const mapRow = (row: (BilingualCell | null)[] | undefined) => row?.map(mapCell);
 
   return rows.map((row) => ({
     seion: row.seion.map(mapCell),
     dakuten: mapRow(row.dakuten),
     handakuten: mapRow(row.handakuten),
-  }))
+  }));
 }
 
-export const hiraganaChartRows = toChartRows(bilingualChartRows, 'hiragana')
-export const katakanaChartRows = toChartRows(bilingualChartRows, 'katakana')
-export const hiraganaYoonChartRows = toYoonChartRows(bilingualYoonRows, 'hiragana')
-export const katakanaYoonChartRows = toYoonChartRows(bilingualYoonRows, 'katakana')
+export const hiraganaChartRows = toChartRows(bilingualChartRows, 'hiragana');
+export const katakanaChartRows = toChartRows(bilingualChartRows, 'katakana');
+export const hiraganaYoonChartRows = toYoonChartRows(bilingualYoonRows, 'hiragana');
+export const katakanaYoonChartRows = toYoonChartRows(bilingualYoonRows, 'katakana');
 
 function flattenSection(
   rows: AlphabetChartRow[],
   section: 'seion' | 'dakuten' | 'handakuten',
 ): AlphabetCell[] {
-  const items: AlphabetCell[] = []
+  const items: AlphabetCell[] = [];
 
   for (const row of rows) {
-    const cells = section === 'seion' ? row.seion : (row[section] ?? [])
+    const cells = section === 'seion' ? row.seion : (row[section] ?? []);
 
     for (const cell of cells) {
       if (cell) {
-        items.push(cell)
+        items.push(cell);
       }
     }
   }
 
-  return items
+  return items;
 }
 
 function flattenChartRows(rows: AlphabetChartRow[]): AlphabetCell[] {
@@ -344,19 +344,19 @@ function flattenChartRows(rows: AlphabetChartRow[]): AlphabetCell[] {
     ...flattenSection(rows, 'seion'),
     ...flattenSection(rows, 'dakuten'),
     ...flattenSection(rows, 'handakuten'),
-  ]
+  ];
 }
 
 function getChartRows(script: 'hiragana' | 'katakana') {
-  return script === 'hiragana' ? hiraganaChartRows : katakanaChartRows
+  return script === 'hiragana' ? hiraganaChartRows : katakanaChartRows;
 }
 
 function getYoonChartRows(script: 'hiragana' | 'katakana') {
-  return script === 'hiragana' ? hiraganaYoonChartRows : katakanaYoonChartRows
+  return script === 'hiragana' ? hiraganaYoonChartRows : katakanaYoonChartRows;
 }
 
 function flattenAllChartRows(script: 'hiragana' | 'katakana'): AlphabetCell[] {
-  return [...flattenChartRows(getChartRows(script)), ...flattenChartRows(getYoonChartRows(script))]
+  return [...flattenChartRows(getChartRows(script)), ...flattenChartRows(getYoonChartRows(script))];
 }
 
 export type ExerciseScope =
@@ -388,24 +388,24 @@ export type AlphabetRowOption = {
 }
 
 function getRowName(row: BilingualChartRow) {
-  const first = row.seion.find((cell): cell is BilingualCell => cell !== null)
+  const first = row.seion.find((cell): cell is BilingualCell => cell !== null);
 
   if (!first) {
-    return null
+    return null;
   }
 
-  return first.romaji.charAt(0).toUpperCase() + first.romaji.slice(1)
+  return first.romaji.charAt(0).toUpperCase() + first.romaji.slice(1);
 }
 
 function formatRowLabel(row: BilingualChartRow, t: TranslateFn): string {
-  const first = row.seion.find((cell): cell is BilingualCell => cell !== null)
-  const name = getRowName(row)
+  const first = row.seion.find((cell): cell is BilingualCell => cell !== null);
+  const name = getRowName(row);
 
   if (!first || !name) {
-    return t('exercise.rowDefault')
+    return t('exercise.rowDefault');
   }
 
-  return t('exercise.rowLabel', { name, char: first.hiragana })
+  return t('exercise.rowLabel', { name, char: first.hiragana });
 }
 
 function formatVoicedRowLabel(
@@ -413,31 +413,31 @@ function formatVoicedRowLabel(
   variant: 'dakuten' | 'handakuten',
   t: TranslateFn,
 ): string {
-  const cells = variant === 'dakuten' ? row.dakuten : row.handakuten
-  const first = cells?.find((cell): cell is BilingualCell => cell !== null)
-  const name = getRowName(row)
-  const mark = voicedVariantMark(variant)
+  const cells = variant === 'dakuten' ? row.dakuten : row.handakuten;
+  const first = cells?.find((cell): cell is BilingualCell => cell !== null);
+  const name = getRowName(row);
+  const mark = voicedVariantMark(variant);
 
   if (!name) {
-    return t('exercise.rowDefault')
+    return t('exercise.rowDefault');
   }
 
   return t('exercise.voicedRowLabel', {
     name,
     mark,
     char: first?.hiragana ?? '',
-  })
+  });
 }
 
 function formatYoonRowLabel(row: BilingualChartRow, t: TranslateFn): string {
-  const first = row.seion.find((cell): cell is BilingualCell => cell !== null)
-  const name = getRowName(row)
+  const first = row.seion.find((cell): cell is BilingualCell => cell !== null);
+  const name = getRowName(row);
 
   if (!first || !name) {
-    return t('exercise.yoonRowDefault')
+    return t('exercise.yoonRowDefault');
   }
 
-  return t('exercise.rowLabel', { name, char: first.hiragana })
+  return t('exercise.rowLabel', { name, char: first.hiragana });
 }
 
 function formatYoonVoicedRowLabel(
@@ -445,20 +445,20 @@ function formatYoonVoicedRowLabel(
   variant: 'dakuten' | 'handakuten',
   t: TranslateFn,
 ): string {
-  const cells = variant === 'dakuten' ? row.dakuten : row.handakuten
-  const first = cells?.find((cell): cell is BilingualCell => cell !== null)
-  const name = getRowName(row)
-  const mark = voicedVariantMark(variant)
+  const cells = variant === 'dakuten' ? row.dakuten : row.handakuten;
+  const first = cells?.find((cell): cell is BilingualCell => cell !== null);
+  const name = getRowName(row);
+  const mark = voicedVariantMark(variant);
 
   if (!name) {
-    return t('exercise.yoonRowDefault')
+    return t('exercise.yoonRowDefault');
   }
 
   return t('exercise.voicedRowLabel', {
     name,
     mark,
     char: first?.hiragana ?? '',
-  })
+  });
 }
 
 export function getExerciseOverviewScopeOptions(t: TranslateFn): AlphabetRowOption[] {
@@ -468,7 +468,7 @@ export function getExerciseOverviewScopeOptions(t: TranslateFn): AlphabetRowOpti
     { value: 'dakuten', label: t('exercise.scopeDakuten', { mark: DAKUTEN_MARK }) },
     { value: 'handakuten', label: t('exercise.scopeHandakuten', { mark: HANDAKUTEN_MARK }) },
     { value: 'yoon', label: t('exercise.scopeYoon') },
-  ]
+  ];
 }
 
 export function getExerciseRowScopeOptions(t: TranslateFn): AlphabetRowOption[] {
@@ -476,46 +476,46 @@ export function getExerciseRowScopeOptions(t: TranslateFn): AlphabetRowOption[] 
     ...bilingualChartRows.flatMap((row, index) => {
       const options: AlphabetRowOption[] = [
         { value: `row-${index}`, label: formatRowLabel(row, t) },
-      ]
+      ];
 
       if (row.dakuten) {
         options.push({
           value: `row-${index}-dakuten`,
           label: formatVoicedRowLabel(row, 'dakuten', t),
-        })
+        });
       }
 
       if (row.handakuten) {
         options.push({
           value: `row-${index}-handakuten`,
           label: formatVoicedRowLabel(row, 'handakuten', t),
-        })
+        });
       }
 
-      return options
+      return options;
     }),
     ...bilingualYoonRows.flatMap((row, index) => {
       const options: AlphabetRowOption[] = [
         { value: `yoon-row-${index}`, label: formatYoonRowLabel(row, t) },
-      ]
+      ];
 
       if (row.dakuten) {
         options.push({
           value: `yoon-row-${index}-dakuten`,
           label: formatYoonVoicedRowLabel(row, 'dakuten', t),
-        })
+        });
       }
 
       if (row.handakuten) {
         options.push({
           value: `yoon-row-${index}-handakuten`,
           label: formatYoonVoicedRowLabel(row, 'handakuten', t),
-        })
+        });
       }
 
-      return options
+      return options;
     }),
-  ]
+  ];
 }
 
 export function resolveExerciseScope(
@@ -525,26 +525,26 @@ export function resolveExerciseScope(
   rowOptions: AlphabetRowOption[] = [],
 ): ExerciseScope {
   if (!rowFrom && !rowTo) {
-    return overview
+    return overview;
   }
 
   if (rowFrom && rowTo) {
     if (rowFrom === rowTo) {
-      return rowFrom
+      return rowFrom;
     }
 
-    return buildRowRangeScope(rowFrom, rowTo) ?? rowFrom
+    return buildRowRangeScope(rowFrom, rowTo) ?? rowFrom;
   }
 
   if (rowFrom) {
-    return buildRowRangeScopeToLast(rowFrom, rowOptions) ?? rowFrom
+    return buildRowRangeScopeToLast(rowFrom, rowOptions) ?? rowFrom;
   }
 
   if (rowTo) {
-    return buildRowRangeScopeFromFirst(rowTo, rowOptions) ?? rowTo
+    return buildRowRangeScopeFromFirst(rowTo, rowOptions) ?? rowTo;
   }
 
-  return overview
+  return overview;
 }
 
 type ParsedRowScope = {
@@ -554,39 +554,39 @@ type ParsedRowScope = {
 }
 
 function parseRowScope(scope: ExerciseRowScope): ParsedRowScope | null {
-  const seionPlain = scope.match(/^row-(\d+)$/)
+  const seionPlain = scope.match(/^row-(\d+)$/);
 
   if (seionPlain) {
-    return { family: 'seion', index: Number(seionPlain[1]), variant: 'plain' }
+    return { family: 'seion', index: Number(seionPlain[1]), variant: 'plain' };
   }
 
-  const seionVoiced = scope.match(/^row-(\d+)-(dakuten|handakuten)$/)
+  const seionVoiced = scope.match(/^row-(\d+)-(dakuten|handakuten)$/);
 
   if (seionVoiced) {
     return {
       family: 'seion',
       index: Number(seionVoiced[1]),
       variant: seionVoiced[2] as 'dakuten' | 'handakuten',
-    }
+    };
   }
 
-  const yoonPlain = scope.match(/^yoon-row-(\d+)$/)
+  const yoonPlain = scope.match(/^yoon-row-(\d+)$/);
 
   if (yoonPlain) {
-    return { family: 'yoon', index: Number(yoonPlain[1]), variant: 'plain' }
+    return { family: 'yoon', index: Number(yoonPlain[1]), variant: 'plain' };
   }
 
-  const yoonVoiced = scope.match(/^yoon-row-(\d+)-(dakuten|handakuten)$/)
+  const yoonVoiced = scope.match(/^yoon-row-(\d+)-(dakuten|handakuten)$/);
 
   if (yoonVoiced) {
     return {
       family: 'yoon',
       index: Number(yoonVoiced[1]),
       variant: yoonVoiced[2] as 'dakuten' | 'handakuten',
-    }
+    };
   }
 
-  return null
+  return null;
 }
 
 function formatRowRangeScope(
@@ -595,44 +595,44 @@ function formatRowRangeScope(
   end: number,
   variant: ParsedRowScope['variant'],
 ): ExerciseScope {
-  const suffix = variant === 'plain' ? '' : `-${variant}`
+  const suffix = variant === 'plain' ? '' : `-${variant}`;
 
   if (family === 'seion') {
-    return `row-range-${start}-${end}${suffix}` as ExerciseScope
+    return `row-range-${start}-${end}${suffix}` as ExerciseScope;
   }
 
-  return `yoon-row-range-${start}-${end}${suffix}` as ExerciseScope
+  return `yoon-row-range-${start}-${end}${suffix}` as ExerciseScope;
 }
 
 export function buildRowRangeScope(
   from: ExerciseRowScope,
   to: ExerciseRowScope,
 ): ExerciseScope | null {
-  const fromParsed = parseRowScope(from)
-  const toParsed = parseRowScope(to)
+  const fromParsed = parseRowScope(from);
+  const toParsed = parseRowScope(to);
 
   if (!fromParsed || !toParsed) {
-    return null
+    return null;
   }
 
   if (fromParsed.family !== toParsed.family || fromParsed.variant !== toParsed.variant) {
-    return null
+    return null;
   }
 
-  const start = Math.min(fromParsed.index, toParsed.index)
-  const end = Math.max(fromParsed.index, toParsed.index)
+  const start = Math.min(fromParsed.index, toParsed.index);
+  const end = Math.max(fromParsed.index, toParsed.index);
 
-  return formatRowRangeScope(fromParsed.family, start, end, fromParsed.variant)
+  return formatRowRangeScope(fromParsed.family, start, end, fromParsed.variant);
 }
 
 export function buildRowRangeScopeToLast(
   from: ExerciseRowScope,
   options: AlphabetRowOption[],
 ): ExerciseScope | null {
-  const fromParsed = parseRowScope(from)
+  const fromParsed = parseRowScope(from);
 
   if (!fromParsed) {
-    return null
+    return null;
   }
 
   const sameFamily = options
@@ -642,25 +642,25 @@ export function buildRowRangeScopeToLast(
         parsed !== null &&
         parsed.family === fromParsed.family &&
         parsed.variant === fromParsed.variant,
-    )
+    );
 
   if (sameFamily.length === 0) {
-    return from
+    return from;
   }
 
-  const end = Math.max(...sameFamily.map((parsed) => parsed.index))
+  const end = Math.max(...sameFamily.map((parsed) => parsed.index));
 
-  return formatRowRangeScope(fromParsed.family, fromParsed.index, end, fromParsed.variant)
+  return formatRowRangeScope(fromParsed.family, fromParsed.index, end, fromParsed.variant);
 }
 
 export function buildRowRangeScopeFromFirst(
   to: ExerciseRowScope,
   options: AlphabetRowOption[],
 ): ExerciseScope | null {
-  const toParsed = parseRowScope(to)
+  const toParsed = parseRowScope(to);
 
   if (!toParsed) {
-    return null
+    return null;
   }
 
   const sameFamily = options
@@ -668,40 +668,40 @@ export function buildRowRangeScopeFromFirst(
     .filter(
       (parsed): parsed is ParsedRowScope =>
         parsed !== null && parsed.family === toParsed.family && parsed.variant === toParsed.variant,
-    )
+    );
 
   if (sameFamily.length === 0) {
-    return to
+    return to;
   }
 
-  const start = Math.min(...sameFamily.map((parsed) => parsed.index))
+  const start = Math.min(...sameFamily.map((parsed) => parsed.index));
 
-  return formatRowRangeScope(toParsed.family, start, toParsed.index, toParsed.variant)
+  return formatRowRangeScope(toParsed.family, start, toParsed.index, toParsed.variant);
 }
 
 export function getExerciseRowScopeGroup(scope: ExerciseScope, t: TranslateFn) {
-  return scope.startsWith('yoon-row-') ? t('exercise.groupYoonRows') : t('exercise.groupSeionRows')
+  return scope.startsWith('yoon-row-') ? t('exercise.groupYoonRows') : t('exercise.groupSeionRows');
 }
 
 export function getExerciseRowScopeOptionsForOverview(
   overview: ExerciseOverviewScope,
   t: TranslateFn,
 ): AlphabetRowOption[] {
-  const exerciseRowScopeOptions = getExerciseRowScopeOptions(t)
+  const exerciseRowScopeOptions = getExerciseRowScopeOptions(t);
 
   switch (overview) {
     case 'all':
-      return exerciseRowScopeOptions
+      return exerciseRowScopeOptions;
     case 'seion':
-      return exerciseRowScopeOptions.filter((option) => /^row-\d+$/.test(option.value))
+      return exerciseRowScopeOptions.filter((option) => /^row-\d+$/.test(option.value));
     case 'dakuten':
-      return exerciseRowScopeOptions.filter((option) => /^row-\d+-dakuten$/.test(option.value))
+      return exerciseRowScopeOptions.filter((option) => /^row-\d+-dakuten$/.test(option.value));
     case 'handakuten':
-      return exerciseRowScopeOptions.filter((option) => /^row-\d+-handakuten$/.test(option.value))
+      return exerciseRowScopeOptions.filter((option) => /^row-\d+-handakuten$/.test(option.value));
     case 'yoon':
-      return exerciseRowScopeOptions.filter((option) => option.value.startsWith('yoon-row-'))
+      return exerciseRowScopeOptions.filter((option) => option.value.startsWith('yoon-row-'));
     default:
-      return []
+      return [];
   }
 }
 
@@ -710,115 +710,115 @@ function getRowRangeItems(
   scope: ExerciseScope,
   prefix: 'row-range' | 'yoon-row-range',
 ): AlphabetCell[] {
-  const rangeMatch = scope.match(new RegExp(`^${prefix}-(\\d+)-(\\d+)(?:-(dakuten|handakuten))?$`))
+  const rangeMatch = scope.match(new RegExp(`^${prefix}-(\\d+)-(\\d+)(?:-(dakuten|handakuten))?$`));
 
   if (!rangeMatch) {
-    return []
+    return [];
   }
 
-  const start = Number(rangeMatch[1])
-  const end = Number(rangeMatch[2])
-  const variant = rangeMatch[3]
-  const rowPrefix = prefix === 'row-range' ? 'row' : 'yoon-row'
-  const items: AlphabetCell[] = []
+  const start = Number(rangeMatch[1]);
+  const end = Number(rangeMatch[2]);
+  const variant = rangeMatch[3];
+  const rowPrefix = prefix === 'row-range' ? 'row' : 'yoon-row';
+  const items: AlphabetCell[] = [];
 
   for (let index = start; index <= end; index += 1) {
     const rowScope = variant
       ? (`${rowPrefix}-${index}-${variant}` as ExerciseScope)
-      : (`${rowPrefix}-${index}` as ExerciseScope)
+      : (`${rowPrefix}-${index}` as ExerciseScope);
 
     items.push(
       ...(prefix === 'row-range'
         ? getRowScopeItems(rows, rowScope)
         : getYoonRowScopeItems(rows, rowScope)),
-    )
+    );
   }
 
-  return items
+  return items;
 }
 
 function getRowScopeItems(rows: AlphabetChartRow[], scope: ExerciseScope): AlphabetCell[] {
-  const rowScopeMatch = scope.match(/^row-(\d+)(?:-(dakuten|handakuten))?$/)
+  const rowScopeMatch = scope.match(/^row-(\d+)(?:-(dakuten|handakuten))?$/);
 
   if (!rowScopeMatch) {
-    return []
+    return [];
   }
 
-  const rowIndex = Number(rowScopeMatch[1])
-  const variant = rowScopeMatch[2]
-  const row = rows[rowIndex]
+  const rowIndex = Number(rowScopeMatch[1]);
+  const variant = rowScopeMatch[2];
+  const row = rows[rowIndex];
 
   if (!row) {
-    return []
+    return [];
   }
 
   if (!variant) {
-    return flattenSection([row], 'seion')
+    return flattenSection([row], 'seion');
   }
 
   if (variant === 'dakuten' || variant === 'handakuten') {
-    return flattenSection([row], variant)
+    return flattenSection([row], variant);
   }
 
-  return []
+  return [];
 }
 
 function getYoonRowScopeItems(rows: AlphabetChartRow[], scope: ExerciseScope): AlphabetCell[] {
-  const rowScopeMatch = scope.match(/^yoon-row-(\d+)(?:-(dakuten|handakuten))?$/)
+  const rowScopeMatch = scope.match(/^yoon-row-(\d+)(?:-(dakuten|handakuten))?$/);
 
   if (!rowScopeMatch) {
-    return []
+    return [];
   }
 
-  const rowIndex = Number(rowScopeMatch[1])
-  const variant = rowScopeMatch[2]
-  const row = rows[rowIndex]
+  const rowIndex = Number(rowScopeMatch[1]);
+  const variant = rowScopeMatch[2];
+  const row = rows[rowIndex];
 
   if (!row) {
-    return []
+    return [];
   }
 
   if (!variant) {
-    return flattenSection([row], 'seion')
+    return flattenSection([row], 'seion');
   }
 
   if (variant === 'dakuten' || variant === 'handakuten') {
-    return flattenSection([row], variant)
+    return flattenSection([row], variant);
   }
 
-  return []
+  return [];
 }
 
 export function getAlphabetItems(
   script: 'hiragana' | 'katakana',
   scope: ExerciseScope = 'all',
 ): AlphabetCell[] {
-  const rows = getChartRows(script)
-  const yoonRows = getYoonChartRows(script)
+  const rows = getChartRows(script);
+  const yoonRows = getYoonChartRows(script);
 
   if (scope === 'all') {
-    return flattenAllChartRows(script)
+    return flattenAllChartRows(script);
   }
 
   if (scope === 'seion' || scope === 'dakuten' || scope === 'handakuten') {
-    return flattenSection(rows, scope)
+    return flattenSection(rows, scope);
   }
 
   if (scope === 'yoon') {
-    return flattenChartRows(yoonRows)
+    return flattenChartRows(yoonRows);
   }
 
   if (scope.startsWith('yoon-row-range-')) {
-    return getRowRangeItems(yoonRows, scope, 'yoon-row-range')
+    return getRowRangeItems(yoonRows, scope, 'yoon-row-range');
   }
 
   if (scope.startsWith('yoon-row-')) {
-    return getYoonRowScopeItems(yoonRows, scope)
+    return getYoonRowScopeItems(yoonRows, scope);
   }
 
   if (scope.startsWith('row-range-')) {
-    return getRowRangeItems(rows, scope, 'row-range')
+    return getRowRangeItems(rows, scope, 'row-range');
   }
 
-  return getRowScopeItems(rows, scope)
+  return getRowScopeItems(rows, scope);
 }

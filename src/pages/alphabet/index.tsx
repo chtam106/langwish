@@ -1,13 +1,13 @@
-import { Link as RouterLink } from 'react-router-dom'
-import { Link, List, ListItem, Paper, Typography } from '@mui/material'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { routes } from '@/constants/routes.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
+import { Link as RouterLink } from 'react-router-dom';
+import { Link, List, ListItem, Paper, Typography } from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { routes } from '@/constants/routes.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
 
 function AlphabetPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const alphabetLinks = [
     {
@@ -25,7 +25,7 @@ function AlphabetPage() {
       title: t('nav.exercise'),
       description: t('alphabet.exerciseDescription'),
     },
-  ]
+  ];
 
   return (
     <PageContainer>
@@ -63,7 +63,7 @@ function AlphabetPage() {
         </List>
       </Paper>
     </PageContainer>
-  )
+  );
 }
 
-export default AlphabetPage
+export default AlphabetPage;

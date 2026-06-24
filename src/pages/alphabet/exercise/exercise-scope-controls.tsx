@@ -1,7 +1,7 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import type { ExerciseOverviewScope } from '@/constants/alphabet-charts.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import type { useExerciseScope } from '@/pages/alphabet/exercise/use-exercise-scope.ts'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import type { ExerciseOverviewScope } from '@/constants/alphabet-charts.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import type { useExerciseScope } from '@/pages/alphabet/exercise/use-exercise-scope.ts';
 
 type ExerciseScopeControlsProps = Pick<
   ReturnType<typeof useExerciseScope>,
@@ -29,7 +29,7 @@ export function ExerciseScopeControls({
   handleRowFromSelectChange,
   handleRowToSelectChange,
 }: ExerciseScopeControlsProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -88,5 +88,5 @@ export function ExerciseScopeControls({
         </Select>
       </FormControl>
     </>
-  )
+  );
 }

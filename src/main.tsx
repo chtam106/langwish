@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
 import './index.css'
 import App from './app.tsx'
+import { ErrorBoundary } from '@/components/error-boundary.tsx'
 import { LanguageProvider } from '@/i18n/context.tsx'
 import type { TranslationTree } from '@/i18n/translations.ts'
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, type Locale } from '@/i18n/translations.ts'
@@ -66,9 +67,11 @@ async function bootstrap() {
           initialLocale={initialLocale}
           initialTranslations={initialViTranslations ? { vi: initialViTranslations } : undefined}
         >
-          <BrowserRouter basename={routerBasename || undefined}>
-            <App />
-          </BrowserRouter>
+          <ErrorBoundary>
+            <BrowserRouter basename={routerBasename || undefined}>
+              <App />
+            </BrowserRouter>
+          </ErrorBoundary>
         </LanguageProvider>
       </ThemeProvider>
     </StrictMode>,

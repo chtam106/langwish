@@ -19,11 +19,17 @@ export default defineConfig([
       ecmaVersion: 'latest',
       globals: globals.browser,
     },
+    rules: {
+      semi: ['error', 'always'],
+    },
   },
   {
     files: ['scripts/**/*.mjs'],
     languageOptions: {
       globals: globals.node,
+    },
+    rules: {
+      semi: ['error', 'always'],
     },
   },
 ])

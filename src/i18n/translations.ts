@@ -11,6 +11,11 @@ const en: TranslationTree = {
   common: {
     playAudio: 'Play pronunciation',
   },
+  errorBoundary: {
+    title: 'Something went wrong',
+    body: 'An unexpected error occurred. Please reload the page to continue.',
+    reload: 'Reload page',
+  },
   audio: {
     settings: 'Audio settings',
     voice: 'Voice',

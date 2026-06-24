@@ -1,8 +1,8 @@
-import { withSequentialNumbers, type Course } from '../types.ts'
-import { n4LessonsA } from './lessons-1.ts'
-import { n4LessonsB } from './lessons-2.ts'
-import { n4LessonsC } from './lessons-3.ts'
-import { n4LessonsD } from './lessons-4.ts'
+import { withSequentialNumbers, type Course } from '../types.ts';
+import { n4LessonsA } from './lessons-1.ts';
+import { n4LessonsB } from './lessons-2.ts';
+import { n4LessonsC } from './lessons-3.ts';
+import { n4LessonsD } from './lessons-4.ts';
 
 export const n4Course: Course = {
   level: 'n4',
@@ -25,4 +25,4 @@ export const n4Course: Course = {
     vi: 'Khóa học JLPT N4 miễn phí, có lộ trình. Mỗi bài dạy từ vựng và ngữ pháp tiếng Nhật cốt lõi kèm câu ví dụ và bài đọc hiểu song ngữ Anh - Việt.',
   },
   lessons: withSequentialNumbers([...n4LessonsA, ...n4LessonsB, ...n4LessonsC, ...n4LessonsD]),
-}
+};

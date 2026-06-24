@@ -1,5 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { Link as RouterLink } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {
   Box,
   Button,
@@ -12,14 +12,14 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from '@mui/material'
-import { Heading } from '@/components/heading.tsx'
-import { playKanaAudio } from '@/utils/kana-audio.ts'
-import { KanaDisplay } from '@/components/kana-display.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { routes } from '@/constants/routes.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { getChartSectionLabels } from '@/i18n/translations.ts'
+} from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
+import { playKanaAudio } from '@/utils/kana-audio.ts';
+import { KanaDisplay } from '@/components/kana-display.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { routes } from '@/constants/routes.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { getChartSectionLabels } from '@/i18n/translations.ts';
 
 export type AlphabetCell = {
   char: string
@@ -53,22 +53,22 @@ function toDisplayRows(rows: AlphabetChartRow[]): DisplayRow[] {
       handakuten: row.handakuten?.[index] ?? null,
     })),
     tall: Boolean(row.handakuten),
-  }))
+  }));
 }
 
-const DESKTOP_CELL_SIZE = 90
-const MOBILE_CELL_SIZE = 56
+const DESKTOP_CELL_SIZE = 90;
+const MOBILE_CELL_SIZE = 56;
 
 function getCellSize(compact: boolean) {
-  return compact ? MOBILE_CELL_SIZE : DESKTOP_CELL_SIZE
+  return compact ? MOBILE_CELL_SIZE : DESKTOP_CELL_SIZE;
 }
 
 function getRowHeight(tall: boolean, cellSize: number) {
-  return tall ? cellSize * 2 : cellSize
+  return tall ? cellSize * 2 : cellSize;
 }
 
 function getCellSx(tall: boolean, cellSize: number, columnCount: number) {
-  const height = getRowHeight(tall, cellSize)
+  const height = getRowHeight(tall, cellSize);
 
   return {
     width: `${100 / columnCount}%`,
@@ -78,23 +78,23 @@ function getCellSx(tall: boolean, cellSize: number, columnCount: number) {
     verticalAlign: 'middle' as const,
     boxSizing: 'border-box' as const,
     border: 0,
-  }
+  };
 }
 
 function hasAnyCell(cells: (AlphabetCell | null)[] | undefined) {
-  return cells?.some((cell) => cell !== null) ?? false
+  return cells?.some((cell) => cell !== null) ?? false;
 }
 
 function hasVoicedContent(row: DisplayRow) {
-  return row.voiced.some((cell) => cell.dakuten || cell.handakuten)
+  return row.voiced.some((cell) => cell.dakuten || cell.handakuten);
 }
 
 function rowIsTall(row: DisplayRow, variant: 'seion' | 'voiced', isMobileChart: boolean) {
   if (variant === 'seion') {
-    return !isMobileChart && row.tall
+    return !isMobileChart && row.tall;
   }
 
-  return row.tall
+  return row.tall;
 }
 
 function ChartCell({ cell, compact = false }: { cell: AlphabetCell; compact?: boolean }) {
@@ -109,12 +109,12 @@ function ChartCell({ cell, compact = false }: { cell: AlphabetCell; compact?: bo
         {cell.romaji}
       </Typography>
     </>
-  )
+  );
 }
 
 function PlayableChartCell({ cell, compact = false }: { cell: AlphabetCell; compact?: boolean }) {
-  const { t } = useTranslation()
-  const handlePlay = () => playKanaAudio(cell.romaji, cell.char)
+  const { t } = useTranslation();
+  const handlePlay = () => playKanaAudio(cell.romaji, cell.char);
 
   return (
     <Box
@@ -125,8 +125,8 @@ function PlayableChartCell({ cell, compact = false }: { cell: AlphabetCell; comp
       onClick={handlePlay}
       onKeyDown={(event) => {
         if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault()
-          handlePlay()
+          event.preventDefault();
+          handlePlay();
         }
       }}
       sx={{
@@ -153,7 +153,7 @@ function PlayableChartCell({ cell, compact = false }: { cell: AlphabetCell; comp
     >
       <ChartCell cell={cell} compact={compact} />
     </Box>
-  )
+  );
 }
 
 function VoicedChartCell({
@@ -167,8 +167,8 @@ function VoicedChartCell({
   cellSize: number
   compact: boolean
 }) {
-  const voicedCompact = compact || Boolean(cell.dakuten && cell.handakuten)
-  const innerHeight = getRowHeight(tall, cellSize) - (compact ? 8 : 16)
+  const voicedCompact = compact || Boolean(cell.dakuten && cell.handakuten);
+  const innerHeight = getRowHeight(tall, cellSize) - (compact ? 8 : 16);
 
   return (
     <Box
@@ -193,7 +193,7 @@ function VoicedChartCell({
         </Box>
       )}
     </Box>
-  )
+  );
 }
 
 function BaseChartCell({
@@ -220,7 +220,7 @@ function BaseChartCell({
     >
       {cell && <PlayableChartCell cell={cell} compact={compact} />}
     </Box>
-  )
+  );
 }
 
 function AlphabetChartTable({
@@ -232,14 +232,14 @@ function AlphabetChartTable({
   variant: 'seion' | 'voiced'
   hideEmptyRows?: boolean
 }) {
-  const theme = useTheme()
-  const compact = useMediaQuery(theme.breakpoints.down('md'))
-  const isMobileChart = useMediaQuery(theme.breakpoints.down('lg'))
-  const cellSize = getCellSize(compact)
-  const columnCount = rows[0]?.seion.length ?? 5
+  const theme = useTheme();
+  const compact = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobileChart = useMediaQuery(theme.breakpoints.down('lg'));
+  const cellSize = getCellSize(compact);
+  const columnCount = rows[0]?.seion.length ?? 5;
   const tableRows = hideEmptyRows
     ? rows.filter((row) => (variant === 'seion' ? hasAnyCell(row.seion) : hasVoicedContent(row)))
-    : rows
+    : rows;
 
   return (
     <TableContainer
@@ -264,8 +264,8 @@ function AlphabetChartTable({
       >
         <TableBody>
           {tableRows.map((row, rowIndex) => {
-            const tall = rowIsTall(row, variant, isMobileChart)
-            const cells = variant === 'seion' ? row.seion : row.voiced
+            const tall = rowIsTall(row, variant, isMobileChart);
+            const cells = variant === 'seion' ? row.seion : row.voiced;
 
             return (
               <TableRow
@@ -296,12 +296,12 @@ function AlphabetChartTable({
                   </TableCell>
                 ))}
               </TableRow>
-            )
+            );
           })}
         </TableBody>
       </Table>
     </TableContainer>
-  )
+  );
 }
 
 type AlphabetChartPageProps = {
@@ -317,25 +317,25 @@ const chartSectionHeadingSx = {
   fontWeight: 600,
   fontSize: { xs: '1rem', md: '1.125rem' },
   color: 'text.secondary',
-} as const
+} as const;
 
 function ChartSectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <Heading component="h3" sx={chartSectionHeadingSx}>
       {children}
     </Heading>
-  )
+  );
 }
 
 function ChartSection({ chartRows }: { chartRows: AlphabetChartRow[] }) {
-  const theme = useTheme()
-  const { t } = useTranslation()
-  const sectionLabels = getChartSectionLabels(t)
-  const isMobile = useMediaQuery(theme.breakpoints.down('xl'))
-  const displayRows = toDisplayRows(chartRows)
+  const theme = useTheme();
+  const { t } = useTranslation();
+  const sectionLabels = getChartSectionLabels(t);
+  const isMobile = useMediaQuery(theme.breakpoints.down('xl'));
+  const displayRows = toDisplayRows(chartRows);
 
   if (isMobile) {
-    const hasVoiced = displayRows.some(hasVoicedContent)
+    const hasVoiced = displayRows.some(hasVoicedContent);
 
     return (
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%' }}>
@@ -351,7 +351,7 @@ function ChartSection({ chartRows }: { chartRows: AlphabetChartRow[] }) {
           </Box>
         )}
       </Box>
-    )
+    );
   }
 
   return (
@@ -374,7 +374,7 @@ function ChartSection({ chartRows }: { chartRows: AlphabetChartRow[] }) {
         <AlphabetChartTable rows={displayRows} variant="voiced" />
       </Box>
     </Box>
-  )
+  );
 }
 
 export function AlphabetChartPage({
@@ -383,8 +383,8 @@ export function AlphabetChartPage({
   chartRows,
   yoonChartRows,
 }: AlphabetChartPageProps) {
-  const { t } = useTranslation()
-  const sectionLabels = getChartSectionLabels(t)
+  const { t } = useTranslation();
+  const sectionLabels = getChartSectionLabels(t);
 
   return (
     <PageContainer>
@@ -419,5 +419,5 @@ export function AlphabetChartPage({
         <ChartSection chartRows={yoonChartRows} />
       </Box>
     </PageContainer>
-  )
+  );
 }

@@ -7,6 +7,11 @@ export const viTranslations: TranslationTree = {
   common: {
     playAudio: 'Nghe phát âm',
   },
+  errorBoundary: {
+    title: 'Đã có lỗi xảy ra',
+    body: 'Ứng dụng gặp lỗi không mong muốn. Hãy tải lại trang để tiếp tục.',
+    reload: 'Tải lại trang',
+  },
   audio: {
     settings: 'Cài đặt âm thanh',
     voice: 'Giọng đọc',

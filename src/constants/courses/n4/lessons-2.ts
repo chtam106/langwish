@@ -1,4 +1,4 @@
-import type { Lesson } from '../types.ts'
+import type { Lesson } from '../types.ts';
 
 export const n4LessonsB: Lesson[] = [
   {
@@ -1724,4 +1724,4 @@ export const n4LessonsB: Lesson[] = [
       },
     ],
   },
-]
+];

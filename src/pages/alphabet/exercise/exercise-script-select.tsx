@@ -1,7 +1,7 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import type { SelectChangeEvent } from '@mui/material/Select'
-import type { ExerciseScript } from '@/pages/alphabet/exercise/exercise-quiz.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import type { SelectChangeEvent } from '@mui/material/Select';
+import type { ExerciseScript } from '@/pages/alphabet/exercise/exercise-quiz.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
 
 type ExerciseScriptSelectProps = {
   script: ExerciseScript
@@ -9,7 +9,7 @@ type ExerciseScriptSelectProps = {
 }
 
 export function ExerciseScriptSelect({ script, onChange }: ExerciseScriptSelectProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <FormControl fullWidth>
@@ -26,5 +26,5 @@ export function ExerciseScriptSelect({ script, onChange }: ExerciseScriptSelectP
         <MenuItem value="katakana">{t('nav.katakana')}</MenuItem>
       </Select>
     </FormControl>
-  )
+  );
 }

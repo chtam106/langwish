@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import RecordVoiceOverOutlinedIcon from '@mui/icons-material/RecordVoiceOverOutlined'
+import { useEffect, useState } from 'react';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import RecordVoiceOverOutlinedIcon from '@mui/icons-material/RecordVoiceOverOutlined';
 import {
   Button,
   FormControl,
@@ -11,8 +11,8 @@ import {
   Select,
   Stack,
   Typography,
-} from '@mui/material'
-import { useTranslation } from '@/i18n/use-translation.ts'
+} from '@mui/material';
+import { useTranslation } from '@/i18n/use-translation.ts';
 import {
   cancelSpeech,
   getDefaultJapaneseVoice,
@@ -24,48 +24,48 @@ import {
   setSpeechRate,
   speakJapanese,
   subscribeVoices,
-} from '@/utils/speech.ts'
+} from '@/utils/speech.ts';
 
-const SPEED_OPTIONS = [0.6, 0.75, 0.9, 1, 1.15]
-const SAMPLE_TEXT = 'こんにちは。はじめまして。'
+const SPEED_OPTIONS = [0.6, 0.75, 0.9, 1, 1.15];
+const SAMPLE_TEXT = 'こんにちは。はじめまして。';
 
 export function AudioSettings() {
-  const { t } = useTranslation()
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(() => getJapaneseVoices())
-  const [voiceURI, setVoiceURI] = useState<string>(() => getPreferredVoiceURI() ?? '')
-  const [rate, setRate] = useState<number>(() => getSpeechRate())
+  const { t } = useTranslation();
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(() => getJapaneseVoices());
+  const [voiceURI, setVoiceURI] = useState<string>(() => getPreferredVoiceURI() ?? '');
+  const [rate, setRate] = useState<number>(() => getSpeechRate());
 
   useEffect(() => {
-    const unsubscribe = subscribeVoices(() => setVoices(getJapaneseVoices()))
-    const timeout = window.setTimeout(() => setVoices(getJapaneseVoices()), 500)
+    const unsubscribe = subscribeVoices(() => setVoices(getJapaneseVoices()));
+    const timeout = window.setTimeout(() => setVoices(getJapaneseVoices()), 500);
 
     return () => {
-      window.clearTimeout(timeout)
-      unsubscribe()
-    }
-  }, [])
+      window.clearTimeout(timeout);
+      unsubscribe();
+    };
+  }, []);
 
   if (!isSpeechSupported()) {
-    return null
+    return null;
   }
 
   const handleVoiceChange = (uri: string) => {
-    setVoiceURI(uri)
-    setPreferredVoiceURI(uri || null)
-    speakJapanese(SAMPLE_TEXT)
-  }
+    setVoiceURI(uri);
+    setPreferredVoiceURI(uri || null);
+    speakJapanese(SAMPLE_TEXT);
+  };
 
   const handleRateChange = (value: number) => {
-    setRate(value)
-    setSpeechRate(value)
-    speakJapanese(SAMPLE_TEXT, value)
-  }
+    setRate(value);
+    setSpeechRate(value);
+    speakJapanese(SAMPLE_TEXT, value);
+  };
 
-  const defaultVoiceURI = getDefaultJapaneseVoice(voices)?.voiceURI ?? ''
+  const defaultVoiceURI = getDefaultJapaneseVoice(voices)?.voiceURI ?? '';
   const selectedVoice = voices.some((voice) => voice.voiceURI === voiceURI)
     ? voiceURI
-    : defaultVoiceURI
+    : defaultVoiceURI;
 
   return (
     <>
@@ -81,8 +81,8 @@ export function AudioSettings() {
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={() => {
-          setAnchorEl(null)
-          cancelSpeech()
+          setAnchorEl(null);
+          cancelSpeech();
         }}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -142,5 +142,5 @@ export function AudioSettings() {
         </Stack>
       </Popover>
     </>
-  )
+  );
 }
