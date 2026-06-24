@@ -101,7 +101,7 @@ function PlayableCell({ cell, compact }: { cell: AlphabetCell; compact: boolean 
       <Typography
         variant="caption"
         color="text.secondary"
-        sx={{ lineHeight: 1.1, fontSize: compact ? 12 : 13 }}
+        sx={{ lineHeight: 1.1, fontSize: compact ? 13 : 15 }}
       >
         {cell.romaji}
       </Typography>
@@ -132,7 +132,7 @@ function GojuonGrid({ rows, headers }: { rows: GridRow[]; headers: string[] }) {
             sx={{
               fontWeight: 700,
               color: 'text.secondary',
-              fontSize: { xs: '0.9rem', md: '1.05rem' },
+              fontSize: { xs: '1rem', md: '1.2rem' },
               pb: 0.5
             }}
           >
@@ -146,7 +146,7 @@ function GojuonGrid({ rows, headers }: { rows: GridRow[]; headers: string[] }) {
               sx={{
                 fontWeight: 700,
                 color: 'text.secondary',
-                fontSize: { xs: '0.9rem', md: '1.05rem' },
+                fontSize: { xs: '1rem', md: '1.2rem' },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
