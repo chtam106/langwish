@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react'
-import { Box, Button } from '@mui/material'
-import { pink } from '@mui/material/colors'
-import { alpha } from '@mui/material/styles'
+import type { ReactNode } from 'react';
+import { Box, Button } from '@mui/material';
+import { pink } from '@mui/material/colors';
+import { alpha } from '@mui/material/styles';
 
 export type ChoiceState = 'default' | 'correct' | 'wrong'
 
@@ -19,7 +19,7 @@ type ChoiceButtonProps = {
  * shift caused by switching between outlined and contained variants.
  */
 export function ChoiceButton({ children, state, dimmed, onClick, lang }: ChoiceButtonProps) {
-  const filled = state === 'correct' || state === 'wrong'
+  const filled = state === 'correct' || state === 'wrong';
 
   return (
     <Button
@@ -30,8 +30,8 @@ export function ChoiceButton({ children, state, dimmed, onClick, lang }: ChoiceB
       fullWidth
       size="large"
       sx={(theme) => {
-        const feedbackMain = state === 'correct' ? theme.palette.info.main : pink[400]
-        const feedbackText = state === 'correct' ? theme.palette.info.dark : pink[700]
+        const feedbackMain = state === 'correct' ? theme.palette.info.main : pink[400];
+        const feedbackText = state === 'correct' ? theme.palette.info.dark : pink[700];
 
         return {
           justifyContent: 'space-between',
@@ -50,12 +50,12 @@ export function ChoiceButton({ children, state, dimmed, onClick, lang }: ChoiceB
               borderColor: alpha(feedbackMain, 0.62),
             },
           }),
-        }
+        };
       }}
     >
       <Box component="span" lang={lang}>
         {children}
       </Box>
     </Button>
-  )
+  );
 }

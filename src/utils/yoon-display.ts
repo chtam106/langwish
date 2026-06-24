@@ -2,7 +2,7 @@ const YOON_SUFFIX_CHARS = {
   ya: { hiragana: 'ゃ', katakana: 'ャ' },
   yu: { hiragana: 'ゅ', katakana: 'ュ' },
   yo: { hiragana: 'ょ', katakana: 'ョ' },
-} as const
+} as const;
 
 type YoonSuffix = keyof typeof YOON_SUFFIX_CHARS
 
@@ -41,29 +41,29 @@ const YOON_ROMAJI_PARTS: Record<string, { baseRomaji: string; suffix: YoonSuffix
   pya: { baseRomaji: 'pi', suffix: 'ya' },
   pyu: { baseRomaji: 'pi', suffix: 'yu' },
   pyo: { baseRomaji: 'pi', suffix: 'yo' },
-}
+};
 
 export function getYoonDisplayParts(
   romaji: string,
   script: 'hiragana' | 'katakana',
   romajiToChar: Record<string, string>,
 ) {
-  const parts = YOON_ROMAJI_PARTS[romaji]
+  const parts = YOON_ROMAJI_PARTS[romaji];
 
   if (!parts) {
-    return null
+    return null;
   }
 
-  const base = romajiToChar[parts.baseRomaji]
-  const suffix = YOON_SUFFIX_CHARS[parts.suffix][script === 'hiragana' ? 'hiragana' : 'katakana']
+  const base = romajiToChar[parts.baseRomaji];
+  const suffix = YOON_SUFFIX_CHARS[parts.suffix][script === 'hiragana' ? 'hiragana' : 'katakana'];
 
   if (!base) {
-    return null
+    return null;
   }
 
-  return { base, suffix }
+  return { base, suffix };
 }
 
 export function isYoonRomaji(romaji: string) {
-  return romaji in YOON_ROMAJI_PARTS
+  return romaji in YOON_ROMAJI_PARTS;
 }

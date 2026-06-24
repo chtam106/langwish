@@ -1,17 +1,17 @@
-import VolumeUpIcon from '@mui/icons-material/VolumeUp'
-import { Box, Button, IconButton, Paper, Typography } from '@mui/material'
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { Box, Button, IconButton, Paper, Typography } from '@mui/material';
 import {
   getOptionValue,
   isQuizAnswerCorrect,
   usesCharacterOptions,
   type ExerciseMode,
   type QuizQuestion,
-} from '@/pages/alphabet/exercise/exercise-quiz.ts'
-import { resultBorderSx } from '@/pages/alphabet/exercise/exercise-ui.ts'
-import { KanaDisplay } from '@/components/kana-display.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { playKanaAudio } from '@/utils/kana-audio.ts'
-import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
+} from '@/pages/alphabet/exercise/exercise-quiz.ts';
+import { resultBorderSx } from '@/pages/alphabet/exercise/exercise-ui.ts';
+import { KanaDisplay } from '@/components/kana-display.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { playKanaAudio } from '@/utils/kana-audio.ts';
+import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
 
 type ExerciseQuizPanelProps = {
   mode: ExerciseMode
@@ -30,15 +30,15 @@ function getQuestionLabel(
 ) {
   switch (mode) {
     case 'romaji':
-      return t('exercise.questionRomaji', { script: scriptLabel })
+      return t('exercise.questionRomaji', { script: scriptLabel });
     case 'character':
-      return t('exercise.questionCharacter', { script: scriptLabel })
+      return t('exercise.questionCharacter', { script: scriptLabel });
     case 'listen':
-      return t('exercise.questionListen', { script: scriptLabel })
+      return t('exercise.questionListen', { script: scriptLabel });
     case 'script-pair':
       return pairDirection === 'hiragana-to-katakana'
         ? t('exercise.questionScriptPairHiraToKata')
-        : t('exercise.questionScriptPairKataToHira')
+        : t('exercise.questionScriptPairKataToHira');
   }
 }
 
@@ -50,10 +50,10 @@ export function ExerciseQuizPanel({
   answeredCorrectly,
   onAnswer,
 }: ExerciseQuizPanelProps) {
-  const { t } = useTranslation()
-  const characterOptions = usesCharacterOptions(mode)
+  const { t } = useTranslation();
+  const characterOptions = usesCharacterOptions(mode);
   const playPromptAudio = () =>
-    playKanaAudio(question.correctItem.romaji, question.correctItem.char)
+    playKanaAudio(question.correctItem.romaji, question.correctItem.char);
 
   return (
     <Paper elevation={0} sx={[elevatedSurfaceSx, { p: 3, textAlign: 'center' }]}>
@@ -85,8 +85,8 @@ export function ExerciseQuizPanel({
                 })}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault()
-                    playPromptAudio()
+                    event.preventDefault();
+                    playPromptAudio();
                   }
                 }}
                 sx={{ cursor: 'pointer' }}
@@ -150,11 +150,11 @@ export function ExerciseQuizPanel({
         }}
       >
         {question.optionItems.map((item) => {
-          const value = getOptionValue(item, mode)
-          const isWrongAnswer = wrongAnswers.includes(value)
-          const isCorrectAnswer = isQuizAnswerCorrect(question, value)
-          const showCorrect = answeredCorrectly && isCorrectAnswer
-          const showWrong = isWrongAnswer && !answeredCorrectly
+          const value = getOptionValue(item, mode);
+          const isWrongAnswer = wrongAnswers.includes(value);
+          const isCorrectAnswer = isQuizAnswerCorrect(question, value);
+          const showCorrect = answeredCorrectly && isCorrectAnswer;
+          const showWrong = isWrongAnswer && !answeredCorrectly;
 
           return (
             <Button
@@ -173,9 +173,9 @@ export function ExerciseQuizPanel({
             >
               {characterOptions ? <KanaDisplay cell={item} variant="option" /> : item.romaji}
             </Button>
-          )
+          );
         })}
       </Box>
     </Paper>
-  )
+  );
 }

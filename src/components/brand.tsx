@@ -1,11 +1,11 @@
-import { Link as RouterLink } from 'react-router-dom'
-import { Box, Stack, Typography } from '@mui/material'
-import { alpha } from '@mui/material/styles'
-import { routes } from '@/constants/routes.ts'
-import { SITE_NAME } from '@/constants/site.ts'
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Stack, Typography } from '@mui/material';
+import { alpha } from '@mui/material/styles';
+import { routes } from '@/constants/routes.ts';
+import { SITE_NAME } from '@/constants/site.ts';
 
 // The brand slogan stays in English regardless of the selected locale.
-const SLOGAN = 'Learn Japanese'
+const SLOGAN = 'Learn Japanese';
 
 type BrandProps = {
   showTagline?: boolean
@@ -76,5 +76,5 @@ export function Brand({ showTagline = false, showLogo = true }: BrandProps) {
         ) : null}
       </Box>
     </Stack>
-  )
+  );
 }

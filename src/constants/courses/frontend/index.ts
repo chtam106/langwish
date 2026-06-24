@@ -1,7 +1,7 @@
-import { frontendLessonsA } from './lessons-a.ts'
-import { frontendLessonsB } from './lessons-b.ts'
-import { frontendLessonsC } from './lessons-c.ts'
-import { withSequentialNumbers, type Course } from '../types.ts'
+import { frontendLessonsA } from './lessons-a.ts';
+import { frontendLessonsB } from './lessons-b.ts';
+import { frontendLessonsC } from './lessons-c.ts';
+import { withSequentialNumbers, type Course } from '../types.ts';
 
 export const frontendCourse: Course = {
   level: 'frontend',
@@ -24,4 +24,4 @@ export const frontendCourse: Course = {
     vi: 'Khóa tiếng Nhật thực hành cho frontend developer. Học từ vựng kỹ thuật, mẫu giao tiếp dự án và cách diễn đạt nơi làm việc với bài tập và đọc hiểu.',
   },
   lessons: withSequentialNumbers([...frontendLessonsA, ...frontendLessonsB, ...frontendLessonsC]),
-}
+};

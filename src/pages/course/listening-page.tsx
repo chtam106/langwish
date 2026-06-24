@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { Link as RouterLink, useParams } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ReplayIcon from '@mui/icons-material/Replay'
-import VolumeUpIcon from '@mui/icons-material/VolumeUpOutlined'
+import { useEffect, useState } from 'react';
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ReplayIcon from '@mui/icons-material/Replay';
+import VolumeUpIcon from '@mui/icons-material/VolumeUpOutlined';
 import {
   Box,
   Button,
@@ -12,8 +12,8 @@ import {
   Paper,
   Stack,
   Typography,
-} from '@mui/material'
-import { pink } from '@mui/material/colors'
+} from '@mui/material';
+import { pink } from '@mui/material/colors';
 import {
   getCourse,
   getLesson,
@@ -21,75 +21,75 @@ import {
   type Course,
   type CourseLevel,
   type Lesson,
-} from '@/constants/courses/index.ts'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { cancelSpeech, isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
-import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
-import { ChoiceButton } from './choice-button.tsx'
-import { buildLessonListening, type ListeningQuestion } from './course-listening.ts'
-import { LessonNotFound, ResultScreen } from './shared.tsx'
+} from '@/constants/courses/index.ts';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { cancelSpeech, isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
+import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
+import { ChoiceButton } from './choice-button.tsx';
+import { buildLessonListening, type ListeningQuestion } from './course-listening.ts';
+import { LessonNotFound, ResultScreen } from './shared.tsx';
 
 function ListeningQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
-  const { locale, t } = useTranslation()
+  const { locale, t } = useTranslation();
 
   const [questions, setQuestions] = useState<ListeningQuestion[]>(() =>
     buildLessonListening(course, lesson, locale),
-  )
-  const [index, setIndex] = useState(0)
-  const [selectedId, setSelectedId] = useState<string | undefined>(undefined)
-  const [score, setScore] = useState(0)
-  const [finished, setFinished] = useState(false)
+  );
+  const [index, setIndex] = useState(0);
+  const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
 
-  const total = questions.length
-  const question = questions[index]
-  const isLast = index === total - 1
-  const answered = selectedId !== undefined
+  const total = questions.length;
+  const question = questions[index];
+  const isLast = index === total - 1;
+  const answered = selectedId !== undefined;
 
   useEffect(() => {
     if (finished) {
-      return
+      return;
     }
 
-    speakJapanese(question.audioText)
+    speakJapanese(question.audioText);
 
     return () => {
-      cancelSpeech()
-    }
-  }, [question.audioText, finished])
+      cancelSpeech();
+    };
+  }, [question.audioText, finished]);
 
   const handleSelect = (optionId: string) => {
     if (answered) {
-      return
+      return;
     }
 
-    setSelectedId(optionId)
+    setSelectedId(optionId);
 
     if (optionId === question.correctId) {
-      setScore((previous) => previous + 1)
+      setScore((previous) => previous + 1);
     }
-  }
+  };
 
   const handleNext = () => {
     if (isLast) {
-      cancelSpeech()
-      setFinished(true)
+      cancelSpeech();
+      setFinished(true);
 
-      return
+      return;
     }
 
-    setIndex((previous) => previous + 1)
-    setSelectedId(undefined)
-  }
+    setIndex((previous) => previous + 1);
+    setSelectedId(undefined);
+  };
 
   const handleRetry = () => {
-    setQuestions(buildLessonListening(course, lesson, locale))
-    setIndex(0)
-    setSelectedId(undefined)
-    setScore(0)
-    setFinished(false)
-  }
+    setQuestions(buildLessonListening(course, lesson, locale));
+    setIndex(0);
+    setSelectedId(undefined);
+    setScore(0);
+    setFinished(false);
+  };
 
   return (
     <PageContainer>
@@ -197,9 +197,9 @@ function ListeningQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
 
             <Stack spacing={1.5}>
               {question.options.map((option) => {
-                const isCorrectOption = option.id === question.correctId
-                const showCorrect = answered && isCorrectOption
-                const showWrong = answered && option.id === selectedId && !isCorrectOption
+                const isCorrectOption = option.id === question.correctId;
+                const showCorrect = answered && isCorrectOption;
+                const showWrong = answered && option.id === selectedId && !isCorrectOption;
 
                 return (
                   <ChoiceButton
@@ -211,7 +211,7 @@ function ListeningQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
                   >
                     {option.label}
                   </ChoiceButton>
-                )
+                );
               })}
             </Stack>
 
@@ -243,11 +243,11 @@ function ListeningQuiz({ course, lesson }: { course: Course; lesson: Lesson }) {
         )}
       </Stack>
     </PageContainer>
-  )
+  );
 }
 
 function SpeechUnavailable({ level, lesson }: { level: CourseLevel; lesson: Lesson }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <PageContainer>
@@ -261,20 +261,20 @@ function SpeechUnavailable({ level, lesson }: { level: CourseLevel; lesson: Less
         {t('course.reviewLesson')}
       </Button>
     </PageContainer>
-  )
+  );
 }
 
 function ListeningPage({ level }: { level: CourseLevel }) {
-  const { lessonId } = useParams<{ lessonId: string }>()
-  const { locale } = useTranslation()
-  const lesson = lessonId ? getLesson(level, lessonId) : undefined
+  const { lessonId } = useParams<{ lessonId: string }>();
+  const { locale } = useTranslation();
+  const lesson = lessonId ? getLesson(level, lessonId) : undefined;
 
   if (!lesson) {
-    return <LessonNotFound level={level} />
+    return <LessonNotFound level={level} />;
   }
 
   if (!isSpeechSupported()) {
-    return <SpeechUnavailable level={level} lesson={lesson} />
+    return <SpeechUnavailable level={level} lesson={lesson} />;
   }
 
   return (
@@ -283,7 +283,7 @@ function ListeningPage({ level }: { level: CourseLevel }) {
       course={getCourse(level)}
       lesson={lesson}
     />
-  )
+  );
 }
 
-export default ListeningPage
+export default ListeningPage;

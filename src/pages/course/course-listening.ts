@@ -1,5 +1,5 @@
-import type { Course, Lesson } from '@/constants/courses/index.ts'
-import type { Locale } from '@/i18n/translations.ts'
+import type { Course, Lesson } from '@/constants/courses/index.ts';
+import type { Locale } from '@/i18n/translations.ts';
 
 export type ListeningOption = {
   id: string
@@ -25,22 +25,22 @@ export type ListeningQuestion = {
   reveal: ListeningReveal
 }
 
-const QUESTION_LIMIT = 10
-const OPTION_COUNT = 4
+const QUESTION_LIMIT = 10;
+const OPTION_COUNT = 4;
 
 function shuffle<T>(items: T[]): T[] {
-  const copy = [...items]
+  const copy = [...items];
 
   for (let index = copy.length - 1; index > 0; index -= 1) {
     const randomIndex = Math.floor(Math.random() * (index + 1))
-    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]]
+    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
   }
 
-  return copy
+  return copy;
 }
 
 function vocabWord(item: { kana: string; kanji?: string }): string {
-  return item.kanji ?? item.kana
+  return item.kanji ?? item.kana;
 }
 
 function buildOptions(
@@ -50,13 +50,13 @@ function buildOptions(
 ): { options: ListeningOption[]; correctId: string } {
   const distractors = shuffle(
     Array.from(new Set(pool.filter((label) => label !== correctLabel))),
-  ).slice(0, OPTION_COUNT - 1)
+  ).slice(0, OPTION_COUNT - 1);
 
-  const labels = shuffle([correctLabel, ...distractors])
-  const options = labels.map((label, index) => ({ id: `opt-${index}`, label, ja }))
-  const correctId = options.find((option) => option.label === correctLabel)!.id
+  const labels = shuffle([correctLabel, ...distractors]);
+  const options = labels.map((label, index) => ({ id: `opt-${index}`, label, ja }));
+  const correctId = options.find((option) => option.label === correctLabel)!.id;
 
-  return { options, correctId }
+  return { options, correctId };
 }
 
 type ListeningPools = {
@@ -66,24 +66,24 @@ type ListeningPools = {
 }
 
 function buildPools(course: Course, locale: Locale): ListeningPools {
-  const meanings: string[] = []
-  const words: string[] = []
-  const sentenceMeanings: string[] = []
+  const meanings: string[] = [];
+  const words: string[] = [];
+  const sentenceMeanings: string[] = [];
 
   for (const lesson of course.lessons) {
     for (const item of lesson.vocab) {
-      meanings.push(item.meaning[locale])
-      words.push(vocabWord(item))
+      meanings.push(item.meaning[locale]);
+      words.push(vocabWord(item));
     }
 
     for (const point of lesson.grammar) {
       for (const example of point.examples) {
-        sentenceMeanings.push(example.meaning[locale])
+        sentenceMeanings.push(example.meaning[locale]);
       }
     }
   }
 
-  return { meanings, words, sentenceMeanings }
+  return { meanings, words, sentenceMeanings };
 }
 
 export function buildLessonListening(
@@ -91,16 +91,16 @@ export function buildLessonListening(
   lesson: Lesson,
   locale: Locale,
 ): ListeningQuestion[] {
-  const pools = buildPools(course, locale)
-  const candidates: ListeningQuestion[] = []
+  const pools = buildPools(course, locale);
+  const candidates: ListeningQuestion[] = [];
 
   lesson.vocab.forEach((item, index) => {
-    const word = vocabWord(item)
-    const meaning = item.meaning[locale]
-    const reveal: ListeningReveal = { jp: word, romaji: item.romaji, meaning }
+    const word = vocabWord(item);
+    const meaning = item.meaning[locale];
+    const reveal: ListeningReveal = { jp: word, romaji: item.romaji, meaning };
 
     if (index % 2 === 0) {
-      const { options, correctId } = buildOptions(meaning, false, pools.meanings)
+      const { options, correctId } = buildOptions(meaning, false, pools.meanings);
       candidates.push({
         id: `listen-word-meaning-${index}`,
         kind: 'word-meaning',
@@ -109,9 +109,9 @@ export function buildLessonListening(
         options,
         correctId,
         reveal,
-      })
+      });
     } else {
-      const { options, correctId } = buildOptions(word, true, pools.words)
+      const { options, correctId } = buildOptions(word, true, pools.words);
       candidates.push({
         id: `listen-word-script-${index}`,
         kind: 'word-script',
@@ -120,9 +120,9 @@ export function buildLessonListening(
         options,
         correctId,
         reveal,
-      })
+      });
     }
-  })
+  });
 
   lesson.grammar.forEach((point, pointIndex) => {
     point.examples.forEach((example, exampleIndex) => {
@@ -130,7 +130,7 @@ export function buildLessonListening(
         example.meaning[locale],
         false,
         pools.sentenceMeanings,
-      )
+      );
       candidates.push({
         id: `listen-sentence-${pointIndex}-${exampleIndex}`,
         kind: 'sentence-meaning',
@@ -139,9 +139,9 @@ export function buildLessonListening(
         options,
         correctId,
         reveal: { jp: example.jp, romaji: example.romaji, meaning: example.meaning[locale] },
-      })
-    })
-  })
+      });
+    });
+  });
 
-  return shuffle(candidates).slice(0, Math.min(QUESTION_LIMIT, candidates.length))
+  return shuffle(candidates).slice(0, Math.min(QUESTION_LIMIT, candidates.length));
 }

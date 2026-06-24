@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { Box, Button, Typography } from '@mui/material'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { routes } from '@/constants/routes.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
+import type { ReactNode } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Box, Button, Typography } from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { routes } from '@/constants/routes.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
 
 type ExercisePageLayoutProps = {
   title: string
@@ -20,7 +20,7 @@ export function ExercisePageLayout({
   controls,
   children,
 }: ExercisePageLayoutProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <PageContainer>
@@ -56,5 +56,5 @@ export function ExercisePageLayout({
 
       {children}
     </PageContainer>
-  )
+  );
 }

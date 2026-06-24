@@ -1,14 +1,14 @@
-import { Link as RouterLink } from 'react-router-dom'
-import ReplayIcon from '@mui/icons-material/Replay'
-import { Button, Paper, Stack, Typography } from '@mui/material'
-import { Heading } from '@/components/heading.tsx'
-import { coursePath, lessonPath, type CourseLevel } from '@/constants/courses/index.ts'
-import { PageContainer } from '@/components/page-container.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { elevatedSurfaceSx } from '@/theme/surfaces.ts'
+import { Link as RouterLink } from 'react-router-dom';
+import ReplayIcon from '@mui/icons-material/Replay';
+import { Button, Paper, Stack, Typography } from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
+import { coursePath, lessonPath, type CourseLevel } from '@/constants/courses/index.ts';
+import { PageContainer } from '@/components/page-container.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
 
 export function LessonNotFound({ level }: { level: CourseLevel }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <PageContainer>
@@ -22,7 +22,7 @@ export function LessonNotFound({ level }: { level: CourseLevel }) {
         {t('course.backToCourse')}
       </Button>
     </PageContainer>
-  )
+  );
 }
 
 export function ResultScreen({
@@ -38,14 +38,14 @@ export function ResultScreen({
   lessonId: string
   onRetry: () => void
 }) {
-  const { t } = useTranslation()
-  const ratio = total === 0 ? 0 : score / total
+  const { t } = useTranslation();
+  const ratio = total === 0 ? 0 : score / total;
   const message =
     ratio >= 0.8
       ? t('course.resultGreat')
       : ratio >= 0.5
         ? t('course.resultGood')
-        : t('course.resultKeepGoing')
+        : t('course.resultKeepGoing');
 
   return (
     <Paper elevation={0} sx={[elevatedSurfaceSx, { p: { xs: 3, md: 4 }, textAlign: 'center' }]}>
@@ -72,5 +72,5 @@ export function ResultScreen({
         </Button>
       </Stack>
     </Paper>
-  )
+  );
 }

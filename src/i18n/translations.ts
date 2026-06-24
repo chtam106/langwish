@@ -1,4 +1,4 @@
-import { DAKUTEN_MARK, HANDAKUTEN_MARK } from '@/constants/kana-terminology.ts'
+import { DAKUTEN_MARK, HANDAKUTEN_MARK } from '@/constants/kana-terminology.ts';
 
 export type Locale = 'en' | 'vi'
 
@@ -10,6 +10,11 @@ const en: TranslationTree = {
   },
   common: {
     playAudio: 'Play pronunciation',
+  },
+  errorBoundary: {
+    title: 'Something went wrong',
+    body: 'An unexpected error occurred. Please reload the page to continue.',
+    reload: 'Reload page',
   },
   audio: {
     settings: 'Audio settings',
@@ -219,22 +224,22 @@ const en: TranslationTree = {
     retry: 'Try again',
     reviewLesson: 'Review lesson',
   },
-} satisfies TranslationTree
+} satisfies TranslationTree;
 
 type TranslationLeaf = string
 type TranslationNode = { [key: string]: TranslationLeaf | TranslationNode }
 export type TranslationTree = TranslationNode
 
-export const enTranslations: TranslationTree = en
+export const enTranslations: TranslationTree = en;
 
-export const DEFAULT_LOCALE: Locale = 'en'
+export const DEFAULT_LOCALE: Locale = 'en';
 
-export const LOCALE_STORAGE_KEY = 'langwish-locale'
+export const LOCALE_STORAGE_KEY = 'langwish-locale';
 
 export function getChartSectionLabels(t: (key: string, params?: TranslationParams) => string) {
   return {
     seion: t('chart.seion'),
     voiced: t('chart.voiced', { dakuten: DAKUTEN_MARK, handakuten: HANDAKUTEN_MARK }),
     yoon: t('chart.yoon'),
-  }
+  };
 }

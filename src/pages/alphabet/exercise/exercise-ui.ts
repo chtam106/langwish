@@ -1,11 +1,11 @@
-import { pink } from '@mui/material/colors'
-import { alpha } from '@mui/material/styles'
-import type { Theme } from '@mui/material/styles'
+import { pink } from '@mui/material/colors';
+import { alpha } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 
 export function resultBorderSx(state: 'correct' | 'wrong') {
-  const isCorrect = state === 'correct'
-  const getMainColor = (theme: Theme) => (isCorrect ? theme.palette.info.main : pink[400])
-  const getTextColor = (theme: Theme) => (isCorrect ? theme.palette.info.dark : pink[700])
+  const isCorrect = state === 'correct';
+  const getMainColor = (theme: Theme) => (isCorrect ? theme.palette.info.main : pink[400]);
+  const getTextColor = (theme: Theme) => (isCorrect ? theme.palette.info.dark : pink[700]);
 
   return {
     borderWidth: 2,
@@ -23,5 +23,5 @@ export function resultBorderSx(state: 'correct' | 'wrong') {
       color: getTextColor,
       opacity: 1,
     },
-  }
+  };
 }

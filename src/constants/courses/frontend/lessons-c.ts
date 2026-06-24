@@ -1,4 +1,4 @@
-import type { Lesson } from '../types.ts'
+import type { Lesson } from '../types.ts';
 
 export const frontendLessonsC: Lesson[] = [
   {
@@ -1943,4 +1943,4 @@ export const frontendLessonsC: Lesson[] = [
       },
     ],
   },
-]
+];

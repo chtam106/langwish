@@ -1,12 +1,12 @@
-import { Link as RouterLink, useParams } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined'
-import HeadphonesOutlinedIcon from '@mui/icons-material/HeadphonesOutlined'
-import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined'
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined'
-import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
-import { Box, Button, Card, CardContent, Chip, Paper, Stack, Typography } from '@mui/material'
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
+import HeadphonesOutlinedIcon from '@mui/icons-material/HeadphonesOutlined';
+import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
+import { Box, Button, Card, CardContent, Chip, Paper, Stack, Typography } from '@mui/material';
 import {
   coursePath,
   getCourse,
@@ -18,23 +18,23 @@ import {
   lessonReadingPath,
   type CourseLevel,
   type Lesson,
-} from '@/constants/courses/index.ts'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { SpeakButton } from '@/components/speak-button.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
+} from '@/constants/courses/index.ts';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { SpeakButton } from '@/components/speak-button.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
 import {
   elevatedSurfaceSx,
   interactiveSurfaceSx,
   subtleSurfaceSx,
   tonalSurfaceSx,
-} from '@/theme/surfaces.ts'
-import { LessonNotFound } from './shared.tsx'
+} from '@/theme/surfaces.ts';
+import { LessonNotFound } from './shared.tsx';
 
 function VocabularySection({ lesson }: { lesson: Lesson }) {
-  const { locale, t } = useTranslation()
-  const canSpeak = isSpeechSupported()
+  const { locale, t } = useTranslation();
+  const canSpeak = isSpeechSupported();
 
   return (
     <Box>
@@ -62,8 +62,8 @@ function VocabularySection({ lesson }: { lesson: Lesson }) {
               canSpeak
                 ? (event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault()
-                      speakJapanese(item.kana)
+                      event.preventDefault();
+                      speakJapanese(item.kana);
                     }
                   }
                 : undefined
@@ -106,12 +106,12 @@ function VocabularySection({ lesson }: { lesson: Lesson }) {
         ))}
       </Box>
     </Box>
-  )
+  );
 }
 
 function GrammarSection({ lesson }: { lesson: Lesson }) {
-  const { locale, t } = useTranslation()
-  const canSpeak = isSpeechSupported()
+  const { locale, t } = useTranslation();
+  const canSpeak = isSpeechSupported();
 
   return (
     <Box>
@@ -152,8 +152,8 @@ function GrammarSection({ lesson }: { lesson: Lesson }) {
                       canSpeak
                         ? (event) => {
                             if (event.key === 'Enter' || event.key === ' ') {
-                              event.preventDefault()
-                              speakJapanese(example.jp)
+                              event.preventDefault();
+                              speakJapanese(example.jp);
                             }
                           }
                         : undefined
@@ -189,12 +189,12 @@ function GrammarSection({ lesson }: { lesson: Lesson }) {
         ))}
       </Stack>
     </Box>
-  )
+  );
 }
 
 function PracticePanel({ level, lesson }: { level: CourseLevel; lesson: Lesson }) {
-  const { t } = useTranslation()
-  const hasReading = lessonHasReading(lesson)
+  const { t } = useTranslation();
+  const hasReading = lessonHasReading(lesson);
 
   return (
     <Paper
@@ -256,23 +256,23 @@ function PracticePanel({ level, lesson }: { level: CourseLevel; lesson: Lesson }
         ) : null}
       </Stack>
     </Paper>
-  )
+  );
 }
 
 function LessonPage({ level }: { level: CourseLevel }) {
-  const { lessonId } = useParams<{ lessonId: string }>()
-  const { locale, t } = useTranslation()
+  const { lessonId } = useParams<{ lessonId: string }>();
+  const { locale, t } = useTranslation();
 
-  const lesson = lessonId ? getLesson(level, lessonId) : undefined
+  const lesson = lessonId ? getLesson(level, lessonId) : undefined;
 
   if (!lesson) {
-    return <LessonNotFound level={level} />
+    return <LessonNotFound level={level} />;
   }
 
-  const lessons = getCourse(level).lessons
-  const index = lessons.findIndex((item) => item.id === lesson.id)
-  const previous = index > 0 ? lessons[index - 1] : undefined
-  const next = index < lessons.length - 1 ? lessons[index + 1] : undefined
+  const lessons = getCourse(level).lessons;
+  const index = lessons.findIndex((item) => item.id === lesson.id);
+  const previous = index > 0 ? lessons[index - 1] : undefined;
+  const next = index < lessons.length - 1 ? lessons[index + 1] : undefined;
 
   return (
     <PageContainer>
@@ -360,7 +360,7 @@ function LessonPage({ level }: { level: CourseLevel }) {
         </Stack>
       </Stack>
     </PageContainer>
-  )
+  );
 }
 
-export default LessonPage
+export default LessonPage;

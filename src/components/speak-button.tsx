@@ -1,8 +1,8 @@
-import type { MouseEvent } from 'react'
-import VolumeUpIcon from '@mui/icons-material/VolumeUpOutlined'
-import { IconButton } from '@mui/material'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
+import type { MouseEvent } from 'react';
+import VolumeUpIcon from '@mui/icons-material/VolumeUpOutlined';
+import { IconButton } from '@mui/material';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
 
 type SpeakButtonProps = {
   text: string
@@ -10,21 +10,21 @@ type SpeakButtonProps = {
 }
 
 export function SpeakButton({ text, size = 'small' }: SpeakButtonProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   if (!isSpeechSupported()) {
-    return null
+    return null;
   }
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-    event.stopPropagation()
-    speakJapanese(text)
-  }
+    event.preventDefault();
+    event.stopPropagation();
+    speakJapanese(text);
+  };
 
   return (
     <IconButton onClick={handleClick} size={size} aria-label={t('common.playAudio')}>
       <VolumeUpIcon fontSize="inherit" />
     </IconButton>
-  )
+  );
 }

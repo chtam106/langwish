@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 import {
   createQuizSession,
   getOptionValue,
@@ -9,8 +9,8 @@ import {
   type QuizQuestion,
   type QuizSession,
   type ScriptPairDirection,
-} from '@/pages/alphabet/exercise/exercise-quiz.ts'
-import { playKanaAudio, playWrongAnswerSound } from '@/utils/kana-audio.ts'
+} from '@/pages/alphabet/exercise/exercise-quiz.ts';
+import { playKanaAudio, playWrongAnswerSound } from '@/utils/kana-audio.ts';
 
 type UseExerciseQuizOptions = {
   mode: ExerciseMode
@@ -25,7 +25,7 @@ function sessionKey(
   scope: ExerciseScope,
   pairDirection: ScriptPairDirection,
 ) {
-  return `${script}-${mode}-${scope}-${pairDirection}`
+  return `${script}-${mode}-${scope}-${pairDirection}`;
 }
 
 export function useExerciseQuiz({
@@ -35,78 +35,78 @@ export function useExerciseQuiz({
   pairDirection = 'hiragana-to-katakana',
 }: UseExerciseQuizOptions) {
   const [initialQuiz] = useState(() => {
-    const session = createQuizSession(script, mode, scope, pairDirection)
+    const session = createQuizSession(script, mode, scope, pairDirection);
 
-    return { session, question: session.next() }
-  })
-  const sessionRef = useRef<QuizSession>(initialQuiz.session)
-  const sessionKeyRef = useRef(sessionKey(script, mode, scope, pairDirection))
-  const [question, setQuestion] = useState<QuizQuestion>(initialQuiz.question)
-  const [wrongAnswers, setWrongAnswers] = useState<string[]>([])
-  const [answeredCorrectly, setAnsweredCorrectly] = useState(false)
+    return { session, question: session.next() };
+  });
+  const sessionRef = useRef<QuizSession>(initialQuiz.session);
+  const sessionKeyRef = useRef(sessionKey(script, mode, scope, pairDirection));
+  const [question, setQuestion] = useState<QuizQuestion>(initialQuiz.question);
+  const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
 
   useEffect(() => {
-    const key = sessionKey(script, mode, scope, pairDirection)
+    const key = sessionKey(script, mode, scope, pairDirection);
 
     if (key === sessionKeyRef.current) {
-      return
+      return;
     }
 
-    sessionKeyRef.current = key
-    sessionRef.current = createQuizSession(script, mode, scope, pairDirection)
-    setQuestion(sessionRef.current.next())
-    setWrongAnswers([])
-    setAnsweredCorrectly(false)
-  }, [script, mode, scope, pairDirection])
+    sessionKeyRef.current = key;
+    sessionRef.current = createQuizSession(script, mode, scope, pairDirection);
+    setQuestion(sessionRef.current.next());
+    setWrongAnswers([]);
+    setAnsweredCorrectly(false);
+  }, [script, mode, scope, pairDirection]);
 
   useEffect(() => {
     if (mode !== 'listen' || answeredCorrectly) {
-      return
+      return;
     }
 
-    playKanaAudio(question.correctItem.romaji, question.correctItem.char)
-  }, [mode, question.correctItem.char, question.correctItem.romaji, answeredCorrectly])
+    playKanaAudio(question.correctItem.romaji, question.correctItem.char);
+  }, [mode, question.correctItem.char, question.correctItem.romaji, answeredCorrectly]);
 
   const handleAnswer = (answer: string) => {
     if (answeredCorrectly || wrongAnswers.includes(answer)) {
-      return
+      return;
     }
 
     if (isQuizAnswerCorrect(question, answer)) {
-      setAnsweredCorrectly(true)
+      setAnsweredCorrectly(true);
 
       if (mode !== 'listen') {
         const matchedItem =
           question.optionItems.find((item) => getOptionValue(item, mode) === answer) ??
-          question.correctItem
-        playKanaAudio(matchedItem.romaji, matchedItem.char)
+          question.correctItem;
+        playKanaAudio(matchedItem.romaji, matchedItem.char);
       }
     } else {
-      setWrongAnswers((previous) => [...previous, answer])
-      playWrongAnswerSound()
+      setWrongAnswers((previous) => [...previous, answer]);
+      playWrongAnswerSound();
     }
-  }
+  };
 
   useEffect(() => {
     if (!answeredCorrectly) {
-      return
+      return;
     }
 
     const timer = window.setTimeout(() => {
-      setQuestion(sessionRef.current.next())
-      setWrongAnswers([])
-      setAnsweredCorrectly(false)
-    }, 1000)
+      setQuestion(sessionRef.current.next());
+      setWrongAnswers([]);
+      setAnsweredCorrectly(false);
+    }, 1000);
 
     return () => {
-      window.clearTimeout(timer)
-    }
-  }, [answeredCorrectly])
+      window.clearTimeout(timer);
+    };
+  }, [answeredCorrectly]);
 
   return {
     question,
     wrongAnswers,
     answeredCorrectly,
     handleAnswer,
-  }
+  };
 }

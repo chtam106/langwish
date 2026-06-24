@@ -1,9 +1,9 @@
-import { AlphabetChartPage } from '@/pages/alphabet/alphabet-chart.tsx'
-import { katakanaChartRows, katakanaYoonChartRows } from '@/constants/alphabet-charts.ts'
-import { useTranslation } from '@/i18n/use-translation.ts'
+import { AlphabetChartPage } from '@/pages/alphabet/alphabet-chart.tsx';
+import { katakanaChartRows, katakanaYoonChartRows } from '@/constants/alphabet-charts.ts';
+import { useTranslation } from '@/i18n/use-translation.ts';
 
 function KatakanaPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <AlphabetChartPage
@@ -12,7 +12,7 @@ function KatakanaPage() {
       chartRows={katakanaChartRows}
       yoonChartRows={katakanaYoonChartRows}
     />
-  )
+  );
 }
 
-export default KatakanaPage
+export default KatakanaPage;

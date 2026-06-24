@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react'
-import { Link as RouterLink, useParams } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
+import { useMemo, useState } from 'react';
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 import {
   Box,
   Button,
@@ -11,41 +11,41 @@ import {
   Paper,
   Stack,
   Typography,
-} from '@mui/material'
-import { pink } from '@mui/material/colors'
+} from '@mui/material';
+import { pink } from '@mui/material/colors';
 import {
   getLesson,
   lessonPath,
   type CourseLevel,
   type Lesson,
   type ReadingPassage,
-} from '@/constants/courses/index.ts'
-import { Heading } from '@/components/heading.tsx'
-import { PageContainer } from '@/components/page-container.tsx'
-import { SpeakButton } from '@/components/speak-button.tsx'
-import { useTranslation } from '@/i18n/use-translation.ts'
-import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts'
-import { elevatedSurfaceSx, subtleSurfaceSx } from '@/theme/surfaces.ts'
-import { ChoiceButton } from './choice-button.tsx'
-import { LessonNotFound, ResultScreen } from './shared.tsx'
+} from '@/constants/courses/index.ts';
+import { Heading } from '@/components/heading.tsx';
+import { PageContainer } from '@/components/page-container.tsx';
+import { SpeakButton } from '@/components/speak-button.tsx';
+import { useTranslation } from '@/i18n/use-translation.ts';
+import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
+import { elevatedSurfaceSx, subtleSurfaceSx } from '@/theme/surfaces.ts';
+import { ChoiceButton } from './choice-button.tsx';
+import { LessonNotFound, ResultScreen } from './shared.tsx';
 
 function shuffle<T>(items: T[]): T[] {
-  const copy = [...items]
+  const copy = [...items];
 
   for (let index = copy.length - 1; index > 0; index -= 1) {
     const randomIndex = Math.floor(Math.random() * (index + 1))
-    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]]
+    ;[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
   }
 
-  return copy
+  return copy;
 }
 
 function PassageCard({ passage }: { passage: ReadingPassage }) {
-  const { locale, t } = useTranslation()
-  const [showTranslation, setShowTranslation] = useState(false)
-  const canSpeak = isSpeechSupported()
+  const { locale, t } = useTranslation();
+  const [showTranslation, setShowTranslation] = useState(false);
+  const canSpeak = isSpeechSupported();
 
-  const fullText = useMemo(() => passage.lines.map((line) => line.jp).join(' '), [passage.lines])
+  const fullText = useMemo(() => passage.lines.map((line) => line.jp).join(' '), [passage.lines]);
 
   return (
     <Paper elevation={0} sx={[elevatedSurfaceSx, { p: { xs: 2.5, md: 3 } }]}>
@@ -88,8 +88,8 @@ function PassageCard({ passage }: { passage: ReadingPassage }) {
                     canSpeak
                       ? (event) => {
                           if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault()
-                            speakJapanese(line.jp)
+                            event.preventDefault();
+                            speakJapanese(line.jp);
                           }
                         }
                       : undefined
@@ -109,59 +109,59 @@ function PassageCard({ passage }: { passage: ReadingPassage }) {
         ))}
       </Stack>
     </Paper>
-  )
+  );
 }
 
 function ReadingQuiz({ level, lesson }: { level: CourseLevel; lesson: Lesson }) {
-  const { locale, t } = useTranslation()
-  const passage = lesson.reading![0]
+  const { locale, t } = useTranslation();
+  const passage = lesson.reading![0];
 
   const [questions, setQuestions] = useState(() =>
     passage.questions.map((question) => ({
       ...question,
       choices: shuffle(question.choices),
     })),
-  )
-  const [index, setIndex] = useState(0)
-  const [selectedId, setSelectedId] = useState<string | undefined>(undefined)
-  const [score, setScore] = useState(0)
-  const [finished, setFinished] = useState(false)
+  );
+  const [index, setIndex] = useState(0);
+  const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
 
-  const total = questions.length
-  const question = questions[index]
-  const isLast = index === total - 1
-  const answered = selectedId !== undefined
+  const total = questions.length;
+  const question = questions[index];
+  const isLast = index === total - 1;
+  const answered = selectedId !== undefined;
 
   const handleSelect = (choiceId: string) => {
     if (answered) {
-      return
+      return;
     }
 
-    setSelectedId(choiceId)
+    setSelectedId(choiceId);
 
     if (choiceId === question.correctId) {
-      setScore((previous) => previous + 1)
+      setScore((previous) => previous + 1);
     }
-  }
+  };
 
   const handleNext = () => {
     if (isLast) {
-      setFinished(true)
+      setFinished(true);
 
-      return
+      return;
     }
 
-    setIndex((previous) => previous + 1)
-    setSelectedId(undefined)
-  }
+    setIndex((previous) => previous + 1);
+    setSelectedId(undefined);
+  };
 
   const handleRetry = () => {
-    setQuestions(passage.questions.map((item) => ({ ...item, choices: shuffle(item.choices) })))
-    setIndex(0)
-    setSelectedId(undefined)
-    setScore(0)
-    setFinished(false)
-  }
+    setQuestions(passage.questions.map((item) => ({ ...item, choices: shuffle(item.choices) })));
+    setIndex(0);
+    setSelectedId(undefined);
+    setScore(0);
+    setFinished(false);
+  };
 
   return (
     <PageContainer>
@@ -232,9 +232,9 @@ function ReadingQuiz({ level, lesson }: { level: CourseLevel; lesson: Lesson }) 
 
             <Stack spacing={1.5}>
               {question.choices.map((choice) => {
-                const isCorrectChoice = choice.id === question.correctId
-                const showCorrect = answered && isCorrectChoice
-                const showWrong = answered && choice.id === selectedId && !isCorrectChoice
+                const isCorrectChoice = choice.id === question.correctId;
+                const showCorrect = answered && isCorrectChoice;
+                const showWrong = answered && choice.id === selectedId && !isCorrectChoice;
 
                 return (
                   <ChoiceButton
@@ -245,7 +245,7 @@ function ReadingQuiz({ level, lesson }: { level: CourseLevel; lesson: Lesson }) 
                   >
                     {choice.label[locale]}
                   </ChoiceButton>
-                )
+                );
               })}
             </Stack>
 
@@ -277,19 +277,19 @@ function ReadingQuiz({ level, lesson }: { level: CourseLevel; lesson: Lesson }) 
         )}
       </Stack>
     </PageContainer>
-  )
+  );
 }
 
 function ReadingPage({ level }: { level: CourseLevel }) {
-  const { lessonId } = useParams<{ lessonId: string }>()
-  const { locale } = useTranslation()
-  const lesson = lessonId ? getLesson(level, lessonId) : undefined
+  const { lessonId } = useParams<{ lessonId: string }>();
+  const { locale } = useTranslation();
+  const lesson = lessonId ? getLesson(level, lessonId) : undefined;
 
   if (!lesson || !lesson.reading || lesson.reading.length === 0) {
-    return <LessonNotFound level={level} />
+    return <LessonNotFound level={level} />;
   }
 
-  return <ReadingQuiz key={`${level}:${lesson.id}:${locale}`} level={level} lesson={lesson} />
+  return <ReadingQuiz key={`${level}:${lesson.id}:${locale}`} level={level} lesson={lesson} />;
 }
 
-export default ReadingPage
+export default ReadingPage;
