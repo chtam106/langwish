@@ -230,6 +230,9 @@ export function AlphabetChartPage({
         </ChartBlock>
 
         <ChartBlock heading={sectionLabels.voiced}>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+            {sectionLabels.voicedDescription}
+          </Typography>
           <GojuonGrid rows={voicedRows} headers={VOWEL_HEADERS} />
         </ChartBlock>
 

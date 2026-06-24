@@ -125,6 +125,8 @@ const en: TranslationTree = {
   chart: {
     seion: 'Seion',
     voiced: 'Dakuten / Handakuten ({{dakuten}} / {{handakuten}})',
+    voicedDescription:
+      'Add the dakuten mark ({{dakuten}}) to voice a sound: k→g, s→z, t→d, h→b. The handakuten mark ({{handakuten}}) turns h→p. e.g. か (ka) + {{dakuten}} = が (ga).',
     yoon: 'Yoon',
     yoonDescription: 'Combined sounds with small ゃ, ゅ, ょ - e.g. き + ゃ = きゃ (kya).',
     playAudio: 'Play {{char}}, {{romaji}}'
@@ -241,6 +243,10 @@ export function getChartSectionLabels(t: (key: string, params?: TranslationParam
   return {
     seion: t('chart.seion'),
     voiced: t('chart.voiced', { dakuten: DAKUTEN_MARK, handakuten: HANDAKUTEN_MARK }),
+    voicedDescription: t('chart.voicedDescription', {
+      dakuten: DAKUTEN_MARK,
+      handakuten: HANDAKUTEN_MARK
+    }),
     yoon: t('chart.yoon')
   };
 }

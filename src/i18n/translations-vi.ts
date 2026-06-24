@@ -119,6 +119,8 @@ export const viTranslations: TranslationTree = {
   chart: {
     seion: 'Seion',
     voiced: 'Dakuten / Handakuten ({{dakuten}} / {{handakuten}})',
+    voicedDescription:
+      'Thêm dấu dakuten ({{dakuten}}) để hữu thanh hóa: k→g, s→z, t→d, h→b. Dấu handakuten ({{handakuten}}) biến h→p. Ví dụ: か (ka) + {{dakuten}} = が (ga).',
     yoon: 'Yoon',
     yoonDescription: 'Âm ghép với ゃ, ゅ, ょ nhỏ - ví dụ: き + ゃ = きゃ (kya).',
     playAudio: 'Phát {{char}}, {{romaji}}'
