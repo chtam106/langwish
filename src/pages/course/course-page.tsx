@@ -29,7 +29,7 @@ function CoursePage({ level }: { level: CourseLevel }) {
           <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, mb: 2 }}>
             {course.subtitle[locale]}
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 620 }}>
+          <Typography variant="body1" color="text.secondary">
             {course.intro[locale]}
           </Typography>
         </Box>
