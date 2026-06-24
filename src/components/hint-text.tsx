@@ -18,7 +18,7 @@ export function HintText({ children, sx }: HintTextProps) {
       <Box
         component="span"
         aria-hidden="true"
-        sx={{ flexShrink: 0, lineHeight: 1, transform: 'translateY(0.28em)' }}
+        sx={{ flexShrink: 0, lineHeight: 1, transform: 'translateY(0.4em)' }}
       >
         *
       </Box>
