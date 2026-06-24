@@ -1,9 +1,9 @@
 import type { Lesson } from './types.ts'
 
-export const n3LessonsF: Lesson[] = [
+export const frontendLessonsA: Lesson[] = [
   {
-    id: 'lesson-41',
-    number: 41,
+    id: 'lesson-1',
+    number: 1,
     track: 'frontend',
     title: {
       en: 'Frontend Fundamentals: Components and State',
@@ -247,8 +247,8 @@ export const n3LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-42',
-    number: 42,
+    id: 'lesson-2',
+    number: 2,
     track: 'frontend',
     title: {
       en: 'Debugging and Bug Reporting',
@@ -487,8 +487,8 @@ export const n3LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-43',
-    number: 43,
+    id: 'lesson-3',
+    number: 3,
     track: 'frontend',
     title: {
       en: 'Code Review and Pull Requests',
@@ -726,8 +726,8 @@ export const n3LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-44',
-    number: 44,
+    id: 'lesson-4',
+    number: 4,
     track: 'frontend',
     title: {
       en: 'Sprint Planning and Estimation',
@@ -964,8 +964,8 @@ export const n3LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-45',
-    number: 45,
+    id: 'lesson-5',
+    number: 5,
     track: 'frontend',
     title: {
       en: 'Requirements and Stakeholder Communication',
@@ -1211,8 +1211,8 @@ export const n3LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-46',
-    number: 46,
+    id: 'lesson-6',
+    number: 6,
     track: 'frontend',
     title: {
       en: 'Release, Incident Response, and Postmortem',
