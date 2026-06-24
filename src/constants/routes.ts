@@ -19,6 +19,9 @@ export const routes = {
   n1: {
     index: '/n1',
   },
+  frontend: {
+    index: '/frontend',
+  },
   alphabet: {
     index: '/alphabet',
     hiragana: '/alphabet/hiragana',

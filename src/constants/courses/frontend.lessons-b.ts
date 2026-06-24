@@ -1,9 +1,9 @@
 import type { Lesson } from './types.ts'
 
-export const n2LessonsF: Lesson[] = [
+export const frontendLessonsB: Lesson[] = [
   {
-    id: 'lesson-41',
-    number: 41,
+    id: 'lesson-7',
+    number: 7,
     track: 'frontend',
     title: {
       en: 'Architecture Decisions for Frontend Systems',
@@ -251,8 +251,8 @@ export const n2LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-42',
-    number: 42,
+    id: 'lesson-8',
+    number: 8,
     track: 'frontend',
     title: {
       en: 'API Contracts and Cross-team Communication',
@@ -494,8 +494,8 @@ export const n2LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-43',
-    number: 43,
+    id: 'lesson-9',
+    number: 9,
     track: 'frontend',
     title: {
       en: 'Release Strategy and Risk Management',
@@ -749,8 +749,8 @@ export const n2LessonsF: Lesson[] = [
     ],
   },
   {
-    id: 'lesson-44',
-    number: 44,
+    id: 'lesson-10',
+    number: 10,
     track: 'frontend',
     title: {
       en: 'Mentoring and Technical Leadership',
