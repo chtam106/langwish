@@ -11,8 +11,56 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Detect changed file types
+    runs-on: ubuntu-latest
+    outputs:
+      css_or_scss_changed: ${{ steps.filter.outputs.css_or_scss_changed }}
+      eslint_target_changed: ${{ steps.filter.outputs.eslint_target_changed }}
+      typecheck_target_changed: ${{ steps.filter.outputs.typecheck_target_changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Detect CI-relevant changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            css_or_scss_changed:
+              - '**/*.css'
+              - '**/*.scss'
+              - stylelint.config.js
+              - package.json
+              - pnpm-lock.yaml
+              - .nvmrc
+              - .github/workflows/ci.yml
+            eslint_target_changed:
+              - '**/*.js'
+              - '**/*.jsx'
+              - '**/*.ts'
+              - '**/*.tsx'
+              - '**/*.mjs'
+              - '**/*.cjs'
+              - eslint.config.js
+              - package.json
+              - pnpm-lock.yaml
+              - .nvmrc
+              - .github/workflows/ci.yml
+            typecheck_target_changed:
+              - '**/*.ts'
+              - '**/*.tsx'
+              - tsconfig.json
+              - tsconfig.*.json
+              - package.json
+              - pnpm-lock.yaml
+              - .nvmrc
+              - .github/workflows/ci.yml
+
   typecheck:
     name: Typecheck
+    needs: changes
+    if: needs.changes.outputs.typecheck_target_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,6 +83,8 @@ jobs:
 
   eslint:
     name: ESLint
+    needs: changes
+    if: needs.changes.outputs.eslint_target_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,6 +107,8 @@ jobs:
 
   stylelint:
     name: Stylelint
+    needs: changes
+    if: needs.changes.outputs.css_or_scss_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

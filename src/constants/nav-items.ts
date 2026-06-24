@@ -9,6 +9,7 @@ import {
   courses,
   coursePath,
   lessonPath,
+  type Lesson,
   type Bilingual,
 } from '@/constants/courses/index.ts'
 import { routes } from '@/constants/routes.ts'
@@ -29,11 +30,20 @@ export type NavGroup = {
   children: NavItem[]
 }
 
-function formatLessonNavLabel(number: number, title: Bilingual): Bilingual {
-  return {
-    en: `Unit ${number}: ${title.en}`,
-    vi: `Bài ${number}: ${title.vi}`,
+function formatLessonNavLabel(lesson: Lesson): Bilingual {
+  const unitLabel: Bilingual = {
+    en: `Unit ${lesson.number}: ${lesson.title.en}`,
+    vi: `Bài ${lesson.number}: ${lesson.title.vi}`,
   }
+
+  if (lesson.track === 'frontend') {
+    return {
+      en: `Frontend Track · ${unitLabel.en}`,
+      vi: `Lộ trình Frontend · ${unitLabel.vi}`,
+    }
+  }
+
+  return unitLabel
 }
 
 const courseGroups: NavGroup[] = COURSE_LEVELS.map((level) => {
@@ -44,7 +54,7 @@ const courseGroups: NavGroup[] = COURSE_LEVELS.map((level) => {
     path: coursePath(level),
     icon: SchoolOutlinedIcon,
     children: course.lessons.map((lesson) => ({
-      label: formatLessonNavLabel(lesson.number, lesson.title),
+      label: formatLessonNavLabel(lesson),
       path: lessonPath(level, lesson.id),
     })),
   }
