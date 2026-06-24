@@ -820,3 +820,70 @@ export function getAlphabetItems(
 
   return getRowScopeItems(rows, scope);
 }
+
+export type ChouonExample = {
+  jp: string;
+  romaji: string;
+  meaning: { en: string; vi: string };
+};
+
+export const katakanaChouonExamples: ChouonExample[] = [
+  { jp: 'コーヒー', romaji: 'kōhī', meaning: { en: 'coffee', vi: 'cà phê' } },
+  { jp: 'ケーキ', romaji: 'kēki', meaning: { en: 'cake', vi: 'bánh ngọt' } },
+  { jp: 'スーパー', romaji: 'sūpā', meaning: { en: 'supermarket', vi: 'siêu thị' } },
+  { jp: 'ノート', romaji: 'nōto', meaning: { en: 'notebook', vi: 'vở/sổ' } },
+  { jp: 'メール', romaji: 'mēru', meaning: { en: 'email', vi: 'email' } },
+  { jp: 'テーブル', romaji: 'tēburu', meaning: { en: 'table', vi: 'bàn' } }
+];
+
+export type ChouonRule = {
+  vowel: string;
+  vowelRomaji: string;
+  long: string;
+  longRomaji: string;
+  example: string;
+  exampleRomaji: string;
+};
+
+export const hiraganaChouonRules: ChouonRule[] = [
+  {
+    vowel: 'あ',
+    vowelRomaji: 'a',
+    long: 'ああ',
+    longRomaji: 'ā',
+    example: 'おかあさん',
+    exampleRomaji: 'okāsan'
+  },
+  {
+    vowel: 'い',
+    vowelRomaji: 'i',
+    long: 'いい',
+    longRomaji: 'ī',
+    example: 'おにいさん',
+    exampleRomaji: 'onīsan'
+  },
+  {
+    vowel: 'う',
+    vowelRomaji: 'u',
+    long: 'うう',
+    longRomaji: 'ū',
+    example: 'くうき',
+    exampleRomaji: 'kūki'
+  },
+  {
+    vowel: 'え',
+    vowelRomaji: 'e',
+    long: 'ええ / えい',
+    longRomaji: 'ē',
+    example: 'おねえさん',
+    exampleRomaji: 'onēsan'
+  },
+  {
+    vowel: 'お',
+    vowelRomaji: 'o',
+    long: 'おお / おう',
+    longRomaji: 'ō',
+    example: 'おとうさん',
+    exampleRomaji: 'otōsan'
+  }
+];
