@@ -1404,4 +1404,543 @@ export const frontendLessonsC: Lesson[] = [
       },
     ],
   },
+  {
+    id: 'lesson-24',
+    number: 24,
+    track: 'frontend',
+    title: {
+      en: 'BRSE Fundamentals: Requirement Hearing',
+      vi: 'Nền tảng BRSE: Khai thác yêu cầu',
+    },
+    focus: {
+      en: 'Build Japanese communication for requirement hearings, clarification questions, and scope alignment.',
+      vi: 'Xây nền giao tiếp tiếng Nhật cho buổi khai thác yêu cầu, hỏi làm rõ và đồng bộ phạm vi.',
+    },
+    vocab: [
+      { kana: 'ようけんていぎ', kanji: '要件定義', romaji: 'yōken teigi', meaning: { en: 'requirements definition', vi: 'định nghĩa yêu cầu' } },
+      { kana: 'ひあリング', romaji: 'hiaringu', meaning: { en: 'hearing/interview', vi: 'buổi khai thác thông tin' } },
+      { kana: 'まえてい', kanji: '前提', romaji: 'zentei', meaning: { en: 'assumption', vi: 'giả định ban đầu' } },
+      { kana: 'もくてき', kanji: '目的', romaji: 'mokuteki', meaning: { en: 'objective', vi: 'mục tiêu' } },
+      { kana: 'はんい', kanji: '範囲', romaji: 'han-i', meaning: { en: 'scope', vi: 'phạm vi' } },
+      { kana: 'ぎもんてん', kanji: '疑問点', romaji: 'gimonten', meaning: { en: 'open question', vi: 'điểm còn thắc mắc' } },
+      { kana: 'ゆうせんど', kanji: '優先度', romaji: 'yūsendo', meaning: { en: 'priority', vi: 'độ ưu tiên' } },
+      { kana: 'かくにんじこう', kanji: '確認事項', romaji: 'kakunin jikō', meaning: { en: 'items to confirm', vi: 'hạng mục cần xác nhận' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N に関して',
+        title: { en: 'Regarding / about', vi: 'Liên quan đến' },
+        explanation: {
+          en: 'Use this formal pattern when asking stakeholders to clarify requirement details.',
+          vi: 'Dùng mẫu trang trọng này để yêu cầu stakeholder làm rõ chi tiết yêu cầu.',
+        },
+        examples: [
+          {
+            jp: '決済フローに関して、例外ケースを確認したいです。',
+            romaji: 'Kessai furō ni kanshite, reigai kēsu o kakunin shitai desu.',
+            meaning: {
+              en: 'Regarding the payment flow, I want to confirm exception cases.',
+              vi: 'Liên quan đến luồng thanh toán, tôi muốn xác nhận các case ngoại lệ.',
+            },
+          },
+          {
+            jp: 'ログイン要件に関して、運用ルールも共有していただけますか。',
+            romaji: 'Roguin yōken ni kanshite, un-yō rūru mo kyōyū shite itadakemasu ka.',
+            meaning: {
+              en: 'Regarding login requirements, could you also share operation rules?',
+              vi: 'Liên quan yêu cầu đăng nhập, anh/chị có thể chia sẻ thêm rule vận hành không?',
+            },
+          },
+        ],
+      },
+      {
+        pattern: 'N を明確にするために',
+        title: { en: 'In order to clarify', vi: 'Để làm rõ' },
+        explanation: {
+          en: 'Use this to explain why you ask additional questions during BRSE hearings.',
+          vi: 'Dùng mẫu này để giải thích lý do đặt thêm câu hỏi trong buổi hearing BRSE.',
+        },
+        examples: [
+          {
+            jp: '要件を明確にするために、ユーザー種別ごとの操作を整理します。',
+            romaji: 'Yōken o meikaku ni suru tame ni, yūzā shubetsu goto no sōsa o seiri shimasu.',
+            meaning: {
+              en: 'To clarify requirements, we organize actions by user type.',
+              vi: 'Để làm rõ yêu cầu, chúng tôi tổng hợp thao tác theo từng loại người dùng.',
+            },
+          },
+          {
+            jp: '認識ずれを防ぐために、確認事項を文書化します。',
+            romaji: 'Ninshiki zure o fusegu tame ni, kakunin jikō o bunshoka shimasu.',
+            meaning: {
+              en: 'To prevent misunderstandings, we document confirmation items.',
+              vi: 'Để tránh lệch nhận thức, chúng tôi tài liệu hóa các mục xác nhận.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-25',
+    number: 25,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Writing Specifications and Acceptance Criteria',
+      vi: 'BRSE: Viết đặc tả và tiêu chí chấp nhận',
+    },
+    focus: {
+      en: 'Practice Japanese needed to document specifications and define clear acceptance criteria.',
+      vi: 'Luyện tiếng Nhật cần thiết để viết đặc tả và định nghĩa tiêu chí chấp nhận rõ ràng.',
+    },
+    vocab: [
+      { kana: 'しようしょ', kanji: '仕様書', romaji: 'shiyōsho', meaning: { en: 'specification document', vi: 'tài liệu đặc tả' } },
+      { kana: 'じゅようきじゅん', kanji: '受容基準', romaji: 'juyō kijun', meaning: { en: 'acceptance criteria', vi: 'tiêu chí chấp nhận' } },
+      { kana: 'けーすぶんき', kanji: 'ケース分岐', romaji: 'kēsu bunki', meaning: { en: 'case branching', vi: 'phân nhánh case' } },
+      { kana: 'きのうようけん', kanji: '機能要件', romaji: 'kinō yōken', meaning: { en: 'functional requirement', vi: 'yêu cầu chức năng' } },
+      { kana: 'ひきのうようけん', kanji: '非機能要件', romaji: 'hikinō yōken', meaning: { en: 'non-functional requirement', vi: 'yêu cầu phi chức năng' } },
+      { kana: 'せいげんじこう', kanji: '制限事項', romaji: 'seigen jikō', meaning: { en: 'constraints', vi: 'điều kiện ràng buộc' } },
+      { kana: 'ていぎずみ', kanji: '定義済み', romaji: 'teigi-zumi', meaning: { en: 'already defined', vi: 'đã được định nghĩa' } },
+      { kana: 'れいがいしよう', kanji: '例外仕様', romaji: 'reigai shiyō', meaning: { en: 'exception specification', vi: 'đặc tả ngoại lệ' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N として定義する',
+        title: { en: 'Define as', vi: 'Định nghĩa là' },
+        explanation: {
+          en: 'Use this when documenting exact behavior in specification wording.',
+          vi: 'Dùng mẫu này khi ghi rõ hành vi hệ thống trong câu chữ đặc tả.',
+        },
+        examples: [
+          {
+            jp: 'タイムアウトは30秒として定義します。',
+            romaji: 'Taimuauto wa sanjū-byō to shite teigi shimasu.',
+            meaning: {
+              en: 'We define timeout as 30 seconds.',
+              vi: 'Chúng tôi định nghĩa timeout là 30 giây.',
+            },
+          },
+          {
+            jp: '入力エラー時の表示文言を必須項目として定義しました。',
+            romaji: 'Nyūryoku erāji no hyōji mongon o hissu kōmoku to shite teigi shimashita.',
+            meaning: {
+              en: 'We defined input error messages as mandatory items.',
+              vi: 'Chúng tôi định nghĩa nội dung hiển thị lỗi nhập liệu là hạng mục bắt buộc.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: '普通形 + 場合は',
+        title: { en: 'In case / if', vi: 'Trong trường hợp / nếu' },
+        explanation: {
+          en: 'Use this to describe acceptance conditions and expected outcomes.',
+          vi: 'Dùng mẫu này để mô tả điều kiện chấp nhận và kết quả mong đợi.',
+        },
+        examples: [
+          {
+            jp: '認証に失敗した場合は、エラーメッセージを表示します。',
+            romaji: 'Ninshō ni shippai shita baai wa, erā messēji o hyōji shimasu.',
+            meaning: {
+              en: 'If authentication fails, an error message is shown.',
+              vi: 'Nếu xác thực thất bại, hệ thống hiển thị thông báo lỗi.',
+            },
+          },
+          {
+            jp: '受容基準を満たさない場合は、リリース対象外とします。',
+            romaji: 'Juyō kijun o mitasanai baai wa, rirīsu taishōgai to shimasu.',
+            meaning: {
+              en: 'If acceptance criteria are not met, it is excluded from release.',
+              vi: 'Nếu không đạt tiêu chí chấp nhận, hạng mục sẽ bị loại khỏi release.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-26',
+    number: 26,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Estimation, Timeline, and Trade-offs',
+      vi: 'BRSE: Ước lượng, timeline và đánh đổi',
+    },
+    focus: {
+      en: 'Use Japanese for effort estimation, discussing schedule risks, and negotiating scope trade-offs.',
+      vi: 'Dùng tiếng Nhật cho ước lượng công sức, trao đổi rủi ro tiến độ và đàm phán đánh đổi phạm vi.',
+    },
+    vocab: [
+      { kana: 'こうすう', kanji: '工数', romaji: 'kōsū', meaning: { en: 'effort (man-hours)', vi: 'công sức (man-hour)' } },
+      { kana: 'みつもり', kanji: '見積もり', romaji: 'mitsumori', meaning: { en: 'estimation', vi: 'ước lượng' } },
+      { kana: 'のうき', kanji: '納期', romaji: 'nōki', meaning: { en: 'delivery deadline', vi: 'hạn giao' } },
+      { kana: 'よゆう', kanji: '余裕', romaji: 'yoyū', meaning: { en: 'buffer/slack', vi: 'đệm thời gian' } },
+      { kana: 'いぞんタスク', kanji: '依存タスク', romaji: 'izon tasuku', meaning: { en: 'dependent task', vi: 'task phụ thuộc' } },
+      { kana: 'てまえ', kanji: '手前', romaji: 'temae', meaning: { en: 'beforehand', vi: 'trước mốc' } },
+      { kana: 'きのうさくげん', kanji: '機能削減', romaji: 'kinō sakugen', meaning: { en: 'feature reduction', vi: 'giảm phạm vi tính năng' } },
+      { kana: 'だんかいてき', kanji: '段階的', romaji: 'dankai-teki', meaning: { en: 'phased', vi: 'theo từng giai đoạn' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N を踏まえて',
+        title: { en: 'Taking into account', vi: 'Tính đến' },
+        explanation: {
+          en: 'Use this to explain estimation rationale with constraints and dependencies.',
+          vi: 'Dùng mẫu này để giải thích cơ sở estimate khi có ràng buộc và phụ thuộc.',
+        },
+        examples: [
+          {
+            jp: '依存タスクを踏まえて、実装順を調整します。',
+            romaji: 'Izon tasuku o fumaete, jissō jun o chōsei shimasu.',
+            meaning: {
+              en: 'Taking dependent tasks into account, we adjust implementation order.',
+              vi: 'Tính đến task phụ thuộc, chúng tôi điều chỉnh thứ tự triển khai.',
+            },
+          },
+          {
+            jp: 'レビュー工数を踏まえて、二日分の余裕を確保しました。',
+            romaji: 'Rebyū kōsū o fumaete, futsuka-bun no yoyū o kakuho shimashita.',
+            meaning: {
+              en: 'Considering review effort, we secured a two-day buffer.',
+              vi: 'Tính đến công review, chúng tôi chừa đệm hai ngày.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: '普通形 + おそれがある',
+        title: { en: 'There is a risk that', vi: 'Có nguy cơ rằng' },
+        explanation: {
+          en: 'Use this formal phrase to communicate schedule and delivery risks early.',
+          vi: 'Dùng mẫu trang trọng này để truyền đạt sớm rủi ro tiến độ và bàn giao.',
+        },
+        examples: [
+          {
+            jp: 'このまま仕様が増えると、納期に間に合わないおそれがあります。',
+            romaji: 'Kono mama shiyō ga fueru to, nōki ni maniawanai osore ga arimasu.',
+            meaning: {
+              en: 'If specs keep increasing, there is a risk we miss the deadline.',
+              vi: 'Nếu đặc tả cứ tăng thêm, có nguy cơ không kịp hạn giao.',
+            },
+          },
+          {
+            jp: '結合テストが遅れると、リリース判定に影響するおそれがあります。',
+            romaji: 'Ketsugō tesuto ga okureru to, rirīsu hantei ni eikyō suru osore ga arimasu.',
+            meaning: {
+              en: 'If integration testing is delayed, release decision may be affected.',
+              vi: 'Nếu integration test bị chậm, có nguy cơ ảnh hưởng quyết định release.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-27',
+    number: 27,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Meeting Facilitation and Minutes',
+      vi: 'BRSE: Điều phối họp và biên bản',
+    },
+    focus: {
+      en: 'Practice Japanese for chairing meetings, confirming decisions, and documenting action items.',
+      vi: 'Luyện tiếng Nhật để điều phối họp, chốt quyết định và ghi lại action items.',
+    },
+    vocab: [
+      { kana: 'しんこうやく', kanji: '進行役', romaji: 'shinkō-yaku', meaning: { en: 'facilitator', vi: 'người điều phối' } },
+      { kana: 'ぎじろく', kanji: '議事録', romaji: 'gijiroku', meaning: { en: 'meeting minutes', vi: 'biên bản họp' } },
+      { kana: 'けっていじこう', kanji: '決定事項', romaji: 'kettei jikō', meaning: { en: 'decisions made', vi: 'hạng mục đã quyết' } },
+      { kana: 'みけってい', kanji: '未決定', romaji: 'mikettei', meaning: { en: 'pending decision', vi: 'chưa quyết định' } },
+      { kana: 'じかい', kanji: '次回', romaji: 'jikai', meaning: { en: 'next time/next meeting', vi: 'cuộc họp tiếp theo' } },
+      { kana: 'たんとうしゃ', kanji: '担当者', romaji: 'tantōsha', meaning: { en: 'owner/person in charge', vi: 'người phụ trách' } },
+      { kana: 'しめきり', kanji: '締め切り', romaji: 'shimekiri', meaning: { en: 'deadline', vi: 'hạn chót' } },
+      { kana: 'あくしょんあいてむ', romaji: 'akushon aitemu', meaning: { en: 'action item', vi: 'hành động cần thực hiện' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N を確認したうえで',
+        title: { en: 'After confirming', vi: 'Sau khi xác nhận' },
+        explanation: {
+          en: 'Use this pattern to structure meeting flow before moving to next topics.',
+          vi: 'Dùng mẫu này để điều phối luồng họp trước khi sang chủ đề tiếp theo.',
+        },
+        examples: [
+          {
+            jp: '前回の決定事項を確認したうえで、本日の論点に入ります。',
+            romaji: 'Zenkai no kettei jikō o kakunin shita ue de, honjitsu no ronten ni hairimasu.',
+            meaning: {
+              en: 'After confirming previous decisions, we move to today’s discussion points.',
+              vi: 'Sau khi xác nhận quyết định kỳ trước, chúng ta vào các luận điểm hôm nay.',
+            },
+          },
+          {
+            jp: '担当者を確認したうえで、締め切りを確定しましょう。',
+            romaji: 'Tantōsha o kakunin shita ue de, shimekiri o kakutei shimashō.',
+            meaning: {
+              en: 'After confirming owners, let us finalize deadlines.',
+              vi: 'Sau khi xác nhận người phụ trách, chúng ta chốt deadline.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: 'V（てもらえると助かる',
+        title: { en: 'It would help if you could', vi: 'Nếu có thể... thì rất tốt' },
+        explanation: {
+          en: 'Useful for politely assigning follow-up tasks in multilingual meetings.',
+          vi: 'Hữu ích để giao task follow-up một cách lịch sự trong họp đa ngôn ngữ.',
+        },
+        examples: [
+          {
+            jp: '本日の議事録を明日までに共有してもらえると助かります。',
+            romaji: 'Honjitsu no gijiroku o ashita made ni kyōyū shite moraeru to tasukarimasu.',
+            meaning: {
+              en: 'It would help if you could share today’s minutes by tomorrow.',
+              vi: 'Nếu bạn có thể chia sẻ biên bản hôm nay trước ngày mai thì rất tốt.',
+            },
+          },
+          {
+            jp: '未決定事項を一覧にまとめてもらえると助かります。',
+            romaji: 'Mikettei jikō o ichiran ni matomete moraeru to tasukarimasu.',
+            meaning: {
+              en: 'It would help if you could summarize pending items in a list.',
+              vi: 'Nếu bạn có thể tổng hợp hạng mục chưa chốt thành danh sách thì rất hữu ích.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-28',
+    number: 28,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Risk Communication and Escalation',
+      vi: 'BRSE: Truyền đạt rủi ro và escalation',
+    },
+    focus: {
+      en: 'Use Japanese to report blockers, escalate critical risks, and propose mitigation plans.',
+      vi: 'Dùng tiếng Nhật để báo blocker, escalation rủi ro nghiêm trọng và đề xuất phương án giảm thiểu.',
+    },
+    vocab: [
+      { kana: 'しょうがいよういん', kanji: '障害要因', romaji: 'shōgai yōin', meaning: { en: 'blocking factor', vi: 'yếu tố cản trở' } },
+      { kana: 'えすかれーしょん', romaji: 'esukarēshon', meaning: { en: 'escalation', vi: 'escalation' } },
+      { kana: 'えいきょうど', kanji: '影響度', romaji: 'eikyōdo', meaning: { en: 'impact severity', vi: 'mức độ ảnh hưởng' } },
+      { kana: 'はっせいかのうせい', kanji: '発生可能性', romaji: 'hassei kanōsei', meaning: { en: 'likelihood', vi: 'khả năng xảy ra' } },
+      { kana: 'かいひさく', kanji: '回避策', romaji: 'kaihisaku', meaning: { en: 'avoidance strategy', vi: 'biện pháp né tránh' } },
+      { kana: 'かんわさく', kanji: '緩和策', romaji: 'kanwasaku', meaning: { en: 'mitigation', vi: 'biện pháp giảm thiểu' } },
+      { kana: 'たいおうあん', kanji: '対応案', romaji: 'taiō-an', meaning: { en: 'response proposal', vi: 'phương án xử lý' } },
+      { kana: 'きんきゅうたいおう', kanji: '緊急対応', romaji: 'kinkyū taiō', meaning: { en: 'urgent response', vi: 'ứng phó khẩn cấp' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N のおそれがある',
+        title: { en: 'There is a risk of', vi: 'Có nguy cơ' },
+        explanation: {
+          en: 'Use this formal risk phrase when escalating project status to stakeholders.',
+          vi: 'Dùng mẫu rủi ro trang trọng này khi escalation trạng thái dự án cho stakeholder.',
+        },
+        examples: [
+          {
+            jp: 'API仕様の未確定により、実装遅延のおそれがあります。',
+            romaji: 'API shiyō no mikakutei ni yori, jissō chien no osore ga arimasu.',
+            meaning: {
+              en: 'Due to unresolved API specs, there is a risk of implementation delay.',
+              vi: 'Do API spec chưa chốt, có nguy cơ chậm triển khai.',
+            },
+          },
+          {
+            jp: '対応が遅れると、品質低下のおそれがあります。',
+            romaji: 'Taiō ga okureru to, hinshitsu teika no osore ga arimasu.',
+            meaning: {
+              en: 'If response is delayed, there is a risk of quality degradation.',
+              vi: 'Nếu xử lý chậm, có nguy cơ giảm chất lượng.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: 'N に対して N を提案する',
+        title: { en: 'Propose measures for', vi: 'Đề xuất biện pháp cho' },
+        explanation: {
+          en: 'Use this to convert risk reports into concrete mitigation actions.',
+          vi: 'Dùng mẫu này để chuyển báo cáo rủi ro thành hành động giảm thiểu cụ thể.',
+        },
+        examples: [
+          {
+            jp: '性能リスクに対して、段階的リリースを提案します。',
+            romaji: 'Seinō risuku ni taishite, dankai-teki rirīsu o teian shimasu.',
+            meaning: {
+              en: 'For performance risk, we propose phased release.',
+              vi: 'Đối với rủi ro hiệu năng, chúng tôi đề xuất release theo giai đoạn.',
+            },
+          },
+          {
+            jp: '仕様変更の頻発に対して、変更凍結期間を提案しました。',
+            romaji: 'Shiyō henkō no hinpatsu ni taishite, henkō tōketsu kikan o teian shimashita.',
+            meaning: {
+              en: 'For frequent spec changes, we proposed a change-freeze period.',
+              vi: 'Đối với việc đổi spec liên tục, chúng tôi đề xuất giai đoạn freeze thay đổi.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-29',
+    number: 29,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Stakeholder Negotiation and Alignment',
+      vi: 'BRSE: Đàm phán và đồng thuận với stakeholder',
+    },
+    focus: {
+      en: 'Learn Japanese patterns for negotiating priorities, handling objections, and reaching stakeholder alignment.',
+      vi: 'Học mẫu tiếng Nhật để đàm phán ưu tiên, xử lý phản biện và đạt đồng thuận với stakeholder.',
+    },
+    vocab: [
+      { kana: 'りようしゃかち', kanji: '利用者価値', romaji: 'riyōsha kachi', meaning: { en: 'user value', vi: 'giá trị người dùng' } },
+      { kana: 'じぎょうインパクト', romaji: 'jigyō inpakuto', meaning: { en: 'business impact', vi: 'ảnh hưởng kinh doanh' } },
+      { kana: 'あいしょうもんだい', kanji: '相性問題', romaji: 'aishō mondai', meaning: { en: 'compatibility issue', vi: 'vấn đề tương thích' } },
+      { kana: 'だとうあん', kanji: '妥当案', romaji: 'datō-an', meaning: { en: 'reasonable proposal', vi: 'phương án hợp lý' } },
+      { kana: 'せんこうかいはつ', kanji: '先行開発', romaji: 'senkō kaihatsu', meaning: { en: 'prior development', vi: 'phát triển trước' } },
+      { kana: 'しだん', kanji: '次段', romaji: 'jidan', meaning: { en: 'next phase', vi: 'giai đoạn kế tiếp' } },
+      { kana: 'ごういけいせい', kanji: '合意形成', romaji: 'gōi keisei', meaning: { en: 'consensus building', vi: 'hình thành đồng thuận' } },
+      { kana: 'たいあん', kanji: '対案', romaji: 'taian', meaning: { en: 'counterproposal', vi: 'phương án đối ứng' } },
+    ],
+    grammar: [
+      {
+        pattern: 'N だけでなく N も',
+        title: { en: 'Not only A but also B', vi: 'Không chỉ A mà còn B' },
+        explanation: {
+          en: 'Useful when balancing technical constraints with business expectations.',
+          vi: 'Hữu ích khi cân bằng ràng buộc kỹ thuật với kỳ vọng kinh doanh.',
+        },
+        examples: [
+          {
+            jp: 'この施策は開発効率だけでなく、利用者価値も高めます。',
+            romaji: 'Kono shisaku wa kaihatsu kōritsu dake de naku, riyōsha kachi mo takamemasu.',
+            meaning: {
+              en: 'This measure improves not only development efficiency but also user value.',
+              vi: 'Biện pháp này cải thiện không chỉ hiệu suất phát triển mà còn giá trị người dùng.',
+            },
+          },
+          {
+            jp: '短期効果だけでなく、保守性も考慮すべきです。',
+            romaji: 'Tanki kōka dake de naku, hoshusei mo kōryo subeki desu.',
+            meaning: {
+              en: 'We should consider not only short-term effects but also maintainability.',
+              vi: 'Chúng ta nên cân nhắc không chỉ hiệu quả ngắn hạn mà cả khả năng bảo trì.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: 'N としては',
+        title: { en: 'From the standpoint of', vi: 'Từ góc độ' },
+        explanation: {
+          en: 'Use this to separate viewpoints and negotiate decisions objectively.',
+          vi: 'Dùng mẫu này để tách bạch góc nhìn và đàm phán quyết định một cách khách quan.',
+        },
+        examples: [
+          {
+            jp: '利用者としては、初回体験の分かりやすさが重要です。',
+            romaji: 'Riyōsha to shite wa, shokai taiken no wakariyasusa ga jūyō desu.',
+            meaning: {
+              en: 'From a user standpoint, clarity of first-time experience is important.',
+              vi: 'Từ góc độ người dùng, độ dễ hiểu ở lần trải nghiệm đầu là quan trọng.',
+            },
+          },
+          {
+            jp: '開発側としては、段階導入のほうが安全です。',
+            romaji: 'Kaihatsu-gawa to shite wa, dankai dōnyū no hō ga anzen desu.',
+            meaning: {
+              en: 'From the development side, phased rollout is safer.',
+              vi: 'Từ phía phát triển, triển khai theo giai đoạn an toàn hơn.',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lesson-30',
+    number: 30,
+    track: 'frontend',
+    title: {
+      en: 'BRSE: Delivery Reporting and Project Handover',
+      vi: 'BRSE: Báo cáo bàn giao và chốt dự án',
+    },
+    focus: {
+      en: 'Master Japanese used in final delivery reports, acceptance walkthroughs, and handover communication.',
+      vi: 'Làm chủ tiếng Nhật dùng trong báo cáo bàn giao cuối kỳ, walkthrough nghiệm thu và giao tiếp handover.',
+    },
+    vocab: [
+      { kana: 'のうひん', kanji: '納品', romaji: 'nōhin', meaning: { en: 'delivery', vi: 'bàn giao sản phẩm' } },
+      { kana: 'けんしゅう', kanji: '検収', romaji: 'kenshū', meaning: { en: 'acceptance inspection', vi: 'nghiệm thu' } },
+      { kana: 'ひきつぎ', kanji: '引き継ぎ', romaji: 'hikitsugi', meaning: { en: 'handover', vi: 'chuyển giao' } },
+      { kana: 'うんようてじゅん', kanji: '運用手順', romaji: 'un-yō tejun', meaning: { en: 'operation procedure', vi: 'quy trình vận hành' } },
+      { kana: 'かだいかんりひょう', kanji: '課題管理表', romaji: 'kadai kanrihyō', meaning: { en: 'issue tracker sheet', vi: 'bảng quản lý vấn đề' } },
+      { kana: 'かんりょうほうこく', kanji: '完了報告', romaji: 'kanryō hōkoku', meaning: { en: 'completion report', vi: 'báo cáo hoàn thành' } },
+      { kana: 'のこりかだい', kanji: '残り課題', romaji: 'nokori kadai', meaning: { en: 'remaining issues', vi: 'hạng mục còn lại' } },
+      { kana: 'ほしゅけいやく', kanji: '保守契約', romaji: 'hoshu keiyaku', meaning: { en: 'maintenance contract', vi: 'hợp đồng bảo trì' } },
+    ],
+    grammar: [
+      {
+        pattern: 'V（た形）うえで',
+        title: { en: 'After doing, then', vi: 'Sau khi làm rồi' },
+        explanation: {
+          en: 'Use this in handover to show sequence: verification first, acceptance next.',
+          vi: 'Dùng mẫu này trong handover để thể hiện trình tự: xác minh trước, nghiệm thu sau.',
+        },
+        examples: [
+          {
+            jp: '最終テストを実施したうえで、納品手続きを進めます。',
+            romaji: 'Saishū tesuto o jisshi shita ue de, nōhin tetsuzuki o susumemasu.',
+            meaning: {
+              en: 'After conducting final tests, we proceed with delivery procedures.',
+              vi: 'Sau khi thực hiện test cuối, chúng tôi tiến hành thủ tục bàn giao.',
+            },
+          },
+          {
+            jp: '検収項目を確認したうえで、完了報告を提出します。',
+            romaji: 'Kenshū kōmoku o kakunin shita ue de, kanryō hōkoku o teishutsu shimasu.',
+            meaning: {
+              en: 'After confirming acceptance items, we submit the completion report.',
+              vi: 'Sau khi xác nhận hạng mục nghiệm thu, chúng tôi nộp báo cáo hoàn thành.',
+            },
+          },
+        ],
+      },
+      {
+        pattern: 'N として引き継ぐ',
+        title: { en: 'Hand over as', vi: 'Chuyển giao dưới dạng' },
+        explanation: {
+          en: 'Use this to define what artifacts are transferred at project closure.',
+          vi: 'Dùng mẫu này để xác định các artefact được chuyển giao khi kết thúc dự án.',
+        },
+        examples: [
+          {
+            jp: '運用手順書を正式版として引き継ぎます。',
+            romaji: 'Un-yō tejunsho o seishiki-ban to shite hikitsugimasu.',
+            meaning: {
+              en: 'We hand over the operation manual as the official version.',
+              vi: 'Chúng tôi chuyển giao tài liệu vận hành dưới dạng bản chính thức.',
+            },
+          },
+          {
+            jp: '残り課題は次フェーズの管理項目として引き継ぎます。',
+            romaji: 'Nokori kadai wa ji-fēzu no kanri kōmoku to shite hikitsugimasu.',
+            meaning: {
+              en: 'Remaining issues are handed over as management items for the next phase.',
+              vi: 'Các hạng mục còn lại được chuyển giao thành mục quản lý cho phase kế tiếp.',
+            },
+          },
+        ],
+      },
+    ],
+  },
 ]
