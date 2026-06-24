@@ -6,6 +6,7 @@ import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
 import { Box, Button, Card, CardActionArea, CardContent, Stack, Typography } from '@mui/material';
+import { Heading } from '@/components/heading.tsx';
 import { PageContainer } from '@/components/page-container.tsx';
 import { COURSE_SUMMARIES } from '@/constants/courses/summaries.ts';
 import { coursePath } from '@/constants/courses/levels.ts';
@@ -100,6 +101,9 @@ function HomePage() {
     <PageContainer>
       <Stack spacing={4}>
         <Box>
+          <Heading component="h1" gutterBottom>
+            {t('home.title')}
+          </Heading>
           <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, mb: 2 }}>
             {t('home.subtitle')}
           </Typography>
