@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# Langwish
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Langwish is a Japanese learning app focused on both JLPT progression and real-world communication for software teams.
 
-Currently, two official plugins are available:
+The app ships bilingual content (English and Vietnamese), interactive practice, and course-driven routing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Main Learning Tracks
 
-## React Compiler
+- JLPT tracks: `N5`, `N4`, `N3`, `N2`, `N1`
+- Frontend track: `/frontend` (30 units)
+  - Covers practical frontend communication
+  - Includes HTML/CSS/JavaScript bug-report vocabulary
+  - Includes BRSE-focused modules (requirements, specs, meetings, risk/escalation, handover)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Core Features
 
-## Expanding the ESLint configuration
+- Bilingual lesson content (`en` / `vi`)
+- Lesson practice surfaces:
+  - lesson page
+  - exercise
+  - listening
+  - reading (when available)
+- Japanese pronunciation support via Web Speech API
+- Alphabet learning pages (Hiragana, Katakana, exercise modes)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19
+- TypeScript
+- Vite
+- MUI
+- React Router
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Requirements
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 24 (required by this repo)
+- `pnpm` (see `packageManager` in `package.json`)
+
+If you use `nvm`:
+
+```bash
+nvm use 24
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Local Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm dev
 ```
+
+Open the app at `http://localhost:5173`.
+
+## Available Scripts
+
+- `pnpm dev` - run dev server
+- `pnpm build` - typecheck + build + generate sitemap
+- `pnpm preview` - preview production build
+- `pnpm typecheck` - run TypeScript build checks
+- `pnpm lint` - run ESLint
+- `pnpm lint:style` - run Stylelint for CSS
+- `pnpm format` - run Prettier write
+- `pnpm format:check` - verify formatting
+- `pnpm check` - run typecheck + lint + stylelint + format check
+- `pnpm download:audio` - download kana audio assets
+- `pnpm download:audio:force` - force refresh kana audio assets
+
+## Project Structure (high level)
+
+- `src/constants/courses/` - course and lesson content
+- `src/pages/` - route pages
+- `src/i18n/` - translation and locale context
+- `src/utils/speech.ts` - Japanese speech utilities
+- `scripts/generate-sitemap.ts` - sitemap generation
+
+## Routing Notes
+
+- Course indexes: `/<level>` (for example: `/n3`, `/frontend`)
+- Lesson route pattern: `/<level>/lesson/<lesson-id>`
+- Exercise/listening/reading routes are derived from the lesson route.
