@@ -3,6 +3,7 @@ import { n3LessonsB } from './n3.lessons-2.ts'
 import { n3LessonsC } from './n3.lessons-3.ts'
 import { n3LessonsD } from './n3.lessons-4.ts'
 import { n3LessonsE } from './n3.lessons-5.ts'
+import { n3LessonsF } from './n3.lessons-6.ts'
 
 export const n3Course: Course = {
   level: 'n3',
@@ -13,8 +14,8 @@ export const n3Course: Course = {
     vi: 'Cầu nối tới tiếng Nhật trôi chảy, tự nhiên.',
   },
   intro: {
-    en: 'A step-by-step JLPT N3 path that builds on N4. Each lesson covers causative and passive forms, keigo, advanced connectives and nuanced expressions, with example sentences and reading practice in English and Vietnamese.',
-    vi: 'Lộ trình JLPT N3 từng bước, nối tiếp N4. Mỗi bài bao gồm thể sai khiến và bị động, kính ngữ, liên từ nâng cao và các mẫu diễn đạt tinh tế, kèm câu ví dụ và bài đọc hiểu song ngữ Anh - Việt.',
+    en: 'A step-by-step JLPT N3 path that builds on N4. Each lesson covers causative and passive forms, keigo, advanced connectives and nuanced expressions, with example sentences and reading practice in English and Vietnamese. This course also includes practical frontend and project-management Japanese lessons for real workplace communication.',
+    vi: 'Lộ trình JLPT N3 từng bước, nối tiếp N4. Mỗi bài bao gồm thể sai khiến và bị động, kính ngữ, liên từ nâng cao và các mẫu diễn đạt tinh tế, kèm câu ví dụ và bài đọc hiểu song ngữ Anh - Việt. Khóa học cũng bổ sung các bài tiếng Nhật thực hành cho frontend và quản lý dự án để dùng trong môi trường làm việc thực tế.',
   },
   seoTitle: {
     en: 'JLPT N3 Course - Vocabulary & Grammar',
@@ -2048,5 +2049,6 @@ export const n3Course: Course = {
     ...n3LessonsC,
     ...n3LessonsD,
     ...n3LessonsE,
+    ...n3LessonsF,
   ]),
 }

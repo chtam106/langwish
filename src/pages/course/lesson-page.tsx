@@ -297,6 +297,15 @@ function LessonPage({ level }: { level: CourseLevel }) {
             sx={{ mb: 1 }}
           />
           <Heading component="h1">{lesson.title[locale]}</Heading>
+          {lesson.track === 'frontend' ? (
+            <Chip
+              label={t('course.frontendTrackTag')}
+              color="secondary"
+              variant="outlined"
+              size="small"
+              sx={{ mt: 1 }}
+            />
+          ) : null}
 
           <Paper elevation={0} sx={[subtleSurfaceSx, { p: 2, mt: 2 }]}>
             <Typography variant="overline" color="text.secondary">

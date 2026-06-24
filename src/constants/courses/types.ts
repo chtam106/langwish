@@ -3,6 +3,7 @@ import type { Locale } from '@/i18n/translations.ts'
 export type Bilingual = Record<Locale, string>
 
 export type CourseLevel = 'n5' | 'n4' | 'n3' | 'n2' | 'n1'
+export type LessonTrack = 'core' | 'frontend'
 
 export type VocabItem = {
   kana: string
@@ -52,6 +53,7 @@ export type ReadingPassage = {
 export type Lesson = {
   id: string
   number: number
+  track?: LessonTrack
   title: Bilingual
   focus: Bilingual
   vocab: VocabItem[]

@@ -169,6 +169,11 @@ const en: TranslationTree = {
   },
   course: {
     lessonsHeading: 'Lessons',
+    coreTrackHeading: 'JLPT Core Track',
+    frontendTrackHeading: 'Frontend Track',
+    frontendTrackTag: 'Frontend',
+    frontendTrackDescription:
+      'Practical lessons for frontend engineering and project communication in real product teams.',
     lessonLabel: 'Unit {{number}}',
     focusLabel: 'In this lesson',
     vocabulary: 'Vocabulary',
@@ -379,6 +384,11 @@ const vi: TranslationTree = {
   },
   course: {
     lessonsHeading: 'Danh sách bài học',
+    coreTrackHeading: 'Lộ trình JLPT cốt lõi',
+    frontendTrackHeading: 'Lộ trình Frontend',
+    frontendTrackTag: 'Frontend',
+    frontendTrackDescription:
+      'Các bài thực hành cho kỹ thuật frontend và giao tiếp dự án trong môi trường team sản phẩm thực tế.',
     lessonLabel: 'Bài {{number}}',
     focusLabel: 'Trong bài này',
     vocabulary: 'Từ vựng',
