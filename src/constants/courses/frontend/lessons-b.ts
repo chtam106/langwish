@@ -904,7 +904,7 @@ export const frontendLessonsB: Lesson[] = [
             jp: '目標設定を明確にすることで、後輩の自立を支援できます。',
             romaji: 'Mokuhyō settei o meikaku ni suru koto de, kōhai no jiritsu o shien dekimasu.',
             meaning: {
-              en: 'By clarifying goals, we can support junior developers’ independence.',
+              en: "By clarifying goals, we can support junior developers' independence.",
               vi: 'Bằng cách làm rõ mục tiêu, chúng ta có thể hỗ trợ junior tự lập hơn.'
             }
           }

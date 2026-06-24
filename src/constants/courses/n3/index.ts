@@ -165,7 +165,7 @@ export const n3Course: Course = {
         },
         {
           pattern: 'Vさせてください',
-          title: { en: 'Asking permission: let me…', vi: 'Xin phép: hãy cho tôi…' },
+          title: { en: 'Asking permission: let me...', vi: 'Xin phép: hãy cho tôi...' },
           explanation: {
             en: 'The causative te-form + ください politely asks to be allowed to do something yourself.',
             vi: 'Thể sai khiến dạng te + ください dùng để lịch sự xin được tự mình làm điều gì.'
@@ -1350,8 +1350,8 @@ export const n3Course: Course = {
           pattern: '普通形 はずだ',
           title: { en: 'Should / ought to be (expectation)', vi: 'Chắc là / đáng lẽ (kỳ vọng)' },
           explanation: {
-            en: '〜はずだ shows logical expectation based on evidence. 〜はずがない means "there is no way that…".',
-            vi: '〜はずだ thể hiện kỳ vọng hợp lý dựa trên căn cứ. 〜はずがない nghĩa là "không thể nào…".'
+            en: '〜はずだ shows logical expectation based on evidence. 〜はずがない means "there is no way that...".',
+            vi: '〜はずだ thể hiện kỳ vọng hợp lý dựa trên căn cứ. 〜はずがない nghĩa là "không thể nào...".'
           },
           examples: [
             {
@@ -1426,7 +1426,7 @@ export const n3Course: Course = {
         },
         {
           pattern: 'V（ば形）ほど',
-          title: { en: 'The more… the more (ば〜ほど)', vi: 'Càng… càng (ば〜ほど)' },
+          title: { en: 'The more... the more (ば〜ほど)', vi: 'Càng... càng (ば〜ほど)' },
           explanation: {
             en: 'Repeats the verb in ば-form + dictionary form + ほど to show proportional change. Adjectives: 高ければ高いほど.',
             vi: 'Lặp động từ ở thể ば + thể từ điển + ほど để chỉ sự thay đổi tỉ lệ. Tính từ: 高ければ高いほど.'

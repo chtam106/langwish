@@ -89,8 +89,8 @@ export const n2LessonsB: Lesson[] = [
       {
         pattern: 'N のことだから',
         title: {
-          en: 'Because it is … (judging by character)',
-          vi: 'Vì là … (phán đoán theo tính cách)'
+          en: 'Because it is ... (judging by character)',
+          vi: 'Vì là ... (phán đoán theo tính cách)'
         },
         explanation: {
           en: 'Attached to a person (or group) whose nature is well known, it leads to a confident guess about what they will do. Often pairs with きっと or に違いない.',
@@ -118,7 +118,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'V/A はずがない',
-        title: { en: 'There is no way that …', vi: 'Không thể nào …' },
+        title: { en: 'There is no way that ...', vi: 'Không thể nào ...' },
         explanation: {
           en: 'Expresses strong conviction that something is impossible, based on what the speaker knows.',
           vi: 'Diễn đạt sự tin chắc rằng điều gì đó là không thể, dựa trên điều người nói biết.'
@@ -144,9 +144,9 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'V に違いない',
-        title: { en: 'Must be …, surely …', vi: 'Chắc chắn là …' },
+        title: { en: 'Must be ..., surely ...', vi: 'Chắc chắn là ...' },
         explanation: {
-          en: 'States the speaker’s firm guess that something is the case. Stronger than だろう.',
+          en: "States the speaker's firm guess that something is the case. Stronger than だろう.",
           vi: 'Nêu phán đoán chắc chắn của người nói rằng điều gì đó là đúng. Mạnh hơn だろう.'
         },
         examples: [
@@ -254,8 +254,8 @@ export const n2LessonsB: Lesson[] = [
     id: 'lesson-10',
     number: 10,
     title: {
-      en: 'As Expected of …',
-      vi: 'Đúng là … có khác'
+      en: 'As Expected of ...',
+      vi: 'Đúng là ... có khác'
     },
     focus: {
       en: 'Praise or explain a fitting result with 〜だけあって / 〜だけに.',
@@ -336,8 +336,8 @@ export const n2LessonsB: Lesson[] = [
       {
         pattern: 'N/V だけあって',
         title: {
-          en: 'As expected of … (fitting good result)',
-          vi: 'Đúng là … có khác (kết quả tốt xứng đáng)'
+          en: 'As expected of ... (fitting good result)',
+          vi: 'Đúng là ... có khác (kết quả tốt xứng đáng)'
         },
         explanation: {
           en: 'Shows that a result matches what you would expect from the cause (skill, status, effort). Usually a positive, admiring result.',
@@ -348,7 +348,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '老舗だけあって、この店の料理は本当においしい。',
             romaji: 'Rōho dake atte, kono mise no ryōri wa hontō ni oishii.',
             meaning: {
-              en: 'Being a long-established shop, this restaurant’s food is truly delicious.',
+              en: "Being a long-established shop, this restaurant's food is truly delicious.",
               vi: 'Đúng là cửa hàng lâu đời có khác, món ăn ở đây thật sự ngon.'
             }
           },
@@ -365,8 +365,8 @@ export const n2LessonsB: Lesson[] = [
       {
         pattern: 'N/V だけに',
         title: {
-          en: 'Precisely because … (so all the more)',
-          vi: 'Chính vì … nên càng …'
+          en: 'Precisely because ... (so all the more)',
+          vi: 'Chính vì ... nên càng ...'
         },
         explanation: {
           en: 'Like だけあって but emphasizes that the result is heightened by the cause; it can also lead to a negative or surprising outcome.',
@@ -393,7 +393,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'さすが（に）N だ',
-        title: { en: 'Truly living up to …', vi: 'Quả đúng là …' },
+        title: { en: 'Truly living up to ...', vi: 'Quả đúng là ...' },
         explanation: {
           en: 'さすが praises something for meeting its high reputation. Often used together with だけあって.',
           vi: 'さすが khen điều gì đó vì đã đúng với danh tiếng cao của nó. Thường dùng cùng với だけあって.'
@@ -582,8 +582,8 @@ export const n2LessonsB: Lesson[] = [
       {
         pattern: 'V/A ことから',
         title: {
-          en: 'From the fact that … (origin / conclusion)',
-          vi: 'Từ việc … (nguồn gốc / kết luận)'
+          en: 'From the fact that ... (origin / conclusion)',
+          vi: 'Từ việc ... (nguồn gốc / kết luận)'
         },
         explanation: {
           en: 'Gives the fact or reason from which a name, judgment, or conclusion is derived. Common when explaining the origin of a name.',
@@ -593,10 +593,10 @@ export const n2LessonsB: Lesson[] = [
           {
             jp: '富士山に形が似ていることから、この山は「富士」と名付けられた。',
             romaji:
-              'Fujisan ni katachi ga nite iru koto kara, kono yama wa “Fuji” to nazukerareta.',
+              'Fujisan ni katachi ga nite iru koto kara, kono yama wa "Fuji" to nazukerareta.',
             meaning: {
-              en: 'Because its shape resembles Mt. Fuji, this mountain was named “Fuji.”',
-              vi: 'Vì có hình dạng giống núi Phú Sĩ nên ngọn núi này được đặt tên là “Phú Sĩ”.'
+              en: 'Because its shape resembles Mt. Fuji, this mountain was named "Fuji."',
+              vi: 'Vì có hình dạng giống núi Phú Sĩ nên ngọn núi này được đặt tên là "Phú Sĩ".'
             }
           },
           {
@@ -611,7 +611,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'V/A と考えられる',
-        title: { en: 'It can be thought that …', vi: 'Có thể cho rằng …' },
+        title: { en: 'It can be thought that ...', vi: 'Có thể cho rằng ...' },
         explanation: {
           en: 'A formal way to state a reasoned conclusion or general view, common in explanations and writing.',
           vi: 'Cách trang trọng để nêu một kết luận có cơ sở hoặc quan điểm chung, hay gặp trong văn giải thích.'
@@ -637,7 +637,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'N と言われている',
-        title: { en: 'It is said to be …', vi: 'Được cho là …' },
+        title: { en: 'It is said to be ...', vi: 'Được cho là ...' },
         explanation: {
           en: 'Reports a widely held belief or claim without naming the source.',
           vi: 'Truyền đạt một niềm tin hay nhận định phổ biến mà không nêu nguồn.'
@@ -665,23 +665,23 @@ export const n2LessonsB: Lesson[] = [
     reading: [
       {
         id: 'reading-1',
-        title: { en: 'The origin of a town’s name', vi: 'Nguồn gốc tên một thị trấn' },
+        title: { en: "The origin of a town's name", vi: 'Nguồn gốc tên một thị trấn' },
         lines: [
           {
             jp: 'この町の名前には面白い由来がある。',
             romaji: 'Kono machi no namae ni wa omoshiroi yurai ga aru.',
             meaning: {
-              en: 'There is an interesting origin to this town’s name.',
+              en: "There is an interesting origin to this town's name.",
               vi: 'Tên của thị trấn này có một nguồn gốc thú vị.'
             }
           },
           {
             jp: '昔ここに大きな港があったことから、「港町」と名付けられた。',
             romaji:
-              'Mukashi koko ni ōki na minato ga atta koto kara, “Minatomachi” to nazukerareta.',
+              'Mukashi koko ni ōki na minato ga atta koto kara, "Minatomachi" to nazukerareta.',
             meaning: {
-              en: 'Because there was once a large harbor here, it was named “Harbor Town.”',
-              vi: 'Vì ngày xưa nơi đây có một cảng lớn nên được đặt tên là “Thị trấn Cảng”.'
+              en: 'Because there was once a large harbor here, it was named "Harbor Town."',
+              vi: 'Vì ngày xưa nơi đây có một cảng lớn nên được đặt tên là "Thị trấn Cảng".'
             }
           },
           {
@@ -705,8 +705,8 @@ export const n2LessonsB: Lesson[] = [
           {
             id: 'q1',
             question: {
-              en: 'Why was the town named “Harbor Town”?',
-              vi: 'Vì sao thị trấn được đặt tên là “Thị trấn Cảng”?'
+              en: 'Why was the town named "Harbor Town"?',
+              vi: 'Vì sao thị trấn được đặt tên là "Thị trấn Cảng"?'
             },
             choices: [
               {
@@ -839,8 +839,8 @@ export const n2LessonsB: Lesson[] = [
       {
         pattern: 'N の／V あまり（に）',
         title: {
-          en: 'So much that … (out of excessive feeling)',
-          vi: 'Quá … đến mức … (vì cảm xúc thái quá)'
+          en: 'So much that ... (out of excessive feeling)',
+          vi: 'Quá ... đến mức ... (vì cảm xúc thái quá)'
         },
         explanation: {
           en: 'Indicates that an excessive degree of an emotion or state caused an (often unexpected or negative) result. Nouns take の before あまり.',
@@ -893,7 +893,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'N に夢中になる',
-        title: { en: 'To be absorbed in …', vi: 'Mải mê với …' },
+        title: { en: 'To be absorbed in ...', vi: 'Mải mê với ...' },
         explanation: {
           en: 'Expresses being so into something that one loses track of everything else.',
           vi: 'Diễn đạt việc say mê điều gì đó đến quên hết mọi thứ khác.'
@@ -911,7 +911,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '彼は仕事に夢中で、周りが見えていない。',
             romaji: 'Kare wa shigoto ni muchū de, mawari ga miete inai.',
             meaning: {
-              en: 'He is so absorbed in work that he can’t see what is around him.',
+              en: "He is so absorbed in work that he can't see what is around him.",
               vi: 'Anh ấy mải mê công việc đến mức không nhìn thấy xung quanh.'
             }
           }
@@ -935,7 +935,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '生の歌声に感動のあまり、涙が止まらなかった。',
             romaji: 'Nama no utagoe ni kandō no amari, namida ga tomaranakatta.',
             meaning: {
-              en: 'I was so moved by the live singing that I couldn’t stop my tears.',
+              en: "I was so moved by the live singing that I couldn't stop my tears.",
               vi: 'Tôi xúc động trước giọng hát trực tiếp đến mức nước mắt không ngừng rơi.'
             }
           },
@@ -960,7 +960,7 @@ export const n2LessonsB: Lesson[] = [
           {
             id: 'q1',
             question: {
-              en: 'Why couldn’t the writer stop crying?',
+              en: "Why couldn't the writer stop crying?",
               vi: 'Vì sao người viết không cầm được nước mắt?'
             },
             choices: [
@@ -1107,7 +1107,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'A 一方（で）',
-        title: { en: 'On the one hand … on the other', vi: 'Một mặt … mặt khác' },
+        title: { en: 'On the one hand ... on the other', vi: 'Một mặt ... mặt khác' },
         explanation: {
           en: 'Contrasts two coexisting facts or sides of a situation in a balanced way.',
           vi: 'Đối chiếu hai sự thật hoặc hai mặt cùng tồn tại của một tình huống một cách cân bằng.'
@@ -1135,8 +1135,8 @@ export const n2LessonsB: Lesson[] = [
         pattern: 'よそうに反して',
         title: { en: 'Contrary to expectations', vi: 'Trái với dự đoán' },
         explanation: {
-          en: '…に反して means a result goes against a prediction, rule, or wish.',
-          vi: '…に反して nghĩa là kết quả đi ngược lại một dự đoán, quy tắc hay mong muốn.'
+          en: '...に反して means a result goes against a prediction, rule, or wish.',
+          vi: '...に反して nghĩa là kết quả đi ngược lại một dự đoán, quy tắc hay mong muốn.'
         },
         examples: [
           {
@@ -1151,7 +1151,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '親の反対に反して、彼女は留学を決めた。',
             romaji: 'Oya no hantai ni hanshite, kanojo wa ryūgaku o kimeta.',
             meaning: {
-              en: 'Against her parents’ opposition, she decided to study abroad.',
+              en: "Against her parents' opposition, she decided to study abroad.",
               vi: 'Bất chấp sự phản đối của bố mẹ, cô ấy quyết định đi du học.'
             }
           }
@@ -1167,7 +1167,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '先週末、町の音楽祭が開かれた。',
             romaji: 'Senshūmatsu, machi no ongakusai ga hirakareta.',
             meaning: {
-              en: 'Last weekend, the town’s music festival was held.',
+              en: "Last weekend, the town's music festival was held.",
               vi: 'Cuối tuần trước, lễ hội âm nhạc của thị trấn đã được tổ chức.'
             }
           },
@@ -1191,7 +1191,7 @@ export const n2LessonsB: Lesson[] = [
             jp: 'スタッフは大変だった一方で、祭りの成功をとても喜んでいた。',
             romaji: 'Sutaffu wa taihen datta ippō de, matsuri no seikō o totemo yorokonde ita.',
             meaning: {
-              en: 'While the staff had a hard time, they were also very glad about the festival’s success.',
+              en: "While the staff had a hard time, they were also very glad about the festival's success.",
               vi: 'Một mặt nhân viên rất vất vả, mặt khác họ rất vui vì lễ hội thành công.'
             }
           }
@@ -1234,8 +1234,8 @@ export const n2LessonsB: Lesson[] = [
     id: 'lesson-14',
     number: 14,
     title: {
-      en: 'Even While …',
-      vi: 'Dù rằng …'
+      en: 'Even While ...',
+      vi: 'Dù rằng ...'
     },
     focus: {
       en: 'Show a contrast between two coexisting facts with 〜ながら(も).',
@@ -1344,9 +1344,9 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'V/A つつ（も）',
-        title: { en: 'While …, even though …', vi: 'Trong khi …, dù …' },
+        title: { en: 'While ..., even though ...', vi: 'Trong khi ..., dù ...' },
         explanation: {
-          en: 'A more formal, written equivalent of ながら(も), often used to show acting against one’s own awareness.',
+          en: "A more formal, written equivalent of ながら(も), often used to show acting against one's own awareness.",
           vi: 'Tương đương trang trọng, mang tính văn viết của ながら(も), thường dùng để chỉ việc làm trái với nhận thức của chính mình.'
         },
         examples: [
@@ -1370,7 +1370,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'N らしい',
-        title: { en: 'Typical of / befitting …', vi: 'Đúng chất / xứng với …' },
+        title: { en: 'Typical of / befitting ...', vi: 'Đúng chất / xứng với ...' },
         explanation: {
           en: 'Indicates that something is characteristic of, or behaves as befits, the noun it follows.',
           vi: 'Cho thấy điều gì đó mang đặc trưng của, hoặc cư xử đúng với danh từ đứng trước.'
@@ -1562,7 +1562,7 @@ export const n2LessonsB: Lesson[] = [
     grammar: [
       {
         pattern: 'N/V といっても',
-        title: { en: 'Although I say …, it is …', vi: 'Tuy nói là … nhưng …' },
+        title: { en: 'Although I say ..., it is ...', vi: 'Tuy nói là ... nhưng ...' },
         explanation: {
           en: 'Used to soften or correct an exaggerated impression the listener might form. The second clause states the more modest reality.',
           vi: 'Dùng để làm dịu hoặc đính chính một ấn tượng phóng đại mà người nghe có thể hình thành. Mệnh đề sau nêu thực tế khiêm tốn hơn.'
@@ -1580,15 +1580,15 @@ export const n2LessonsB: Lesson[] = [
             jp: '料理ができるといっても、卵を焼ける程度です。',
             romaji: 'Ryōri ga dekiru to ittemo, tamago o yakeru teido desu.',
             meaning: {
-              en: 'Although I say I can cook, it’s only to the extent of frying an egg.',
+              en: "Although I say I can cook, it's only to the extent of frying an egg.",
               vi: 'Tuy nói là biết nấu ăn nhưng cũng chỉ ở mức rán được quả trứng thôi.'
             }
           }
         ]
       },
       {
-        pattern: 'ただ … だけ',
-        title: { en: 'Just / merely …', vi: 'Chỉ … mà thôi' },
+        pattern: 'ただ ... だけ',
+        title: { en: 'Just / merely ...', vi: 'Chỉ ... mà thôi' },
         explanation: {
           en: 'Emphasizes that something is limited to one small thing, often paired with といっても.',
           vi: 'Nhấn mạnh điều gì đó chỉ giới hạn ở một việc nhỏ, thường đi kèm với といっても.'
@@ -1642,7 +1642,7 @@ export const n2LessonsB: Lesson[] = [
     reading: [
       {
         id: 'reading-1',
-        title: { en: 'A modest “new hobby”', vi: 'Một “sở thích mới” khiêm tốn' },
+        title: { en: 'A modest "new hobby"', vi: 'Một "sở thích mới" khiêm tốn' },
         lines: [
           {
             jp: '最近、料理を始めたと友達に話した。',
@@ -1795,7 +1795,7 @@ export const n2LessonsB: Lesson[] = [
     grammar: [
       {
         pattern: 'V/A としても',
-        title: { en: 'Even if / even supposing', vi: 'Cho dù / giả sử có …' },
+        title: { en: 'Even if / even supposing', vi: 'Cho dù / giả sử có ...' },
         explanation: {
           en: 'Presents a hypothetical and states the conclusion would still hold. Often opens with たとえ for emphasis.',
           vi: 'Đưa ra một giả định và khẳng định kết luận vẫn đúng. Thường mở đầu bằng たとえ để nhấn mạnh.'
@@ -1813,7 +1813,7 @@ export const n2LessonsB: Lesson[] = [
             jp: '今から急いだとしても、もう間に合わないだろう。',
             romaji: 'Ima kara isoida to shitemo, mō maniawanai darō.',
             meaning: {
-              en: 'Even if we hurry now, we probably won’t make it in time.',
+              en: "Even if we hurry now, we probably won't make it in time.",
               vi: 'Cho dù bây giờ có vội thì chắc cũng không kịp nữa.'
             }
           }
@@ -1823,8 +1823,8 @@ export const n2LessonsB: Lesson[] = [
         pattern: 'N/V にしても',
         title: { en: 'Even if / even granting that', vi: 'Dù cho / dù có là' },
         explanation: {
-          en: 'Concedes a point but argues something is still unreasonable or that the conclusion holds. Also covers “whether … or …” when repeated.',
-          vi: 'Nhượng bộ một điểm nhưng lập luận rằng điều gì đó vẫn vô lý hoặc kết luận vẫn đúng. Khi lặp lại còn mang nghĩa “dù … hay …”.'
+          en: 'Concedes a point but argues something is still unreasonable or that the conclusion holds. Also covers "whether ... or ..." when repeated.',
+          vi: 'Nhượng bộ một điểm nhưng lập luận rằng điều gì đó vẫn vô lý hoặc kết luận vẫn đúng. Khi lặp lại còn mang nghĩa "dù ... hay ...".'
         },
         examples: [
           {
@@ -1847,7 +1847,7 @@ export const n2LessonsB: Lesson[] = [
       },
       {
         pattern: 'V てほしい',
-        title: { en: 'Want someone to …', vi: 'Muốn ai đó …' },
+        title: { en: 'Want someone to ...', vi: 'Muốn ai đó ...' },
         explanation: {
           en: 'Expresses a wish for another person to do something. Pairs well with にしても conclusions.',
           vi: 'Diễn đạt mong muốn người khác làm điều gì đó. Hợp với các kết luận dùng にしても.'
@@ -1876,7 +1876,7 @@ export const n2LessonsB: Lesson[] = [
       {
         id: 'reading-1',
         title: {
-          en: 'Encouraging a friend’s challenge',
+          en: "Encouraging a friend's challenge",
           vi: 'Động viên thử thách của một người bạn'
         },
         lines: [

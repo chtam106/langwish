@@ -487,7 +487,7 @@ export const n5LessonsB: Lesson[] = [
     grammar: [
       {
         pattern: 'A は B より adjective です',
-        title: { en: 'A is more … than B', vi: 'A … hơn B' },
+        title: { en: 'A is more ... than B', vi: 'A ... hơn B' },
         explanation: {
           en: 'より marks the thing being compared against ("than B").',
           vi: 'より đánh dấu đối tượng bị đem ra so sánh ("hơn B").'
@@ -507,7 +507,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'A のほうが B より adjective です',
-        title: { en: 'A is the more … one', vi: 'A thì … hơn' },
+        title: { en: 'A is the more ... one', vi: 'A thì ... hơn' },
         explanation: {
           en: 'のほうが highlights the side that wins the comparison. Ask with どちらのほうが.',
           vi: 'のほうが nhấn mạnh bên thắng trong so sánh. Hỏi bằng どちらのほうが.'
@@ -533,7 +533,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'N の中で N が いちばん adjective です',
-        title: { en: 'The most … among a group', vi: 'Nhất trong một nhóm' },
+        title: { en: 'The most ... among a group', vi: 'Nhất trong một nhóm' },
         explanation: {
           en: 'の中で sets the group; いちばん means "the most". Ask the choice with どれ / なに.',
           vi: 'の中で nêu phạm vi nhóm; いちばん nghĩa là "nhất". Hỏi lựa chọn bằng どれ / なに.'
@@ -930,7 +930,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'V てください',
-        title: { en: 'Please do …', vi: 'Hãy … đi' },
+        title: { en: 'Please do ...', vi: 'Hãy ... đi' },
         explanation: {
           en: 'Add ください to the て-form to make a polite request or instruction.',
           vi: 'Thêm ください vào thể て để tạo lời nhờ vả hoặc hướng dẫn lịch sự.'
@@ -1329,7 +1329,7 @@ export const n5LessonsB: Lesson[] = [
     grammar: [
       {
         pattern: 'V てもいいです',
-        title: { en: 'You may do …', vi: 'Được phép …' },
+        title: { en: 'You may do ...', vi: 'Được phép ...' },
         explanation: {
           en: 'Add もいいです to the て-form to give or ask for permission.',
           vi: 'Thêm もいいです vào thể て để cho phép hoặc xin phép.'
@@ -1352,7 +1352,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'V てはいけません',
-        title: { en: 'You must not do …', vi: 'Không được …' },
+        title: { en: 'You must not do ...', vi: 'Không được ...' },
         explanation: {
           en: 'Add はいけません to the て-form to forbid an action.',
           vi: 'Thêm はいけません vào thể て để cấm một hành động.'
@@ -1372,7 +1372,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'V なくてもいいです',
-        title: { en: 'You do not have to …', vi: 'Không cần phải …' },
+        title: { en: 'You do not have to ...', vi: 'Không cần phải ...' },
         explanation: {
           en: 'For "do not have to", use the ない-form plus くてもいいです.',
           vi: 'Để nói "không cần", dùng thể ない rồi thêm くてもいいです.'
@@ -1568,7 +1568,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'V る まえに / N の まえに',
-        title: { en: 'Before doing …', vi: 'Trước khi …' },
+        title: { en: 'Before doing ...', vi: 'Trước khi ...' },
         explanation: {
           en: 'Use the dictionary form + まえに for verbs, or N の まえに for nouns.',
           vi: 'Dùng thể từ điển + まえに cho động từ, hoặc N の まえに cho danh từ.'
@@ -1594,7 +1594,7 @@ export const n5LessonsB: Lesson[] = [
       },
       {
         pattern: 'V た あとで / N の あとで',
-        title: { en: 'After doing …', vi: 'Sau khi …' },
+        title: { en: 'After doing ...', vi: 'Sau khi ...' },
         explanation: {
           en: 'Use the past plain form (た) + あとで for verbs, or N の あとで for nouns.',
           vi: 'Dùng thể quá khứ thông thường (た) + あとで cho động từ, hoặc N の あとで cho danh từ.'

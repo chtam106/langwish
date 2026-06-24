@@ -56,7 +56,7 @@ export const n4LessonsB: Lesson[] = [
         kana: 'ぜんぜん',
         kanji: '全然',
         romaji: 'zenzen',
-        meaning: { en: '(not) at all', vi: '(không)… chút nào' }
+        meaning: { en: '(not) at all', vi: '(không)... chút nào' }
       },
       {
         kana: 'すこし',
@@ -225,11 +225,11 @@ export const n4LessonsB: Lesson[] = [
     number: 10,
     title: {
       en: 'Even If & No Matter What',
-      vi: 'Dù… vẫn & Bất kể thế nào'
+      vi: 'Dù... vẫn & Bất kể thế nào'
     },
     focus: {
       en: 'Use 〜ても and question word + ても to say "even if" and "no matter what/who/how".',
-      vi: 'Dùng 〜ても và từ để hỏi + ても để nói "dù… vẫn" và "bất kể gì/ai/thế nào".'
+      vi: 'Dùng 〜ても và từ để hỏi + ても để nói "dù... vẫn" và "bất kể gì/ai/thế nào".'
     },
     vocab: [
       {
@@ -275,12 +275,12 @@ export const n4LessonsB: Lesson[] = [
       {
         kana: 'どんなに',
         romaji: 'donna ni',
-        meaning: { en: 'no matter how', vi: 'dù… đến đâu' }
+        meaning: { en: 'no matter how', vi: 'dù... đến đâu' }
       },
       {
         kana: 'いくら',
         romaji: 'ikura',
-        meaning: { en: 'no matter how much', vi: 'dù… bao nhiêu' }
+        meaning: { en: 'no matter how much', vi: 'dù... bao nhiêu' }
       }
     ],
     grammar: [
@@ -289,7 +289,7 @@ export const n4LessonsB: Lesson[] = [
         title: { en: 'Even if (verb て-form + も)', vi: 'Dù (động từ thể て + も)' },
         explanation: {
           en: 'Add も to the て-form to mean "even if". The result is unexpected or unchanged by the condition.',
-          vi: 'Thêm も vào thể て nghĩa là "dù… thì vẫn". Kết quả không bị điều kiện làm thay đổi.'
+          vi: 'Thêm も vào thể て nghĩa là "dù... thì vẫn". Kết quả không bị điều kiện làm thay đổi.'
         },
         examples: [
           {
@@ -343,8 +343,8 @@ export const n4LessonsB: Lesson[] = [
           vi: 'Bất kể gì / ai / thế nào (từ để hỏi + ても)'
         },
         explanation: {
-          en: 'A question word plus 〜ても means "no matter…": なにを たべても, だれが きても, どんなに さむくても.',
-          vi: 'Từ để hỏi cộng 〜ても nghĩa là "bất kể…": なにを たべても, だれが きても, どんなに さむくても.'
+          en: 'A question word plus 〜ても means "no matter...": なにを たべても, だれが きても, どんなに さむくても.',
+          vi: 'Từ để hỏi cộng 〜ても nghĩa là "bất kể...": なにを たべても, だれが きても, どんなに さむくても.'
         },
         examples: [
           {
@@ -740,8 +740,8 @@ export const n4LessonsB: Lesson[] = [
           vi: 'Không cần phải (〜なくてもいい)'
         },
         explanation: {
-          en: 'Drop ない from the ない-form and add 〜なくても いい to say something is not necessary: "you don\'t have to…".',
-          vi: 'Bỏ ない khỏi thể ない và thêm 〜なくても いい để nói điều gì đó không cần thiết: "không cần phải…".'
+          en: 'Drop ない from the ない-form and add 〜なくても いい to say something is not necessary: "you don\'t have to...".',
+          vi: 'Bỏ ない khỏi thể ない và thêm 〜なくても いい để nói điều gì đó không cần thiết: "không cần phải...".'
         },
         examples: [
           {
@@ -999,8 +999,8 @@ export const n4LessonsB: Lesson[] = [
         pattern: 'dictionary + な',
         title: { en: 'Prohibition (〜な)', vi: 'Cấm đoán (〜な)' },
         explanation: {
-          en: "Add な to the dictionary form for a strong \"Don't…!\": さわるな (don't touch), はいるな (don't enter). Common on warning signs.",
-          vi: 'Thêm な vào thể từ điển để ra lệnh cấm mạnh "Đừng…!": さわるな (đừng chạm), はいるな (đừng vào). Thường thấy trên biển cảnh báo.'
+          en: "Add な to the dictionary form for a strong \"Don't...!\": さわるな (don't touch), はいるな (don't enter). Common on warning signs.",
+          vi: 'Thêm な vào thể từ điển để ra lệnh cấm mạnh "Đừng...!": さわるな (đừng chạm), はいるな (đừng vào). Thường thấy trên biển cảnh báo.'
         },
         examples: [
           {
@@ -1606,8 +1606,8 @@ export const n4LessonsB: Lesson[] = [
         pattern: '〜し (reasons)',
         title: { en: 'Listing reasons (〜し)', vi: 'Nêu nhiều lý do (〜し)' },
         explanation: {
-          en: 'し can also give one or more reasons for a conclusion, often softer than から: "since A, and since B…".',
-          vi: 'し còn dùng để nêu một hay nhiều lý do cho kết luận, nhẹ hơn から: "vì A, vả lại vì B…".'
+          en: 'し can also give one or more reasons for a conclusion, often softer than から: "since A, and since B...".',
+          vi: 'し còn dùng để nêu một hay nhiều lý do cho kết luận, nhẹ hơn から: "vì A, vả lại vì B...".'
         },
         examples: [
           {

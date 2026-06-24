@@ -117,8 +117,8 @@ export const n3LessonsD: Lesson[] = [
         pattern: '〜からこそ',
         title: { en: 'からこそ (precisely because)', vi: 'からこそ (chính vì)' },
         explanation: {
-          en: 'からこそ strengthens から ("because") to mean "it is exactly because …", stressing the reason.',
-          vi: 'からこそ tăng cường nghĩa của から ("vì") thành "chính vì …", nhấn mạnh lý do.'
+          en: 'からこそ strengthens から ("because") to mean "it is exactly because ...", stressing the reason.',
+          vi: 'からこそ tăng cường nghĩa của から ("vì") thành "chính vì ...", nhấn mạnh lý do.'
         },
         examples: [
           {
@@ -247,12 +247,12 @@ export const n3LessonsD: Lesson[] = [
     id: 'lesson-26',
     number: 26,
     title: {
-      en: 'Not Only … But Also',
-      vi: 'Không chỉ … mà còn'
+      en: 'Not Only ... But Also',
+      vi: 'Không chỉ ... mà còn'
     },
     focus: {
-      en: 'Add information with 〜ばかりでなく and 〜だけでなく〜も ("not only … but also").',
-      vi: 'Bổ sung thông tin với 〜ばかりでなく và 〜だけでなく〜も ("không chỉ … mà còn").'
+      en: 'Add information with 〜ばかりでなく and 〜だけでなく〜も ("not only ... but also").',
+      vi: 'Bổ sung thông tin với 〜ばかりでなく và 〜だけでなく〜も ("không chỉ ... mà còn").'
     },
     vocab: [
       {
@@ -358,8 +358,8 @@ export const n3LessonsD: Lesson[] = [
       {
         pattern: '〜だけでなく 〜も',
         title: {
-          en: 'だけでなく〜も (not only … but also)',
-          vi: 'だけでなく〜も (không chỉ … mà còn)'
+          en: 'だけでなく〜も (not only ... but also)',
+          vi: 'だけでなく〜も (không chỉ ... mà còn)'
         },
         explanation: {
           en: 'だけでなく marks the first item and も marks the added one: "not only A but also B".',
@@ -386,7 +386,7 @@ export const n3LessonsD: Lesson[] = [
       },
       {
         pattern: 'N も N も',
-        title: { en: 'も〜も (both … and …)', vi: 'も〜も (cả … lẫn …)' },
+        title: { en: 'も〜も (both ... and ...)', vi: 'も〜も (cả ... lẫn ...)' },
         explanation: {
           en: 'Repeating も lists two items together: "both A and B (alike)".',
           vi: 'Lặp lại も để liệt kê hai đối tượng cùng nhau: "cả A lẫn B".'
@@ -1132,8 +1132,8 @@ export const n3LessonsD: Lesson[] = [
         pattern: '立場上、〜わけにはいかない',
         title: { en: 'Given one\u2019s position', vi: 'Xét theo lập trường' },
         explanation: {
-          en: 'Often the reason is one\u2019s social position or duty: "given my position, I can\u2019t …".',
-          vi: 'Lý do thường là vị trí xã hội hay nghĩa vụ: "xét theo lập trường, tôi không thể …".'
+          en: 'Often the reason is one\u2019s social position or duty: "given my position, I can\u2019t ...".',
+          vi: 'Lý do thường là vị trí xã hội hay nghĩa vụ: "xét theo lập trường, tôi không thể ...".'
         },
         examples: [
           {
@@ -1885,8 +1885,8 @@ export const n3LessonsD: Lesson[] = [
         pattern: '〜とは',
         title: { en: 'とは (X means / the definition of X)', vi: 'とは (X nghĩa là / định nghĩa)' },
         explanation: {
-          en: 'Noun + とは introduces a definition or explanation: "X is …" / "by X, we mean …".',
-          vi: 'Danh từ + とは giới thiệu một định nghĩa hay lời giải thích: "X là …" / "X có nghĩa là …".'
+          en: 'Noun + とは introduces a definition or explanation: "X is ..." / "by X, we mean ...".',
+          vi: 'Danh từ + とは giới thiệu một định nghĩa hay lời giải thích: "X là ..." / "X có nghĩa là ...".'
         },
         examples: [
           {

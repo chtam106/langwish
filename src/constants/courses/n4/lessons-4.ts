@@ -5,8 +5,8 @@ export const n4LessonsD: Lesson[] = [
     id: 'lesson-25',
     number: 25,
     title: {
-      en: 'It Looks Like… (Appearance)',
-      vi: 'Trông có vẻ… (Phán đoán qua vẻ ngoài)'
+      en: 'It Looks Like... (Appearance)',
+      vi: 'Trông có vẻ... (Phán đoán qua vẻ ngoài)'
     },
     focus: {
       en: 'Guess from appearance with 〜そうだ (looks tasty, about to rain).',
@@ -88,8 +88,8 @@ export const n4LessonsD: Lesson[] = [
       {
         pattern: 'い-adj／な-adj ＋ そうだ',
         title: {
-          en: 'Looks … (adjective + そうだ)',
-          vi: 'Trông … (tính từ + そうだ)'
+          en: 'Looks ... (adjective + そうだ)',
+          vi: 'Trông ... (tính từ + そうだ)'
         },
         explanation: {
           en: 'Drop the final い of い-adjectives and add そう (おいしい → おいしそう); for な-adjectives just add そう. It expresses a guess from what you see. いい becomes よさそう.',
@@ -111,8 +111,8 @@ export const n4LessonsD: Lesson[] = [
       {
         pattern: 'V ます-stem ＋ そうだ',
         title: {
-          en: 'Looks about to … (verb + そうだ)',
-          vi: 'Trông sắp … (động từ + そうだ)'
+          en: 'Looks about to ... (verb + そうだ)',
+          vi: 'Trông sắp ... (động từ + そうだ)'
         },
         explanation: {
           en: 'Take the verb ます-stem and add そう to say something looks about to happen. 降ります → 降りそう (looks about to rain).',
@@ -220,8 +220,8 @@ export const n4LessonsD: Lesson[] = [
     id: 'lesson-26',
     number: 26,
     title: {
-      en: 'I Heard That… (Hearsay)',
-      vi: 'Nghe nói rằng… (Tin nghe lại)'
+      en: 'I Heard That... (Hearsay)',
+      vi: 'Nghe nói rằng... (Tin nghe lại)'
     },
     focus: {
       en: 'Report what you heard with 〜そうだ and 〜らしい (apparently).',
@@ -304,8 +304,8 @@ export const n4LessonsD: Lesson[] = [
       {
         pattern: 'plain form ＋ そうだ',
         title: {
-          en: 'I hear that … (hearsay そうだ)',
-          vi: 'Nghe nói rằng … (そうだ truyền tin)'
+          en: 'I hear that ... (hearsay そうだ)',
+          vi: 'Nghe nói rằng ... (そうだ truyền tin)'
         },
         explanation: {
           en: 'Add そうだ to a plain (dictionary) form to report information from another source. Unlike appearance そう, the verb/adjective keeps its full plain form (降るそうだ, not 降りそう).',
@@ -362,8 +362,8 @@ export const n4LessonsD: Lesson[] = [
       {
         pattern: 'N に よると、〜そうだ',
         title: {
-          en: 'According to … (に よると)',
-          vi: 'Theo … (に よると)'
+          en: 'According to ... (に よると)',
+          vi: 'Theo ... (に よると)'
         },
         explanation: {
           en: 'Use 〜に よると to name the source of the information, usually paired with hearsay そうだ at the end of the sentence.',
@@ -457,8 +457,8 @@ export const n4LessonsD: Lesson[] = [
     id: 'lesson-27',
     number: 27,
     title: {
-      en: 'It Seems Like… (ようだ / みたい)',
-      vi: 'Có vẻ như… (ようだ / みたい)'
+      en: 'It Seems Like... (ようだ / みたい)',
+      vi: 'Có vẻ như... (ようだ / みたい)'
     },
     focus: {
       en: 'Express resemblance and personal guesses with 〜ようだ and 〜みたい.',
@@ -541,8 +541,8 @@ export const n4LessonsD: Lesson[] = [
       {
         pattern: 'plain form ＋ ようだ',
         title: {
-          en: 'It seems that … (ようだ)',
-          vi: 'Có vẻ như … (ようだ)'
+          en: 'It seems that ... (ようだ)',
+          vi: 'Có vẻ như ... (ようだ)'
         },
         explanation: {
           en: 'ようだ states a guess based on evidence you sense yourself. With nouns use N の ようだ; with な-adjectives use な ようだ.',
@@ -788,8 +788,8 @@ export const n4LessonsD: Lesson[] = [
           vi: 'Chắc hẳn / lẽ ra (はずだ)'
         },
         explanation: {
-          en: 'はずだ shows strong confidence based on reason or evidence ("it should be that…"). With nouns use N の はず; with な-adjectives use な はず. はずがない means "couldn\'t possibly".',
-          vi: 'はずだ thể hiện sự tin tưởng cao dựa trên lý lẽ ("chắc hẳn là…"). Với danh từ dùng N の はず; với tính từ -な dùng な はず. はずがない nghĩa là "không thể nào".'
+          en: 'はずだ shows strong confidence based on reason or evidence ("it should be that..."). With nouns use N の はず; with な-adjectives use な はず. はずがない means "couldn\'t possibly".',
+          vi: 'はずだ thể hiện sự tin tưởng cao dựa trên lý lẽ ("chắc hẳn là..."). Với danh từ dùng N の はず; với tính từ -な dùng な はず. はずがない nghĩa là "không thể nào".'
         },
         examples: [
           {
@@ -896,8 +896,8 @@ export const n4LessonsD: Lesson[] = [
     id: 'lesson-29',
     number: 29,
     title: {
-      en: 'Although… (Unexpected Result)',
-      vi: 'Mặc dù… (Kết quả bất ngờ)'
+      en: 'Although... (Unexpected Result)',
+      vi: 'Mặc dù... (Kết quả bất ngờ)'
     },
     focus: {
       en: 'Show surprise or complaint about an unexpected result with 〜のに.',
@@ -1124,8 +1124,8 @@ export const n4LessonsD: Lesson[] = [
     id: 'lesson-30',
     number: 30,
     title: {
-      en: 'In Order To… (Purpose)',
-      vi: 'Để… (Mục đích)'
+      en: 'In Order To... (Purpose)',
+      vi: 'Để... (Mục đích)'
     },
     focus: {
       en: 'State purpose with 〜ために (in order to) and 〜ように (so that).',
@@ -1473,11 +1473,11 @@ export const n4LessonsD: Lesson[] = [
         pattern: 'plain form ＋ かどうか',
         title: {
           en: 'Whether or not (かどうか)',
-          vi: 'Có … hay không (かどうか)'
+          vi: 'Có ... hay không (かどうか)'
         },
         explanation: {
-          en: 'かどうか embeds a yes/no question inside a larger sentence ("whether or not …"). With nouns and な-adjectives drop だ before かどうか.',
-          vi: 'かどうか lồng một câu hỏi có/không vào trong câu lớn ("có … hay không"). Với danh từ và tính từ -な, bỏ だ trước かどうか.'
+          en: 'かどうか embeds a yes/no question inside a larger sentence ("whether or not ..."). With nouns and な-adjectives drop だ before かどうか.',
+          vi: 'かどうか lồng một câu hỏi có/không vào trong câu lớn ("có ... hay không"). Với danh từ và tính từ -な, bỏ だ trước かどうか.'
         },
         examples: [
           {

@@ -299,8 +299,8 @@ export const n1LessonsB: Lesson[] = [
       vi: 'Dù A hay B: 〜であれ〜であれ'
     },
     focus: {
-      en: 'Pair two nouns with であれ…であれ to say a statement is true in either case.',
-      vi: 'Ghép hai danh từ với であれ…であれ để nói một điều đúng trong cả hai trường hợp.'
+      en: 'Pair two nouns with であれ...であれ to say a statement is true in either case.',
+      vi: 'Ghép hai danh từ với であれ...であれ để nói một điều đúng trong cả hai trường hợp.'
     },
     vocab: [
       {
@@ -381,8 +381,8 @@ export const n1LessonsB: Lesson[] = [
         pattern: 'N であれ N であれ',
         title: { en: 'Whether A or B', vi: 'Dù A hay B' },
         explanation: {
-          en: 'List two contrasting nouns with であれ…であれ to mean "in either case". The main clause applies equally to both. It is the formal counterpart of でも…でも.',
-          vi: 'Liệt kê hai danh từ tương phản với であれ…であれ để nói "trong cả hai trường hợp". Mệnh đề chính áp dụng như nhau cho cả hai. Đây là dạng trang trọng của でも…でも.'
+          en: 'List two contrasting nouns with であれ...であれ to mean "in either case". The main clause applies equally to both. It is the formal counterpart of でも...でも.',
+          vi: 'Liệt kê hai danh từ tương phản với であれ...であれ để nói "trong cả hai trường hợp". Mệnh đề chính áp dụng như nhau cho cả hai. Đây là dạng trang trọng của でも...でも.'
         },
         examples: [
           {
@@ -658,8 +658,8 @@ export const n1LessonsB: Lesson[] = [
         pattern: 'いかに 〜といえども',
         title: { en: 'However X it may be', vi: 'Dù X đến đâu đi nữa' },
         explanation: {
-          en: 'Pairing いかに (or どんなに) with といえども stresses the degree: "however great X is, still…". The conclusion resists the strength of the premise.',
-          vi: 'Ghép いかに (hay どんなに) với といえども nhấn mạnh mức độ: "dù X lớn đến đâu, vẫn…". Kết luận chống lại sức nặng của tiền đề.'
+          en: 'Pairing いかに (or どんなに) with といえども stresses the degree: "however great X is, still...". The conclusion resists the strength of the premise.',
+          vi: 'Ghép いかに (hay どんなに) với といえども nhấn mạnh mức độ: "dù X lớn đến đâu, vẫn...". Kết luận chống lại sức nặng của tiền đề.'
         },
         examples: [
           {
@@ -684,8 +684,8 @@ export const n1LessonsB: Lesson[] = [
         pattern: '〜とはいえども',
         title: { en: 'Although it is said to be', vi: 'Tuy nói là vậy nhưng' },
         explanation: {
-          en: 'The variant とはいえども follows a clause to mean "although it is true that…". It softens an admitted fact before introducing a counterpoint.',
-          vi: 'Biến thể とはいえども theo sau một mệnh đề, mang nghĩa "tuy đúng là…". Nó làm dịu một sự thật được thừa nhận trước khi đưa ra điểm đối lập.'
+          en: 'The variant とはいえども follows a clause to mean "although it is true that...". It softens an admitted fact before introducing a counterpoint.',
+          vi: 'Biến thể とはいえども theo sau một mệnh đề, mang nghĩa "tuy đúng là...". Nó làm dịu một sự thật được thừa nhận trước khi đưa ra điểm đối lập.'
         },
         examples: [
           {
@@ -818,7 +818,7 @@ export const n1LessonsB: Lesson[] = [
     number: 12,
     title: {
       en: 'Not Even One: 〜たりとも〜ない',
-      vi: 'Không một… nào: 〜たりとも〜ない'
+      vi: 'Không một... nào: 〜たりとも〜ない'
     },
     focus: {
       en: 'Emphatically deny even the smallest unit using counter + たりとも〜ない.',
@@ -901,10 +901,10 @@ export const n1LessonsB: Lesson[] = [
     grammar: [
       {
         pattern: '一 ＋ 助数詞 ＋ たりとも 〜ない',
-        title: { en: 'Not even a single one', vi: 'Không một… nào' },
+        title: { en: 'Not even a single one', vi: 'Không một... nào' },
         explanation: {
-          en: 'Place たりとも after "one + counter" (一秒, 一瞬, 一円…) plus a negative to mean "not even one". It strongly denies any exception, even the minimum amount.',
-          vi: 'Đặt たりとも sau "một + lượng từ" (一秒, 一瞬, 一円…) kèm phủ định để diễn đạt "không một… nào". Nó phủ định mạnh mọi ngoại lệ, dù chỉ là lượng nhỏ nhất.'
+          en: 'Place たりとも after "one + counter" (一秒, 一瞬, 一円...) plus a negative to mean "not even one". It strongly denies any exception, even the minimum amount.',
+          vi: 'Đặt たりとも sau "một + lượng từ" (一秒, 一瞬, 一円...) kèm phủ định để diễn đạt "không một... nào". Nó phủ định mạnh mọi ngoại lệ, dù chỉ là lượng nhỏ nhất.'
         },
         examples: [
           {
@@ -1807,8 +1807,8 @@ export const n1LessonsB: Lesson[] = [
         pattern: '困難 をものともせず 〜する',
         title: { en: 'Achieving despite hardship', vi: 'Làm nên điều gì bất chấp khó khăn' },
         explanation: {
-          en: 'Often the hardship noun (困難, 病気, 反対…) is overcome to reach a positive achievement in the main clause, highlighting strength of will.',
-          vi: 'Thường danh từ chỉ khó khăn (困難, 病気, 反対…) bị vượt qua để đạt thành tựu tích cực ở mệnh đề chính, làm nổi bật ý chí mạnh mẽ.'
+          en: 'Often the hardship noun (困難, 病気, 反対...) is overcome to reach a positive achievement in the main clause, highlighting strength of will.',
+          vi: 'Thường danh từ chỉ khó khăn (困難, 病気, 反対...) bị vượt qua để đạt thành tựu tích cực ở mệnh đề chính, làm nổi bật ý chí mạnh mẽ.'
         },
         examples: [
           {

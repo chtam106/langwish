@@ -95,8 +95,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: 'N に基づいた N / N に基づく N',
         title: { en: 'Based-on (modifying a noun)', vi: 'Bổ nghĩa danh từ' },
         explanation: {
-          en: 'To modify a noun, use 〜に基づいた N or 〜に基づく N ("a … that is based on …").',
-          vi: 'Để bổ nghĩa danh từ, dùng 〜に基づいた N hoặc 〜に基づく N ("… dựa trên …").'
+          en: 'To modify a noun, use 〜に基づいた N or 〜に基づく N ("a ... that is based on ...").',
+          vi: 'Để bổ nghĩa danh từ, dùng 〜に基づいた N hoặc 〜に基づく N ("... dựa trên ...").'
         },
         examples: [
           {
@@ -330,8 +330,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: 'N に沿った N',
         title: { en: 'In line with (modifying a noun)', vi: 'Bổ nghĩa danh từ' },
         explanation: {
-          en: 'Use 〜に沿った N to modify a noun: "a … that conforms to …".',
-          vi: 'Dùng 〜に沿った N để bổ nghĩa danh từ: "… phù hợp với …".'
+          en: 'Use 〜に沿った N to modify a noun: "a ... that conforms to ...".',
+          vi: 'Dùng 〜に沿った N để bổ nghĩa danh từ: "... phù hợp với ...".'
         },
         examples: [
           {
@@ -425,11 +425,11 @@ export const n2LessonsD: Lesson[] = [
     number: 27,
     title: {
       en: 'Judging even from: 〜からして',
-      vi: 'Chỉ nhìn vào … đã: 〜からして'
+      vi: 'Chỉ nhìn vào ... đã: 〜からして'
     },
     focus: {
-      en: 'Pick one telling example to judge the whole with 〜からして ("judging even from…").',
-      vi: 'Lấy một ví dụ tiêu biểu để đánh giá tổng thể với 〜からして ("chỉ riêng … đã").'
+      en: 'Pick one telling example to judge the whole with 〜からして ("judging even from...").',
+      vi: 'Lấy một ví dụ tiêu biểu để đánh giá tổng thể với 〜からして ("chỉ riêng ... đã").'
     },
     vocab: [
       {
@@ -973,8 +973,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: 'N にとっての N',
         title: { en: 'For N (modifying a noun)', vi: 'Bổ nghĩa danh từ' },
         explanation: {
-          en: 'Use 〜にとっての N to modify a noun: "the … for N".',
-          vi: 'Dùng 〜にとっての N để bổ nghĩa danh từ: "… đối với N".'
+          en: 'Use 〜にとっての N to modify a noun: "the ... for N".',
+          vi: 'Dùng 〜にとっての N để bổ nghĩa danh từ: "... đối với N".'
         },
         examples: [
           {
@@ -1161,8 +1161,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: 'N としては',
         title: { en: 'As for / speaking as N', vi: 'Về phía / với tư cách N thì' },
         explanation: {
-          en: '〜としては adds contrast: "as for (this role/person), …", often a personal opinion.',
-          vi: '〜としては thêm sắc thái đối lập: "về phía (vai trò/người này) thì …", thường là ý kiến cá nhân.'
+          en: '〜としては adds contrast: "as for (this role/person), ...", often a personal opinion.',
+          vi: '〜としては thêm sắc thái đối lập: "về phía (vai trò/người này) thì ...", thường là ý kiến cá nhân.'
         },
         examples: [
           {
@@ -1187,8 +1187,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: 'N としての N',
         title: { en: 'As N (modifying a noun)', vi: 'Bổ nghĩa danh từ' },
         explanation: {
-          en: 'Use 〜としての N to modify a noun: "the … as (a role)".',
-          vi: 'Dùng 〜としての N để bổ nghĩa danh từ: "… với tư cách (vai trò)".'
+          en: 'Use 〜としての N to modify a noun: "the ... as (a role)".',
+          vi: 'Dùng 〜としての N để bổ nghĩa danh từ: "... với tư cách (vai trò)".'
         },
         examples: [
           {
@@ -1339,8 +1339,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: '〜とは限らない',
         title: { en: 'Not necessarily / not always', vi: 'Không hẳn / không phải lúc nào cũng' },
         explanation: {
-          en: '〜とは限らない denies that something is always the case: "it is not necessarily that…".',
-          vi: '〜とは限らない phủ định việc điều gì đó luôn đúng: "không hẳn là …".'
+          en: '〜とは限らない denies that something is always the case: "it is not necessarily that...".',
+          vi: '〜とは限らない phủ định việc điều gì đó luôn đúng: "không hẳn là ...".'
         },
         examples: [
           {
@@ -1363,10 +1363,10 @@ export const n2LessonsD: Lesson[] = [
       },
       {
         pattern: '必ずしも〜とは限らない',
-        title: { en: 'Not necessarily (emphatic)', vi: 'Không nhất thiết … (nhấn mạnh)' },
+        title: { en: 'Not necessarily (emphatic)', vi: 'Không nhất thiết ... (nhấn mạnh)' },
         explanation: {
-          en: 'Pairing with 必ずしも strengthens the meaning: "not necessarily always…".',
-          vi: 'Kết hợp với 必ずしも làm mạnh thêm: "không nhất thiết lúc nào cũng …".'
+          en: 'Pairing with 必ずしも strengthens the meaning: "not necessarily always...".',
+          vi: 'Kết hợp với 必ずしも làm mạnh thêm: "không nhất thiết lúc nào cũng ...".'
         },
         examples: [
           {
@@ -1391,8 +1391,8 @@ export const n2LessonsD: Lesson[] = [
         pattern: '〜ないとも限らない',
         title: { en: 'You never know (it might)', vi: 'Cũng không chắc là không' },
         explanation: {
-          en: '〜ないとも限らない means "you can\u2019t say it won\u2019t…", i.e. there is a chance it will.',
-          vi: '〜ないとも限らない nghĩa "cũng không chắc là không …", tức vẫn có khả năng xảy ra.'
+          en: '〜ないとも限らない means "you can\u2019t say it won\u2019t...", i.e. there is a chance it will.',
+          vi: '〜ないとも限らない nghĩa "cũng không chắc là không ...", tức vẫn có khả năng xảy ra.'
         },
         examples: [
           {
@@ -1486,12 +1486,12 @@ export const n2LessonsD: Lesson[] = [
     id: 'lesson-32',
     number: 32,
     title: {
-      en: 'There is something …: 〜ものがある',
-      vi: 'Có điều gì đó …: 〜ものがある'
+      en: 'There is something ...: 〜ものがある',
+      vi: 'Có điều gì đó ...: 〜ものがある'
     },
     focus: {
-      en: 'Express a strong, felt impression with 〜ものがある ("there really is something …").',
-      vi: 'Diễn đạt ấn tượng mạnh, cảm nhận được với 〜ものがある ("quả thật có điều gì đó …").'
+      en: 'Express a strong, felt impression with 〜ものがある ("there really is something ...").',
+      vi: 'Diễn đạt ấn tượng mạnh, cảm nhận được với 〜ものがある ("quả thật có điều gì đó ...").'
     },
     vocab: [
       {
@@ -1553,10 +1553,10 @@ export const n2LessonsD: Lesson[] = [
     grammar: [
       {
         pattern: '〜ものがある',
-        title: { en: 'There is (truly) something …', vi: 'Quả thật có điều gì đó …' },
+        title: { en: 'There is (truly) something ...', vi: 'Quả thật có điều gì đó ...' },
         explanation: {
-          en: '〜ものがある expresses a strong felt impression: "there really is something … about it".',
-          vi: '〜ものがある diễn đạt ấn tượng mạnh, cảm nhận được: "quả thật có điều gì đó … ở nó".'
+          en: '〜ものがある expresses a strong felt impression: "there really is something ... about it".',
+          vi: '〜ものがある diễn đạt ấn tượng mạnh, cảm nhận được: "quả thật có điều gì đó ... ở nó".'
         },
         examples: [
           {
@@ -1579,10 +1579,10 @@ export const n2LessonsD: Lesson[] = [
       },
       {
         pattern: '〜には〜ものがある',
-        title: { en: 'About X there is something …', vi: 'Ở X có điều gì đó …' },
+        title: { en: 'About X there is something ...', vi: 'Ở X có điều gì đó ...' },
         explanation: {
-          en: 'Often "X には … ものがある" highlights what it is about X that impresses.',
-          vi: 'Thường dùng "X には … ものがある" để nêu điều gì ở X gây ấn tượng.'
+          en: 'Often "X には ... ものがある" highlights what it is about X that impresses.',
+          vi: 'Thường dùng "X には ... ものがある" để nêu điều gì ở X gây ấn tượng.'
         },
         examples: [
           {
@@ -1605,7 +1605,7 @@ export const n2LessonsD: Lesson[] = [
       },
       {
         pattern: '〜ところがある',
-        title: { en: 'There is an aspect that …', vi: 'Có khía cạnh …' },
+        title: { en: 'There is an aspect that ...', vi: 'Có khía cạnh ...' },
         explanation: {
           en: 'The related 〜ところがある points out a particular trait or aspect of someone/something.',
           vi: 'Cấu trúc liên quan 〜ところがある nêu một nét/khía cạnh của ai/cái gì đó.'

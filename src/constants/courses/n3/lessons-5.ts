@@ -9,15 +9,15 @@ export const n3LessonsE: Lesson[] = [
       vi: 'Quyết tâm dứt khoát với まい'
     },
     focus: {
-      en: 'Express strong negative will ("I will never…") and negative guesses ("surely won\u2019t…") with まい.',
-      vi: 'Diễn đạt ý chí phủ định mạnh ("nhất quyết không…") và phỏng đoán phủ định ("chắc sẽ không…") với まい.'
+      en: 'Express strong negative will ("I will never...") and negative guesses ("surely won\u2019t...") with まい.',
+      vi: 'Diễn đạt ý chí phủ định mạnh ("nhất quyết không...") và phỏng đoán phủ định ("chắc sẽ không...") với まい.'
     },
     vocab: [
       {
         kana: 'にどと',
         kanji: '二度と',
         romaji: 'nido to',
-        meaning: { en: 'never again (with negative)', vi: 'không bao giờ … nữa' }
+        meaning: { en: 'never again (with negative)', vi: 'không bao giờ ... nữa' }
       },
       {
         kana: 'けっして',
@@ -142,12 +142,12 @@ export const n3LessonsE: Lesson[] = [
       {
         pattern: '〜のではあるまいか',
         title: {
-          en: 'のではあるまいか - I wonder if not…',
-          vi: 'のではあるまいか - phải chăng là…'
+          en: 'のではあるまいか - I wonder if not...',
+          vi: 'のではあるまいか - phải chăng là...'
         },
         explanation: {
-          en: 'A formal way to raise a doubt or guess: "could it be that…? / I suspect that…". Softer and more literary than のではないか.',
-          vi: 'Cách trang trọng để nêu nghi ngờ hay phỏng đoán: "phải chăng…? / e rằng…". Mềm và mang tính văn viết hơn のではないか.'
+          en: 'A formal way to raise a doubt or guess: "could it be that...? / I suspect that...". Softer and more literary than のではないか.',
+          vi: 'Cách trang trọng để nêu nghi ngờ hay phỏng đoán: "phải chăng...? / e rằng...". Mềm và mang tính văn viết hơn のではないか.'
         },
         examples: [
           {
@@ -266,11 +266,11 @@ export const n3LessonsE: Lesson[] = [
     number: 34,
     title: {
       en: 'While & In the Process: つつ / つつある',
-      vi: 'Vừa … vừa & Đang diễn ra: つつ / つつある'
+      vi: 'Vừa ... vừa & Đang diễn ra: つつ / つつある'
     },
     focus: {
       en: 'Use つつ for "while / even though" and つつある for a gradual ongoing change.',
-      vi: 'Dùng つつ cho "vừa … / dù …" và つつある cho sự thay đổi đang dần diễn ra.'
+      vi: 'Dùng つつ cho "vừa ... / dù ..." và つつある cho sự thay đổi đang dần diễn ra.'
     },
     vocab: [
       {
@@ -349,7 +349,7 @@ export const n3LessonsE: Lesson[] = [
     grammar: [
       {
         pattern: 'V（ます-stem）＋ つつ',
-        title: { en: 'つつ - while doing (simultaneous)', vi: 'つつ - vừa … vừa (đồng thời)' },
+        title: { en: 'つつ - while doing (simultaneous)', vi: 'つつ - vừa ... vừa (đồng thời)' },
         explanation: {
           en: 'A formal, written equivalent of ながら: two actions by the same person at the same time.',
           vi: 'Tương đương trang trọng, văn viết của ながら: hai hành động của cùng một người diễn ra cùng lúc.'
@@ -905,8 +905,8 @@ export const n3LessonsE: Lesson[] = [
         pattern: 'V（る）／N ＋ おそれがある',
         title: { en: 'おそれがある - there is a risk', vi: 'おそれがある - có nguy cơ' },
         explanation: {
-          en: 'A related expression for an undesirable possibility: "there is a fear/risk that…". Common in news and warnings.',
-          vi: 'Một cấu trúc liên quan cho khả năng xấu: "có nguy cơ / e rằng…". Thường gặp trong tin tức và cảnh báo.'
+          en: 'A related expression for an undesirable possibility: "there is a fear/risk that...". Common in news and warnings.',
+          vi: 'Một cấu trúc liên quan cho khả năng xấu: "có nguy cơ / e rằng...". Thường gặp trong tin tức và cảnh báo.'
         },
         examples: [
           {
@@ -1352,8 +1352,8 @@ export const n3LessonsE: Lesson[] = [
           vi: 'ばかりに - chỉ vì (kết quả xấu)'
         },
         explanation: {
-          en: 'States that one single cause led to an unfortunate result: "simply / just because…". Always negative in tone.',
-          vi: 'Diễn đạt một nguyên nhân duy nhất dẫn đến kết quả không may: "chỉ vì…". Luôn mang sắc thái tiêu cực.'
+          en: 'States that one single cause led to an unfortunate result: "simply / just because...". Always negative in tone.',
+          vi: 'Diễn đạt một nguyên nhân duy nhất dẫn đến kết quả không may: "chỉ vì...". Luôn mang sắc thái tiêu cực.'
         },
         examples: [
           {
@@ -1378,8 +1378,8 @@ export const n3LessonsE: Lesson[] = [
         pattern: 'V（た）／N の ＋ あげく（に）',
         title: { en: 'あげく - after all (bad end)', vi: 'あげく - sau cùng (kết cục xấu)' },
         explanation: {
-          en: 'After much of some action, a (usually bad) result occurred: "after … in the end". Stresses the troublesome process.',
-          vi: 'Sau cả một quá trình làm gì đó, một kết quả (thường xấu) xảy ra: "sau khi … rốt cuộc". Nhấn mạnh quá trình nhọc nhằn.'
+          en: 'After much of some action, a (usually bad) result occurred: "after ... in the end". Stresses the troublesome process.',
+          vi: 'Sau cả một quá trình làm gì đó, một kết quả (thường xấu) xảy ra: "sau khi ... rốt cuộc". Nhấn mạnh quá trình nhọc nhằn.'
         },
         examples: [
           {
@@ -1404,8 +1404,8 @@ export const n3LessonsE: Lesson[] = [
         pattern: 'V（た）／N の ＋ 末（に）',
         title: { en: '末に - after, finally', vi: '末に - sau cùng, cuối cùng' },
         explanation: {
-          en: 'Also "after … finally", but more neutral than あげく - the outcome can be good, reached after much effort.',
-          vi: 'Cũng nghĩa "sau … cuối cùng", nhưng trung tính hơn あげく - kết quả có thể tốt, đạt được sau nhiều nỗ lực.'
+          en: 'Also "after ... finally", but more neutral than あげく - the outcome can be good, reached after much effort.',
+          vi: 'Cũng nghĩa "sau ... cuối cùng", nhưng trung tính hơn あげく - kết quả có thể tốt, đạt được sau nhiều nỗ lực.'
         },
         examples: [
           {
@@ -1601,8 +1601,8 @@ export const n3LessonsE: Lesson[] = [
         pattern: 'N／V（る）＋ とともに',
         title: { en: 'とともに - together with / as', vi: 'とともに - cùng với / khi' },
         explanation: {
-          en: 'Links two things that change at the same time: "as A …, B also …". Also means "together with (someone)".',
-          vi: 'Nối hai sự việc thay đổi đồng thời: "khi A …, thì B cũng …". Cũng có nghĩa "cùng với (ai đó)".'
+          en: 'Links two things that change at the same time: "as A ..., B also ...". Also means "together with (someone)".',
+          vi: 'Nối hai sự việc thay đổi đồng thời: "khi A ..., thì B cũng ...". Cũng có nghĩa "cùng với (ai đó)".'
         },
         examples: [
           {
@@ -1850,7 +1850,7 @@ export const n3LessonsE: Lesson[] = [
     grammar: [
       {
         pattern: 'V（る）／N ＋ につれて',
-        title: { en: 'につれて - as … gradually', vi: 'につれて - càng … thì càng' },
+        title: { en: 'につれて - as ... gradually', vi: 'につれて - càng ... thì càng' },
         explanation: {
           en: 'As one thing changes gradually, another changes along with it. Both sides are continuous, gradual changes.',
           vi: 'Khi một việc thay đổi dần, việc khác cũng thay đổi theo. Cả hai vế đều là thay đổi liên tục, từ từ.'
@@ -1902,10 +1902,13 @@ export const n3LessonsE: Lesson[] = [
       },
       {
         pattern: 'N やら N やら',
-        title: { en: 'やら〜やら - things like … and …', vi: 'やら〜やら - nào là … nào là …' },
+        title: {
+          en: 'やら〜やら - things like ... and ...',
+          vi: 'やら〜やら - nào là ... nào là ...'
+        },
         explanation: {
-          en: 'Lists examples in a jumbled, often overwhelmed way: "what with … and …". Can join nouns or plain-form predicates.',
-          vi: 'Liệt kê các ví dụ một cách hỗn độn, thường mang ý ngổn ngang: "nào là … nào là …". Nối danh từ hoặc vị ngữ thể thường.'
+          en: 'Lists examples in a jumbled, often overwhelmed way: "what with ... and ...". Can join nouns or plain-form predicates.',
+          vi: 'Liệt kê các ví dụ một cách hỗn độn, thường mang ý ngổn ngang: "nào là ... nào là ...". Nối danh từ hoặc vị ngữ thể thường.'
         },
         examples: [
           {
