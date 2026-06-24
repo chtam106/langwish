@@ -135,7 +135,7 @@ export const n3LessonsC: Lesson[] = [
         title: { en: 'Color & texture -ish', vi: 'っぽい cho màu sắc, chất cảm' },
         explanation: {
           en: 'With colors or textures, っぽい means "-ish": 白っぽい (whitish), 油っぽい (greasy), 安っぽい (cheap-looking).',
-          vi: 'Với màu/chất cảm, っぽい nghĩa "hơi …": 白っぽい (trăng trắng), 油っぽい (nhiều mỡ), 安っぽい (rẻ tiền).'
+          vi: 'Với màu/chất cảm, っぽい nghĩa "hơi ...": 白っぽい (trăng trắng), 油っぽい (nhiều mỡ), 安っぽい (rẻ tiền).'
         },
         examples: [
           {
@@ -234,7 +234,7 @@ export const n3LessonsC: Lesson[] = [
     number: 18,
     title: {
       en: 'A touch of (気味) & covered in (だらけ)',
-      vi: 'Hơi … (気味) & đầy … (だらけ)'
+      vi: 'Hơi ... (気味) & đầy ... (だらけ)'
     },
     focus: {
       en: 'Say something is slightly so with 〜気味, and that something is full of / covered in something with 〜だらけ.',
@@ -349,7 +349,7 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: '気味 vs だらけ',
-        title: { en: 'Slight tendency vs covered all over', vi: 'Hơi … so với đầy …' },
+        title: { en: 'Slight tendency vs covered all over', vi: 'Hơi ... so với đầy ...' },
         explanation: {
           en: 'Use 気味 for a slight degree/tendency; use だらけ when something is densely covered or full of many of a thing.',
           vi: 'Dùng 気味 cho mức độ/xu hướng nhẹ; dùng だらけ khi cái gì đó phủ kín hoặc đầy rất nhiều thứ.'
@@ -443,8 +443,8 @@ export const n3LessonsC: Lesson[] = [
       vi: 'Trách móc với くせに'
     },
     focus: {
-      en: 'Criticize a contradiction ("even though…, yet…") with 〜くせに.',
-      vi: 'Phê phán sự mâu thuẫn ("rõ ràng …, thế mà …") với 〜くせに.'
+      en: 'Criticize a contradiction ("even though..., yet...") with 〜くせに.',
+      vi: 'Phê phán sự mâu thuẫn ("rõ ràng ..., thế mà ...") với 〜くせに.'
     },
     vocab: [
       {
@@ -511,7 +511,7 @@ export const n3LessonsC: Lesson[] = [
     grammar: [
       {
         pattern: 'plain form ＋ くせに',
-        title: { en: 'Even though… (blame)', vi: 'Rõ ràng … thế mà (trách)' },
+        title: { en: 'Even though... (blame)', vi: 'Rõ ràng ... thế mà (trách)' },
         explanation: {
           en: '〜くせに means "even though / despite", adding criticism or contempt. The subject is usually one person.',
           vi: '〜くせに nghĩa "rõ ràng/dù", kèm thái độ trách móc hoặc coi thường. Chủ ngữ thường là một người.'
@@ -672,7 +672,7 @@ export const n3LessonsC: Lesson[] = [
     },
     focus: {
       en: 'Say "far from X, actually the opposite" with 〜どころか.',
-      vi: 'Nói "đừng nói là X, ngược lại còn …" với 〜どころか.'
+      vi: 'Nói "đừng nói là X, ngược lại còn ..." với 〜どころか.'
     },
     vocab: [
       {
@@ -744,10 +744,10 @@ export const n3LessonsC: Lesson[] = [
     grammar: [
       {
         pattern: 'N / plain form ＋ どころか',
-        title: { en: 'Far from… , on the contrary', vi: 'Đừng nói … , ngược lại' },
+        title: { en: 'Far from... , on the contrary', vi: 'Đừng nói ... , ngược lại' },
         explanation: {
           en: '〜どころか introduces something far beyond/opposite to expectation: "not only not X, but actually the reverse".',
-          vi: '〜どころか nêu điều vượt xa hoặc ngược hẳn mong đợi: "đừng nói là X, ngược lại còn …".'
+          vi: '〜どころか nêu điều vượt xa hoặc ngược hẳn mong đợi: "đừng nói là X, ngược lại còn ...".'
         },
         examples: [
           {
@@ -770,10 +770,10 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: 'N どころか N も〜ない',
-        title: { en: 'Not even…, let alone…', vi: 'Đến cả … cũng không, nói gì …' },
+        title: { en: 'Not even..., let alone...', vi: 'Đến cả ... cũng không, nói gì ...' },
         explanation: {
           en: 'With a negative, どころか means "let alone / not even": A どころか B (even B) is also impossible.',
-          vi: 'Đi với phủ định, どころか nghĩa "nói chi đến, đến cả … cũng không".'
+          vi: 'Đi với phủ định, どころか nghĩa "nói chi đến, đến cả ... cũng không".'
         },
         examples: [
           {
@@ -796,7 +796,7 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: '役に立つどころか〜',
-        title: { en: 'Useful? On the contrary…', vi: 'Có ích ư? Ngược lại …' },
+        title: { en: 'Useful? On the contrary...', vi: 'Có ích ư? Ngược lại ...' },
         explanation: {
           en: 'A common pattern contrasts a hoped-for good outcome with a worse reality.',
           vi: 'Mẫu thường gặp đối lập kết quả mong đợi tốt với thực tế tệ hơn.'
@@ -958,7 +958,7 @@ export const n3LessonsC: Lesson[] = [
     grammar: [
       {
         pattern: '〜反面',
-        title: { en: 'On the one hand… on the other', vi: 'Mặt này … mặt khác' },
+        title: { en: 'On the one hand... on the other', vi: 'Mặt này ... mặt khác' },
         explanation: {
           en: '〜反面 contrasts two opposite sides of the SAME thing: convenient but also dangerous.',
           vi: '〜反面 đối chiếu hai mặt trái ngược của CÙNG một sự vật: vừa tiện vừa nguy hiểm.'
@@ -1179,7 +1179,7 @@ export const n3LessonsC: Lesson[] = [
     grammar: [
       {
         pattern: 'plain form ＋ ものの',
-        title: { en: 'Although / even though', vi: 'Mặc dù / tuy … nhưng' },
+        title: { en: 'Although / even though', vi: 'Mặc dù / tuy ... nhưng' },
         explanation: {
           en: '〜ものの admits a fact, then states something contrary to what you would expect. It is rather written/formal.',
           vi: '〜ものの thừa nhận một sự thật rồi nêu điều trái với mong đợi. Mang sắc thái văn viết, trang trọng.'
@@ -1231,7 +1231,7 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: 'とはいうものの',
-        title: { en: 'Having said that…', vi: 'Tuy nói vậy nhưng …' },
+        title: { en: 'Having said that...', vi: 'Tuy nói vậy nhưng ...' },
         explanation: {
           en: '〜とはいうものの starts a sentence to mean "that said / nevertheless".',
           vi: '〜とはいうものの mở đầu câu, nghĩa "tuy nói vậy / dù sao thì".'
@@ -1334,7 +1334,7 @@ export const n3LessonsC: Lesson[] = [
     },
     focus: {
       en: 'Use casual 〜たって ("even if") and 〜だって ("even / too") in everyday speech.',
-      vi: 'Dùng 〜たって ("dù có … thì") và 〜だって ("ngay cả / cũng") trong văn nói hằng ngày.'
+      vi: 'Dùng 〜たって ("dù có ... thì") và 〜だって ("ngay cả / cũng") trong văn nói hằng ngày.'
     },
     vocab: [
       {
@@ -1383,7 +1383,7 @@ export const n3LessonsC: Lesson[] = [
       {
         kana: 'どんなに',
         romaji: 'donna ni',
-        meaning: { en: 'no matter how (much)', vi: 'dù có … đến đâu' }
+        meaning: { en: 'no matter how (much)', vi: 'dù có ... đến đâu' }
       },
       {
         kana: 'がんばる',
@@ -1395,10 +1395,10 @@ export const n3LessonsC: Lesson[] = [
     grammar: [
       {
         pattern: 'V/adj ＋ たって',
-        title: { en: 'Even if (casual ても)', vi: 'Dù … thì (ても thân mật)' },
+        title: { en: 'Even if (casual ても)', vi: 'Dù ... thì (ても thân mật)' },
         explanation: {
           en: '〜たって is the casual, spoken equivalent of 〜ても ("even if"). Attach it like the た-form.',
-          vi: '〜たって là dạng thân mật của 〜ても ("dù có … thì"). Gắn giống cách chia thể た.'
+          vi: '〜たって là dạng thân mật của 〜ても ("dù có ... thì"). Gắn giống cách chia thể た.'
         },
         examples: [
           {
@@ -1447,10 +1447,10 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: 'どんなに〜たって',
-        title: { en: 'No matter how much…', vi: 'Dù … đến mấy cũng' },
+        title: { en: 'No matter how much...', vi: 'Dù ... đến mấy cũng' },
         explanation: {
           en: 'どんなに / いくら + 〜たって emphasizes "no matter how much, (still)".',
-          vi: 'どんなに / いくら + 〜たって nhấn mạnh "dù có … đến đâu thì cũng".'
+          vi: 'どんなに / いくら + 〜たって nhấn mạnh "dù có ... đến đâu thì cũng".'
         },
         examples: [
           {
@@ -1639,7 +1639,7 @@ export const n3LessonsC: Lesson[] = [
       },
       {
         pattern: '〜さえ〜ば',
-        title: { en: 'If only / as long as', vi: 'Chỉ cần … là' },
+        title: { en: 'If only / as long as', vi: 'Chỉ cần ... là' },
         explanation: {
           en: '〜さえ〜ば states the one sufficient condition: "if only X (then everything is fine)".',
           vi: '〜さえ〜ば nêu điều kiện đủ duy nhất: "chỉ cần X (thì ổn)".'

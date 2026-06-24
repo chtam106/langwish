@@ -120,7 +120,7 @@ export const n1LessonsA: Lesson[] = [
         pattern: 'V-る か V-ない かのうちに',
         title: {
           en: 'No sooner than / barely when',
-          vi: 'Vừa mới … thì đã'
+          vi: 'Vừa mới ... thì đã'
         },
         explanation: {
           en: 'B happens almost simultaneously with A, before A is fully completed. It stresses near-overlap of the two events.',
@@ -148,8 +148,8 @@ export const n1LessonsA: Lesson[] = [
       {
         pattern: 'V-た が最後',
         title: {
-          en: 'Once… then (inevitable result)',
-          vi: 'Một khi đã … thì (hệ quả tất yếu)'
+          en: 'Once... then (inevitable result)',
+          vi: 'Một khi đã ... thì (hệ quả tất yếu)'
         },
         explanation: {
           en: 'Once A happens, an inevitable, usually undesirable B follows and nothing can stop it.',
@@ -258,7 +258,7 @@ export const n1LessonsA: Lesson[] = [
     number: 2,
     title: {
       en: 'No Sooner Than: 〜が早いか',
-      vi: 'Vừa mới … đã: 〜が早いか'
+      vi: 'Vừa mới ... đã: 〜が早いか'
     },
     focus: {
       en: 'Describe two near-simultaneous actions where B follows A almost the instant it happens, using 〜が早いか.',
@@ -342,7 +342,7 @@ export const n1LessonsA: Lesson[] = [
         pattern: 'V-る が早いか',
         title: {
           en: 'The moment / no sooner than (literary)',
-          vi: 'Ngay khi / vừa … đã (văn viết)'
+          vi: 'Ngay khi / vừa ... đã (văn viết)'
         },
         explanation: {
           en: 'Literary: the moment A occurs, B occurs almost simultaneously. B is a concrete past fact; the two are nearly at the same instant.',
@@ -374,7 +374,7 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Đúng lúc / ngay khi (bất ngờ)'
         },
         explanation: {
-          en: 'Just as A happened, B suddenly and unexpectedly occurred. B is beyond the speaker’s control and is in the past.',
+          en: "Just as A happened, B suddenly and unexpectedly occurred. B is beyond the speaker's control and is in the past.",
           vi: 'Đúng lúc A vừa xảy ra thì B bất ngờ xảy đến. B nằm ngoài tầm kiểm soát và ở quá khứ.'
         },
         examples: [
@@ -419,7 +419,7 @@ export const n1LessonsA: Lesson[] = [
             jp: '準備ができ次第、出発しましょう。',
             romaji: 'Junbi ga deki shidai, shuppatsu shimashō.',
             meaning: {
-              en: 'Let’s depart as soon as the preparations are done.',
+              en: "Let's depart as soon as the preparations are done.",
               vi: 'Ngay khi chuẩn bị xong, chúng ta hãy khởi hành.'
             }
           }
@@ -458,10 +458,10 @@ export const n1LessonsA: Lesson[] = [
           },
           {
             jp: '店員は「在庫が入り次第、追加します」と叫んだ。',
-            romaji: 'Ten’in wa “zaiko ga hairi shidai, tsuika shimasu” to sakenda.',
+            romaji: 'Ten\'in wa "zaiko ga hairi shidai, tsuika shimasu" to sakenda.',
             meaning: {
-              en: 'A clerk shouted, “We will restock as soon as inventory arrives.”',
-              vi: 'Nhân viên hét lên: “Ngay khi có hàng về, chúng tôi sẽ bổ sung thêm.”'
+              en: 'A clerk shouted, "We will restock as soon as inventory arrives."',
+              vi: 'Nhân viên hét lên: "Ngay khi có hàng về, chúng tôi sẽ bổ sung thêm."'
             }
           },
           {
@@ -558,7 +558,7 @@ export const n1LessonsA: Lesson[] = [
         kana: 'かおいろ',
         kanji: '顔色',
         romaji: 'kaoiro',
-        meaning: { en: 'complexion, look on one’s face', vi: 'sắc mặt' }
+        meaning: { en: "complexion, look on one's face", vi: 'sắc mặt' }
       },
       {
         kana: 'たちつくす',
@@ -630,8 +630,8 @@ export const n1LessonsA: Lesson[] = [
       {
         pattern: 'V-た きり',
         title: {
-          en: '…and that was the last',
-          vi: '… rồi thôi (lần cuối)'
+          en: '...and that was the last',
+          vi: '... rồi thôi (lần cuối)'
         },
         explanation: {
           en: 'After A, the expected following event never occurred; A was the last time it happened.',
@@ -857,8 +857,8 @@ export const n1LessonsA: Lesson[] = [
       {
         pattern: 'V-る／V-た そばから',
         title: {
-          en: 'No sooner… than (repeatedly undone)',
-          vi: 'Vừa … đã (lặp lại, bị phá ngay)'
+          en: 'No sooner... than (repeatedly undone)',
+          vi: 'Vừa ... đã (lặp lại, bị phá ngay)'
         },
         explanation: {
           en: 'As soon as A is done, B undoes it; describes a repeated, frustrating cycle that keeps happening.',
@@ -887,11 +887,11 @@ export const n1LessonsA: Lesson[] = [
         pattern: 'V-ます-stem つつ(も)',
         title: {
           en: 'While / even though (literary)',
-          vi: 'Vừa … vừa / dù rằng (văn viết)'
+          vi: 'Vừa ... vừa / dù rằng (văn viết)'
         },
         explanation: {
-          en: 'つつ means “while doing” (literary); つつも means “even though / despite,” showing a contradiction.',
-          vi: 'つつ nghĩa là “vừa … vừa” (văn viết); つつも nghĩa là “dù rằng”, thể hiện sự mâu thuẫn.'
+          en: 'つつ means "while doing" (literary); つつも means "even though / despite," showing a contradiction.',
+          vi: 'つつ nghĩa là "vừa ... vừa" (văn viết); つつも nghĩa là "dù rằng", thể hiện sự mâu thuẫn.'
         },
         examples: [
           {
@@ -1137,7 +1137,7 @@ export const n1LessonsA: Lesson[] = [
             jp: '一人の発言を皮切りにして、抗議は各地へ広がった。',
             romaji: 'Hitori no hatsugen o kawakiri ni shite, kōgi wa kakuchi e hirogatta.',
             meaning: {
-              en: 'Beginning with one person’s remark, the protest spread to many places.',
+              en: "Beginning with one person's remark, the protest spread to many places.",
               vi: 'Bắt đầu từ phát ngôn của một người, làn sóng phản đối lan ra khắp nơi.'
             }
           }
@@ -1252,7 +1252,7 @@ export const n1LessonsA: Lesson[] = [
           {
             id: 'q1',
             question: {
-              en: 'What marked the start of the band’s popularity?',
+              en: "What marked the start of the band's popularity?",
               vi: 'Điều gì đánh dấu sự khởi đầu cho danh tiếng của ban nhạc?'
             },
             choices: [
@@ -1279,8 +1279,8 @@ export const n1LessonsA: Lesson[] = [
                   vi: 'Sự nổi đình đám của ca khúc đầu tay'
                 }
               },
-              { id: 'b', label: { en: 'A fan’s protest', vi: 'Lời phản đối của fan' } },
-              { id: 'c', label: { en: 'The president’s order', vi: 'Mệnh lệnh của giám đốc' } }
+              { id: 'b', label: { en: "A fan's protest", vi: 'Lời phản đối của fan' } },
+              { id: 'c', label: { en: "The president's order", vi: 'Mệnh lệnh của giám đốc' } }
             ],
             correctId: 'a'
           }
@@ -1333,7 +1333,7 @@ export const n1LessonsA: Lesson[] = [
       {
         kana: 'げんえき',
         kanji: '現役',
-        romaji: 'gen’eki',
+        romaji: "gen'eki",
         meaning: { en: 'active service / career', vi: 'sự nghiệp đang thi đấu' }
       },
       {
@@ -1439,8 +1439,8 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Mà không hề (văn viết)'
         },
         explanation: {
-          en: 'B occurs without A ever happening; a literary way to say “without.”',
-          vi: 'B xảy ra mà A không hề xảy ra; cách nói “mà không” theo văn viết.'
+          en: 'B occurs without A ever happening; a literary way to say "without."',
+          vi: 'B xảy ra mà A không hề xảy ra; cách nói "mà không" theo văn viết.'
         },
         examples: [
           {
@@ -1466,14 +1466,14 @@ export const n1LessonsA: Lesson[] = [
       {
         id: 'reading-1',
         title: {
-          en: 'A veteran athlete’s farewell',
+          en: "A veteran athlete's farewell",
           vi: 'Lời chia tay của một vận động viên kỳ cựu'
         },
         lines: [
           {
             jp: '私は今シーズンを限りに、現役を退くことを決意しました。',
             romaji:
-              'Watashi wa kon-shīzun o kagiri ni, gen’eki o shirizoku koto o ketsui shimashita.',
+              "Watashi wa kon-shīzun o kagiri ni, gen'eki o shirizoku koto o ketsui shimashita.",
             meaning: {
               en: 'I have resolved to step down from active play as of this season.',
               vi: 'Tôi đã quyết tâm rút lui khỏi sự nghiệp thi đấu tính đến hết mùa này.'
@@ -1648,8 +1648,8 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Trong / dưới (hoàn cảnh đặc biệt)'
         },
         explanation: {
-          en: 'Literary: “in (such) a time/place/situation,” often an extreme or special one. With も it means “even in.”',
-          vi: 'Văn viết: “trong (một) thời điểm/nơi chốn/hoàn cảnh”, thường là đặc biệt hay khắc nghiệt. Đi với も nghĩa là “ngay cả trong”.'
+          en: 'Literary: "in (such) a time/place/situation," often an extreme or special one. With も it means "even in."',
+          vi: 'Văn viết: "trong (một) thời điểm/nơi chốn/hoàn cảnh", thường là đặc biệt hay khắc nghiệt. Đi với も nghĩa là "ngay cả trong".'
         },
         examples: [
           {
@@ -1677,8 +1677,8 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Tại / ở / về (trang trọng)'
         },
         explanation: {
-          en: 'A formal marker of place, time, or domain, meaning “in / at / regarding.”',
-          vi: 'Dấu hiệu trang trọng chỉ nơi chốn, thời gian hay phạm vi, nghĩa là “tại / ở / về”.'
+          en: 'A formal marker of place, time, or domain, meaning "in / at / regarding."',
+          vi: 'Dấu hiệu trang trọng chỉ nơi chốn, thời gian hay phạm vi, nghĩa là "tại / ở / về".'
         },
         examples: [
           {
@@ -1706,8 +1706,8 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Đến cả / chỉ ở (mức độ đó)'
         },
         explanation: {
-          en: 'Emphasizes a special degree or stage: “even at,” or “only because someone is of that level.”',
-          vi: 'Nhấn mạnh một mức độ hay giai đoạn đặc biệt: “đến cả”, hoặc “chỉ vì là người ở tầm đó”.'
+          en: 'Emphasizes a special degree or stage: "even at," or "only because someone is of that level."',
+          vi: 'Nhấn mạnh một mức độ hay giai đoạn đặc biệt: "đến cả", hoặc "chỉ vì là người ở tầm đó".'
         },
         examples: [
           {
@@ -1770,7 +1770,7 @@ export const n1LessonsA: Lesson[] = [
             jp: '逆境にして初めて、人の本当の強さが分かるのだ。',
             romaji: 'Gyakkyō ni shite hajimete, hito no hontō no tsuyosa ga wakaru no da.',
             meaning: {
-              en: 'It is only in adversity that a person’s true strength becomes clear.',
+              en: "It is only in adversity that a person's true strength becomes clear.",
               vi: 'Chỉ trong nghịch cảnh, sức mạnh thực sự của con người mới lộ rõ.'
             }
           }
@@ -1795,7 +1795,7 @@ export const n1LessonsA: Lesson[] = [
           {
             id: 'q2',
             question: {
-              en: 'When is a person’s true worth tested?',
+              en: "When is a person's true worth tested?",
               vi: 'Giá trị thực của một người bị thử thách khi nào?'
             },
             choices: [
@@ -1918,7 +1918,7 @@ export const n1LessonsA: Lesson[] = [
             jp: '有名店の限定商品とあって、開店前から客が押しかけた。',
             romaji: 'Yūmeiten no gentei shōhin to atte, kaiten mae kara kyaku ga oshikaketa.',
             meaning: {
-              en: 'As it was a famous shop’s limited item, customers thronged even before opening.',
+              en: "As it was a famous shop's limited item, customers thronged even before opening.",
               vi: 'Vì là hàng giới hạn của tiệm nổi tiếng, khách kéo đến đông nghịt từ trước giờ mở cửa.'
             }
           }
@@ -1931,7 +1931,7 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Đúng là / xứng đáng là'
         },
         explanation: {
-          en: 'As one would expect given A’s quality or status, B is fitting. It carries a positive evaluation.',
+          en: "As one would expect given A's quality or status, B is fitting. It carries a positive evaluation.",
           vi: 'Đúng như mong đợi với phẩm chất hay vị thế của A, B là điều xứng đáng. Mang sắc thái đánh giá tích cực.'
         },
         examples: [
@@ -1960,8 +1960,8 @@ export const n1LessonsA: Lesson[] = [
           vi: 'Vì lẽ (xin lỗi, văn viết)'
         },
         explanation: {
-          en: 'A literary, formal “because,” often offering a reason as an excuse or apology.',
-          vi: 'Cách nói “vì” trang trọng, văn viết, thường nêu lý do như một lời phân trần hay xin lỗi.'
+          en: 'A literary, formal "because," often offering a reason as an excuse or apology.',
+          vi: 'Cách nói "vì" trang trọng, văn viết, thường nêu lý do như một lời phân trần hay xin lỗi.'
         },
         examples: [
           {

@@ -323,8 +323,8 @@ export const n5Course: Course = {
           pattern: 'N は なんですか',
           title: { en: 'What is it?', vi: 'Cái này là gì?' },
           explanation: {
-            en: 'なん (what) replaces the unknown noun. Answer with "…です".',
-            vi: 'なん (cái gì) thay cho danh từ chưa biết. Trả lời bằng "…です".'
+            en: 'なん (what) replaces the unknown noun. Answer with "...です".',
+            vi: 'なん (cái gì) thay cho danh từ chưa biết. Trả lời bằng "...です".'
           },
           examples: [
             {
@@ -341,7 +341,7 @@ export const n5Course: Course = {
         },
         {
           pattern: 'N も',
-          title: { en: '…too / also (も)', vi: '…cũng (も)' },
+          title: { en: '...too / also (も)', vi: '...cũng (も)' },
           explanation: {
             en: 'も replaces は to mean "also/too" when the statement is the same as a previous one.',
             vi: 'も thay cho は để diễn đạt "cũng", khi câu giống với câu trước.'
@@ -622,7 +622,7 @@ export const n5Course: Course = {
       ],
       grammar: [
         {
-          pattern: 'いま … じ … ふん です',
+          pattern: 'いま ... じ ... ふん です',
           title: { en: 'Telling the time', vi: 'Cách nói giờ' },
           explanation: {
             en: 'Combine the hour (じ) and minutes (ふん/ぷん). はん means "half past".',
@@ -643,7 +643,7 @@ export const n5Course: Course = {
         },
         {
           pattern: 'N から N まで',
-          title: { en: 'from … to … (から / まで)', vi: 'từ … đến … (から / まで)' },
+          title: { en: 'from ... to ... (から / まで)', vi: 'từ ... đến ... (から / まで)' },
           explanation: {
             en: 'から marks a starting point and まで an ending point, for both time and place.',
             vi: 'から đánh dấu điểm bắt đầu và まで điểm kết thúc, dùng cho cả thời gian và nơi chốn.'
@@ -862,8 +862,8 @@ export const n5Course: Course = {
           pattern: 'V ませんか / V ましょう',
           title: { en: 'Inviting & suggesting', vi: 'Mời & rủ rê' },
           explanation: {
-            en: 'V ませんか invites ("won\u2019t you…?"); V ましょう suggests doing it together ("let\u2019s…").',
-            vi: 'V ませんか dùng để mời ("…không?"); V ましょう dùng để rủ cùng làm ("…nào").'
+            en: 'V ませんか invites ("won\u2019t you...?"); V ましょう suggests doing it together ("let\u2019s...").',
+            vi: 'V ませんか dùng để mời ("...không?"); V ましょう dùng để rủ cùng làm ("...nào").'
           },
           examples: [
             {
@@ -1201,7 +1201,7 @@ export const n5Course: Course = {
         {
           kana: 'あまり',
           romaji: 'amari',
-          meaning: { en: 'not very (with negative)', vi: 'không … lắm (đi với phủ định)' }
+          meaning: { en: 'not very (with negative)', vi: 'không ... lắm (đi với phủ định)' }
         }
       ],
       grammar: [
@@ -1229,8 +1229,8 @@ export const n5Course: Course = {
           pattern: 'N は な-adjective です',
           title: { en: 'な-adjectives', vi: 'Tính từ đuôi -な' },
           explanation: {
-            en: 'な-adjectives need な only before a noun (きれいな はな). Before です they stand alone. Negative: …じゃ ありません.',
-            vi: 'Tính từ -な chỉ cần な khi đứng trước danh từ (きれいな はな). Trước です thì đứng một mình. Phủ định: …じゃ ありません.'
+            en: 'な-adjectives need な only before a noun (きれいな はな). Before です they stand alone. Negative: ...じゃ ありません.',
+            vi: 'Tính từ -な chỉ cần な khi đứng trước danh từ (きれいな はな). Trước です thì đứng một mình. Phủ định: ...じゃ ありません.'
           },
           examples: [
             {

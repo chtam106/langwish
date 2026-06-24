@@ -674,8 +674,8 @@ export const frontendLessonsA: Lesson[] = [
             romaji:
               '"Kono shori wa kyōtsūka suru beki desu" to iu komento ga toku ni jūyō deshita.',
             meaning: {
-              en: 'The comment saying “this logic should be shared” was especially important.',
-              vi: 'Comment “phần xử lý này nên được dùng chung” đặc biệt quan trọng.'
+              en: 'The comment saying "this logic should be shared" was especially important.',
+              vi: 'Comment "phần xử lý này nên được dùng chung" đặc biệt quan trọng.'
             }
           },
           {

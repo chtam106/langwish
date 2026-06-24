@@ -321,8 +321,8 @@ export const n3LessonsB: Lesson[] = [
         pattern: 'V-る / N の たびに',
         title: { en: 'Every time', vi: 'Mỗi lần' },
         explanation: {
-          en: '〜たびに means "every time (something happens), …" - the second clause happens each time.',
-          vi: '〜たびに nghĩa là "mỗi lần (điều gì xảy ra), …" - mệnh đề sau xảy ra mỗi lần.'
+          en: '〜たびに means "every time (something happens), ..." - the second clause happens each time.',
+          vi: '〜たびに nghĩa là "mỗi lần (điều gì xảy ra), ..." - mệnh đề sau xảy ra mỗi lần.'
         },
         examples: [
           {
@@ -1542,8 +1542,8 @@ export const n3LessonsB: Lesson[] = [
         pattern: 'V-ます-stem ＋ きれない',
         title: { en: 'Cannot finish', vi: 'Không thể làm hết' },
         explanation: {
-          en: '〜きれない means the amount is too great to finish; often "too many to …".',
-          vi: '〜きれない nghĩa là lượng quá nhiều không làm hết được; thường là "nhiều đến mức không thể …".'
+          en: '〜きれない means the amount is too great to finish; often "too many to ...".',
+          vi: '〜きれない nghĩa là lượng quá nhiều không làm hết được; thường là "nhiều đến mức không thể ...".'
         },
         examples: [
           {

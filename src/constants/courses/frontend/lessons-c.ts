@@ -1125,7 +1125,7 @@ export const frontendLessonsC: Lesson[] = [
             jp: '今週の進捗に関して、三点共有します。',
             romaji: 'Konshū no shinchoku ni kanshite, san-ten kyōyū shimasu.',
             meaning: {
-              en: 'Regarding this week’s progress, I will share three points.',
+              en: "Regarding this week's progress, I will share three points.",
               vi: 'Liên quan đến tiến độ tuần này, tôi sẽ chia sẻ ba điểm.'
             }
           },
@@ -1935,7 +1935,7 @@ export const frontendLessonsC: Lesson[] = [
             jp: '前回の決定事項を確認したうえで、本日の論点に入ります。',
             romaji: 'Zenkai no kettei jikō o kakunin shita ue de, honjitsu no ronten ni hairimasu.',
             meaning: {
-              en: 'After confirming previous decisions, we move to today’s discussion points.',
+              en: "After confirming previous decisions, we move to today's discussion points.",
               vi: 'Sau khi xác nhận quyết định kỳ trước, chúng ta vào các luận điểm hôm nay.'
             }
           },
@@ -1961,7 +1961,7 @@ export const frontendLessonsC: Lesson[] = [
             jp: '本日の議事録を明日までに共有してもらえると助かります。',
             romaji: 'Honjitsu no gijiroku o ashita made ni kyōyū shite moraeru to tasukarimasu.',
             meaning: {
-              en: 'It would help if you could share today’s minutes by tomorrow.',
+              en: "It would help if you could share today's minutes by tomorrow.",
               vi: 'Nếu bạn có thể chia sẻ biên bản hôm nay trước ngày mai thì rất tốt.'
             }
           },

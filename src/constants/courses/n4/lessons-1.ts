@@ -61,7 +61,7 @@ export const n4LessonsA: Lesson[] = [
         kana: 'ぜんぜん',
         kanji: '全然',
         romaji: 'zenzen',
-        meaning: { en: '(not) at all', vi: '(không) … chút nào' }
+        meaning: { en: '(not) at all', vi: '(không) ... chút nào' }
       },
       {
         kana: 'ていねい',
@@ -544,7 +544,7 @@ export const n4LessonsA: Lesson[] = [
     grammar: [
       {
         pattern: 'V (ふつうけい) と思う',
-        title: { en: 'I think that … (〜と思う)', vi: 'Tôi nghĩ rằng … (〜と思う)' },
+        title: { en: 'I think that ... (〜と思う)', vi: 'Tôi nghĩ rằng ... (〜と思う)' },
         explanation: {
           en: 'Put a plain-form clause before と思う to give your opinion or guess. と marks the quoted thought.',
           vi: 'Đặt mệnh đề ở thể thông thường trước と思う để nêu ý kiến hay phỏng đoán. と đánh dấu nội dung được nghĩ.'
@@ -568,8 +568,8 @@ export const n4LessonsA: Lesson[] = [
       {
         pattern: 'V〜ないと思う',
         title: {
-          en: "I don't think … (negative opinion)",
-          vi: 'Tôi nghĩ là không … (ý kiến phủ định)'
+          en: "I don't think ... (negative opinion)",
+          vi: 'Tôi nghĩ là không ... (ý kiến phủ định)'
         },
         explanation: {
           en: 'To say you think something is not the case, make the clause negative before と思う.',
@@ -595,8 +595,8 @@ export const n4LessonsA: Lesson[] = [
         ]
       },
       {
-        pattern: 'N は「…」と言う',
-        title: { en: 'Someone says that … (〜と言う)', vi: 'Ai đó nói rằng … (〜と言う)' },
+        pattern: 'N は「...」と言う',
+        title: { en: 'Someone says that ... (〜と言う)', vi: 'Ai đó nói rằng ... (〜と言う)' },
         explanation: {
           en: 'と言う reports speech. Use a plain-form clause before it; the speaker is marked with は or が.',
           vi: 'と言う dùng để thuật lại lời nói. Đặt mệnh đề thể thông thường trước nó; người nói được đánh dấu bằng は hoặc が.'
@@ -621,14 +621,14 @@ export const n4LessonsA: Lesson[] = [
         ]
       },
       {
-        pattern: 'N は…と言っていた',
+        pattern: 'N は...と言っていた',
         title: {
           en: 'Reporting what was said (〜と言っていた)',
           vi: 'Thuật lại điều đã được nói (〜と言っていた)'
         },
         explanation: {
-          en: 'Use the past 〜と言っていた to report what someone said earlier, like "he said that …".',
-          vi: 'Dùng dạng quá khứ 〜と言っていた để thuật lại điều ai đó đã nói, kiểu "anh ấy bảo rằng …".'
+          en: 'Use the past 〜と言っていた to report what someone said earlier, like "he said that ...".',
+          vi: 'Dùng dạng quá khứ 〜と言っていた để thuật lại điều ai đó đã nói, kiểu "anh ấy bảo rằng ...".'
         },
         examples: [
           {
@@ -715,8 +715,8 @@ export const n4LessonsA: Lesson[] = [
     id: 'lesson-4',
     number: 4,
     title: {
-      en: 'When … (〜とき)',
-      vi: 'Khi … (〜とき)'
+      en: 'When ... (〜とき)',
+      vi: 'Khi ... (〜とき)'
     },
     focus: {
       en: 'Connect two situations with とき, choosing a present or past clause for the right timing.',
@@ -1673,8 +1673,8 @@ export const n4LessonsA: Lesson[] = [
         pattern: 'N なら',
         title: { en: 'If it\u2019s about N (N なら)', vi: 'Nếu nói về N (N なら)' },
         explanation: {
-          en: 'なら picks up a topic someone just raised and gives advice about it: "if it\u2019s N (you\u2019re talking about), then …".',
-          vi: 'なら đón lấy chủ đề mà ai đó vừa nêu và đưa lời khuyên về nó: "nếu là N (mà bạn đang nói tới) thì …".'
+          en: 'なら picks up a topic someone just raised and gives advice about it: "if it\u2019s N (you\u2019re talking about), then ...".',
+          vi: 'なら đón lấy chủ đề mà ai đó vừa nêu và đưa lời khuyên về nó: "nếu là N (mà bạn đang nói tới) thì ...".'
         },
         examples: [
           {

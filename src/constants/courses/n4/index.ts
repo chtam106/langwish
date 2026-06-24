@@ -14,7 +14,7 @@ export const n4Course: Course = {
   },
   intro: {
     en: 'A step-by-step JLPT N4 path that builds on N5. Each lesson adds plain forms, conditionals, intention, giving and receiving, conjecture, and more, with example sentences and reading practice in English and Vietnamese.',
-    vi: 'Lộ trình JLPT N4 từng bước, nối tiếp N5. Mỗi bài bổ sung thể thường, câu điều kiện, ý chí, cho và nhận, suy đoán,… kèm câu ví dụ và bài đọc hiểu song ngữ Anh - Việt.'
+    vi: 'Lộ trình JLPT N4 từng bước, nối tiếp N5. Mỗi bài bổ sung thể thường, câu điều kiện, ý chí, cho và nhận, suy đoán,... kèm câu ví dụ và bài đọc hiểu song ngữ Anh - Việt.'
   },
   seoTitle: {
     en: 'JLPT N4 Course - Vocabulary & Grammar',
