@@ -4,18 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Chip,
-  Paper,
-  Stack,
-  Tab,
-  Tabs,
-  Typography
-} from '@mui/material';
+import { Box, Button, Card, CardContent, Chip, Stack, Tab, Tabs, Typography } from '@mui/material';
 import {
   referenceGrammarPoints,
   referenceMeetingPhrases,
@@ -24,6 +13,7 @@ import {
 import { Heading } from '@/components/heading.tsx';
 import { PageContainer } from '@/components/page-container.tsx';
 import { SpeakButton } from '@/components/speak-button.tsx';
+import { SpeakableSurface } from '@/components/speakable-surface.tsx';
 import { routes } from '@/constants/routes.ts';
 import { useTranslation } from '@/i18n/use-translation.ts';
 import { elevatedSurfaceSx } from '@/theme/surfaces.ts';
@@ -46,10 +36,10 @@ function VocabSection() {
             }}
           >
             {group.items.map((item) => (
-              <Paper
+              <SpeakableSurface
                 key={`${item.kana}-${item.romaji}`}
-                elevation={0}
-                sx={[elevatedSurfaceSx, { p: 1.5, display: 'flex', gap: 0.5 }]}
+                text={item.kana}
+                sx={{ p: 1.5, display: 'flex', gap: 0.5 }}
               >
                 <SpeakButton text={item.kana} />
                 <Box sx={{ minWidth: 0 }}>
@@ -79,7 +69,7 @@ function VocabSection() {
                     {item.meaning[locale]}
                   </Typography>
                 </Box>
-              </Paper>
+              </SpeakableSurface>
             ))}
           </Box>
         </Box>
@@ -113,7 +103,7 @@ function GrammarSection() {
             </Typography>
             <Stack spacing={1.5}>
               {point.examples.map((example) => (
-                <Paper key={example.jp} elevation={0} sx={[elevatedSurfaceSx, { p: 1.5 }]}>
+                <SpeakableSurface key={example.jp} text={example.jp} sx={{ p: 1.5 }}>
                   <Stack direction="row" spacing={0.5} sx={{ alignItems: 'flex-start' }}>
                     <SpeakButton text={example.jp} />
                     <Box sx={{ flex: 1, minWidth: 0 }}>
@@ -132,7 +122,7 @@ function GrammarSection() {
                       </Typography>
                     </Box>
                   </Stack>
-                </Paper>
+                </SpeakableSurface>
               ))}
             </Stack>
           </CardContent>
@@ -154,7 +144,7 @@ function MeetingSection() {
           </Heading>
           <Stack spacing={1.5}>
             {group.phrases.map((phrase) => (
-              <Paper key={phrase.jp} elevation={0} sx={[elevatedSurfaceSx, { p: 1.5 }]}>
+              <SpeakableSurface key={phrase.jp} text={phrase.jp} sx={{ p: 1.5 }}>
                 <Stack direction="row" spacing={0.5} sx={{ alignItems: 'flex-start' }}>
                   <SpeakButton text={phrase.jp} />
                   <Box sx={{ flex: 1, minWidth: 0 }}>
@@ -169,7 +159,7 @@ function MeetingSection() {
                     </Typography>
                   </Box>
                 </Stack>
-              </Paper>
+              </SpeakableSurface>
             ))}
           </Stack>
         </Box>

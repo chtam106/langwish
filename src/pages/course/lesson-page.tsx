@@ -22,19 +22,13 @@ import {
 import { Heading } from '@/components/heading.tsx';
 import { PageContainer } from '@/components/page-container.tsx';
 import { SpeakButton } from '@/components/speak-button.tsx';
+import { SpeakableSurface } from '@/components/speakable-surface.tsx';
 import { useTranslation } from '@/i18n/use-translation.ts';
-import { isSpeechSupported, speakJapanese } from '@/utils/speech.ts';
-import {
-  elevatedSurfaceSx,
-  interactiveSurfaceSx,
-  subtleSurfaceSx,
-  tonalSurfaceSx
-} from '@/theme/surfaces.ts';
+import { elevatedSurfaceSx, subtleSurfaceSx, tonalSurfaceSx } from '@/theme/surfaces.ts';
 import { LessonNotFound } from './shared.tsx';
 
 function VocabularySection({ lesson }: { lesson: Lesson }) {
   const { locale, t } = useTranslation();
-  const canSpeak = isSpeechSupported();
 
   return (
     <Box>
@@ -51,33 +45,10 @@ function VocabularySection({ lesson }: { lesson: Lesson }) {
         }}
       >
         {lesson.vocab.map((item) => (
-          <Paper
+          <SpeakableSurface
             key={`${item.kana}-${item.romaji}`}
-            elevation={0}
-            onClick={canSpeak ? () => speakJapanese(item.kana) : undefined}
-            role={canSpeak ? 'button' : undefined}
-            tabIndex={canSpeak ? 0 : undefined}
-            aria-label={canSpeak ? t('common.playAudio') : undefined}
-            onKeyDown={
-              canSpeak
-                ? (event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault();
-                      speakJapanese(item.kana);
-                    }
-                  }
-                : undefined
-            }
-            sx={[
-              canSpeak ? interactiveSurfaceSx : elevatedSurfaceSx,
-              {
-                p: 1.5,
-                display: 'flex',
-                gap: 0.5,
-                alignItems: 'flex-start',
-                cursor: canSpeak ? 'pointer' : undefined
-              }
-            ]}
+            text={item.kana}
+            sx={{ p: 1.5, display: 'flex', gap: 0.5, alignItems: 'flex-start' }}
           >
             <SpeakButton text={item.kana} />
             <Box sx={{ minWidth: 0 }}>
@@ -102,7 +73,7 @@ function VocabularySection({ lesson }: { lesson: Lesson }) {
                 {item.meaning[locale]}
               </Typography>
             </Box>
-          </Paper>
+          </SpeakableSurface>
         ))}
       </Box>
     </Box>
@@ -111,7 +82,6 @@ function VocabularySection({ lesson }: { lesson: Lesson }) {
 
 function GrammarSection({ lesson }: { lesson: Lesson }) {
   const { locale, t } = useTranslation();
-  const canSpeak = isSpeechSupported();
 
   return (
     <Box>
@@ -141,28 +111,7 @@ function GrammarSection({ lesson }: { lesson: Lesson }) {
               </Typography>
               <Stack spacing={1.5}>
                 {point.examples.map((example) => (
-                  <Paper
-                    key={example.jp}
-                    elevation={0}
-                    onClick={canSpeak ? () => speakJapanese(example.jp) : undefined}
-                    role={canSpeak ? 'button' : undefined}
-                    tabIndex={canSpeak ? 0 : undefined}
-                    aria-label={canSpeak ? t('common.playAudio') : undefined}
-                    onKeyDown={
-                      canSpeak
-                        ? (event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              event.preventDefault();
-                              speakJapanese(example.jp);
-                            }
-                          }
-                        : undefined
-                    }
-                    sx={[
-                      canSpeak ? interactiveSurfaceSx : elevatedSurfaceSx,
-                      { p: 1.5, cursor: canSpeak ? 'pointer' : undefined }
-                    ]}
-                  >
+                  <SpeakableSurface key={example.jp} text={example.jp} sx={{ p: 1.5 }}>
                     <Stack direction="row" spacing={0.5} sx={{ alignItems: 'flex-start' }}>
                       <SpeakButton text={example.jp} />
                       <Box sx={{ flex: 1, minWidth: 0 }}>
@@ -181,7 +130,7 @@ function GrammarSection({ lesson }: { lesson: Lesson }) {
                         </Typography>
                       </Box>
                     </Stack>
-                  </Paper>
+                  </SpeakableSurface>
                 ))}
               </Stack>
             </CardContent>
