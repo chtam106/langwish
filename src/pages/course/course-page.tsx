@@ -9,11 +9,13 @@ import {
   Stack,
   Typography
 } from '@mui/material';
+import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import { Heading } from '@/components/heading.tsx';
 import { getCourse, lessonPath, type CourseLevel } from '@/constants/courses/index.ts';
 import { PageContainer } from '@/components/page-container.tsx';
+import { routes } from '@/constants/routes.ts';
 import { useTranslation } from '@/i18n/use-translation.ts';
-import { interactiveSurfaceSx } from '@/theme/surfaces.ts';
+import { interactiveSurfaceSx, tonalSurfaceSx } from '@/theme/surfaces.ts';
 
 function CoursePage({ level }: { level: CourseLevel }) {
   const { locale, t } = useTranslation();
@@ -33,6 +35,26 @@ function CoursePage({ level }: { level: CourseLevel }) {
             {course.intro[locale]}
           </Typography>
         </Box>
+
+        {level === 'frontend' && (
+          <Card elevation={0} sx={tonalSurfaceSx}>
+            <CardActionArea component={RouterLink} to={routes.frontend.reference}>
+              <CardContent>
+                <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
+                  <LibraryBooksOutlinedIcon color="primary" />
+                  <Box sx={{ minWidth: 0 }}>
+                    <Heading component="h2" sx={{ fontSize: '1.125rem' }}>
+                      {t('course.referenceLink')}
+                    </Heading>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.25 }}>
+                      {t('course.referenceLinkDescription')}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        )}
 
         <Box>
           <Heading scale="subsection" component="h2" sx={{ mb: 1.5 }}>
