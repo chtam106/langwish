@@ -15,6 +15,7 @@ import {
 import { alpha } from '@mui/material/styles';
 import { Brand } from '@/components/brand.tsx';
 import { PageMeta } from '@/components/page-meta.tsx';
+import { ScrollToTopButton } from '@/components/scroll-to-top-button.tsx';
 import { SiteFooter } from '@/components/site-footer.tsx';
 import { useTranslation } from '@/i18n/use-translation.ts';
 import { loadJapaneseUiFont } from '@/theme/fonts.ts';
@@ -150,6 +151,8 @@ function AppLayout() {
         <Outlet />
         <SiteFooter />
       </Box>
+
+      <ScrollToTopButton />
     </Box>
   );
 }
