@@ -404,7 +404,11 @@ export function AlphabetChartPage({
       <Typography variant="body1" color="text.secondary" sx={{ mb: 0.5 }}>
         {description}
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: { xs: 2, md: 3 } }}>
+      <Typography
+        variant="body2"
+        color="primary.main"
+        sx={{ mt: 1.5, mb: { xs: 2, md: 3 }, fontWeight: 500 }}
+      >
         {t('alphabet.tapHint')}
       </Typography>
 
