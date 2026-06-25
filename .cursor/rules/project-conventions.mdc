@@ -41,6 +41,7 @@ alwaysApply: true
 - Each kana accepts EXACTLY ONE romaji - the spelling shown in the chart (`AlphabetCell.romaji`). The romaji quiz's `correctAnswers` is just `[correctItem.romaji]`; typed input is only normalized with `normalizeRomajiInput` (trim + lowercase) before an exact match. Do NOT add alternate-spelling aliasing (no Kunrei si/shi, tya/cha, no homophone fuzziness) in the alphabet quiz.
 - Use Hepburn for the homophone kana: ぢ/ヂ = `ji`, づ/ヅ = `zu` (same as じ/ず). This means `ji`/`zu` are duplicated in the chart; `buildRomajiToCharMap` (in `src/constants/alphabet-charts.ts`) is first-occurrence-wins so じ/ず keep those keys and yoon base lookups (じゃ etc.) stay correct.
 - The sentence exercise keeps its OWN separate canonicalizer in `sentence/transliterate.ts` - independent of the alphabet quiz.
+- Script pairing in the quiz works on bilingual `KanaEntry { romaji, hiragana, katakana }` units (built in `exercise-quiz.ts` by zipping the two same-ordered per-script item arrays). The hiragana<->katakana counterpart is the matching field on the entry - do NOT re-pair by romaji (homophones じ/ぢ, ず/づ share a romaji) or by Unicode code-point math.
 
 ## i18n
 - UI chrome text lives in `src/i18n/translations.ts` as nested keys; both `en` and `vi` MUST be kept in sync. Read via `const { t, locale } = useTranslation()`.
