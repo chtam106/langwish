@@ -53,10 +53,10 @@ function VocabularySection({ lesson }: VocabularySectionProps) {
         {lesson.vocab.map((item) => (
           <SpeakableSurface
             key={`${item.kana}-${item.romaji}`}
-            text={item.kana}
+            text={item.speech ?? item.kana}
             sx={{ p: 1.5, display: 'flex', gap: 0.5, alignItems: 'flex-start' }}
           >
-            <SpeakButton text={item.kana} />
+            <SpeakButton text={item.speech ?? item.kana} />
             <Box sx={{ minWidth: 0 }}>
               <Typography variant="subtitle1" component="span" lang="ja" sx={{ fontWeight: 600 }}>
                 {item.kanji ?? item.kana}
