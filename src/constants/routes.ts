@@ -34,7 +34,8 @@ export const routes = {
       character: '/alphabet/exercise/character',
       listen: '/alphabet/exercise/listen',
       scriptPair: '/alphabet/exercise/script-pair',
-      writing: '/alphabet/exercise/writing'
+      writing: '/alphabet/exercise/writing',
+      sentence: '/alphabet/exercise/sentence'
     }
   }
 } as const satisfies RouteNode;

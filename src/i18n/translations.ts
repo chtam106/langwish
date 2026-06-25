@@ -76,6 +76,11 @@ const en: TranslationTree = {
           title: 'Kana Writing Practice with Stroke Order Animation',
           description:
             'Pick a basic hiragana or katakana character, practice writing by hand, and follow the stroke order animation guide.'
+        },
+        sentence: {
+          title: 'Kana Sentence Romaji Transcription Practice',
+          description:
+            'Read full hiragana, katakana, or mixed kana sentences and type their romaji to build fluent reading.'
         }
       }
     }
@@ -174,6 +179,24 @@ const en: TranslationTree = {
     writingReveal: 'Show answer',
     writingHideAnswer: 'Hide answer',
     writingNext: 'Next character',
+    sentence: 'Sentence transcription',
+    sentenceTitle: 'Read the sentence, type the romaji',
+    sentenceDescription: 'Read a kana sentence and type its romaji.',
+    sentenceHint:
+      'Read each kana by its sound. For long vowels, type two vowels in a row (no macron needed).',
+    sentenceType: 'Sentence type',
+    sentenceTypeHiragana: 'All hiragana',
+    sentenceTypeKatakana: 'All katakana',
+    sentenceTypeMixed: 'Mixed',
+    sentenceProgress: 'Sentence {{current}} / {{total}}',
+    sentenceScore: 'Correct: {{correct}} / {{total}}',
+    sentencePrompt: 'Type the romaji for this sentence',
+    sentenceInputPlaceholder: 'Type romaji',
+    showAnswer: 'Show answer',
+    hideAnswer: 'Hide answer',
+    sentenceNext: 'Next',
+    sentenceComplete: 'Exercise complete!',
+    sentenceRestart: 'Try again',
     chooseCharacter: 'Choose the kana character',
     listenPickShort: 'Listen & choose',
     script: 'Script',
