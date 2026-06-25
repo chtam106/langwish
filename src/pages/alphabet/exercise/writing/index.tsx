@@ -298,17 +298,16 @@ function KanaSample({ cell }: KanaSampleProps) {
 
 type WritingMode = 'row' | 'romaji';
 
-function pickRandomIndex(length: number, exclude: number) {
-  if (length <= 1) {
-    return 0;
+/** A shuffled list of all indices 0..length-1 (a fresh deck to draw from). */
+function shuffledIndices(length: number): number[] {
+  const order = Array.from({ length }, (_, i) => i);
+
+  for (let i = order.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
   }
 
-  let next = Math.floor(Math.random() * length);
-  while (next === exclude) {
-    next = Math.floor(Math.random() * length);
-  }
-
-  return next;
+  return order;
 }
 
 type RomajiPromptPracticeProps = {
@@ -327,14 +326,34 @@ function RomajiPromptPractice({ script, rowIndex }: RomajiPromptPracticeProps) {
     const rows = script === 'hiragana' ? hiraganaChartRows : katakanaChartRows;
     return (rows[rowIndex]?.seion ?? []).filter((cell): cell is AlphabetCell => cell !== null);
   }, [script, rowIndex]);
-  const [index, setIndex] = useState(() => Math.floor(Math.random() * items.length));
+  // Draw without replacement: each kana appears once per cycle, then the deck
+  // reshuffles - so no character repeats until every other one has shown.
+  const [draw, setDraw] = useState(() => {
+    const deck = shuffledIndices(items.length);
+    return { index: deck.pop() ?? 0, deck };
+  });
   const [revealed, setRevealed] = useState(false);
   const [round, setRound] = useState(0);
 
-  const cell = items[index];
+  const cell = items[draw.index];
 
   const handleNext = () => {
-    setIndex((previous) => pickRandomIndex(items.length, previous));
+    setDraw((previous) => {
+      let deck = previous.deck;
+
+      if (deck.length === 0) {
+        deck = shuffledIndices(items.length);
+
+        // Avoid repeating the just-shown kana right at the cycle boundary.
+        if (deck.length > 1 && deck[deck.length - 1] === previous.index) {
+          [deck[deck.length - 1], deck[0]] = [deck[0], deck[deck.length - 1]];
+        }
+      } else {
+        deck = [...deck];
+      }
+
+      return { index: deck.pop() ?? previous.index, deck };
+    });
     setRevealed(false);
     setRound((previous) => previous + 1);
   };
@@ -392,6 +411,13 @@ function RomajiPromptPractice({ script, rowIndex }: RomajiPromptPracticeProps) {
         </Box>
       </Stack>
 
+      <WritingCanvas
+        key={`${script}:${round}`}
+        ariaLabel={t('exercise.writingCanvasAria')}
+        clearLabel={t('exercise.writingClear')}
+        undoLabel={t('exercise.writingUndo')}
+      />
+
       <Stack
         direction="row"
         spacing={1.5}
@@ -405,13 +431,6 @@ function RomajiPromptPractice({ script, rowIndex }: RomajiPromptPracticeProps) {
           {t('exercise.writingNext')}
         </Button>
       </Stack>
-
-      <WritingCanvas
-        key={`${script}:${round}`}
-        ariaLabel={t('exercise.writingCanvasAria')}
-        clearLabel={t('exercise.writingClear')}
-        undoLabel={t('exercise.writingUndo')}
-      />
     </Stack>
   );
 }
