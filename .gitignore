@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Test output (unit -> coverage/unit, e2e -> coverage/e2e)
+coverage
+.playwright
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
