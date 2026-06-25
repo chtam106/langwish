@@ -70,6 +70,11 @@ export const viTranslations: TranslationTree = {
           title: 'Luyện viết Kana với hoạt ảnh thứ tự nét',
           description:
             'Chọn một chữ hiragana hoặc katakana cơ bản, tập viết bằng tay và làm theo hoạt ảnh hướng dẫn thứ tự nét.'
+        },
+        sentence: {
+          title: 'Luyện phiên âm romaji câu Kana',
+          description:
+            'Đọc các câu viết toàn hiragana, toàn katakana hoặc kết hợp và gõ phiên âm romaji để đọc trôi chảy hơn.'
         }
       }
     }
@@ -168,6 +173,24 @@ export const viTranslations: TranslationTree = {
     writingReveal: 'Xem đáp án',
     writingHideAnswer: 'Ẩn đáp án',
     writingNext: 'Chữ khác',
+    sentence: 'Phiên âm câu',
+    sentenceTitle: 'Đọc câu và gõ phiên âm romaji',
+    sentenceDescription: 'Nhìn câu viết bằng kana và gõ phiên âm romaji.',
+    sentenceHint:
+      'Đọc từng chữ kana theo âm của nó. Với trường âm, gõ hai nguyên âm liền nhau (không cần dấu gạch trên đầu).',
+    sentenceType: 'Loại câu',
+    sentenceTypeHiragana: 'Toàn hiragana',
+    sentenceTypeKatakana: 'Toàn katakana',
+    sentenceTypeMixed: 'Kết hợp',
+    sentenceProgress: 'Câu {{current}} / {{total}}',
+    sentenceScore: 'Đúng: {{correct}} / {{total}}',
+    sentencePrompt: 'Gõ phiên âm romaji cho câu này',
+    sentenceInputPlaceholder: 'Nhập romaji',
+    showAnswer: 'Hiện đáp án',
+    hideAnswer: 'Ẩn đáp án',
+    sentenceNext: 'Tiếp theo',
+    sentenceComplete: 'Hoàn thành bài tập!',
+    sentenceRestart: 'Làm lại',
     chooseCharacter: 'Chọn chữ kana',
     listenPickShort: 'Nghe & chọn',
     script: 'Bảng chữ',

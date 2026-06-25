@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import { Box, Button, IconButton, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, IconButton, Link, Paper, Stack, TextField, Typography } from '@mui/material';
 import {
   getOptionValue,
   isQuizAnswerCorrect,
@@ -61,19 +61,23 @@ function canonicalizeRomaji(value: string) {
 
 /** Free-text romaji answer: type the romaji for the shown kana. */
 function RomajiInputAnswer({
+  correctRomaji,
   answeredCorrectly,
   wrongAnswers,
   onAnswer
 }: {
+  correctRomaji: string;
   answeredCorrectly: boolean;
   wrongAnswers: string[];
   onAnswer: (answer: string) => void;
 }) {
   const { t } = useTranslation();
   const [value, setValue] = useState('');
+  const [revealed, setRevealed] = useState(false);
 
   const canonical = canonicalizeRomaji(value);
   const isWrong = !answeredCorrectly && canonical.length > 0 && wrongAnswers.includes(canonical);
+  const answerShown = revealed || answeredCorrectly;
 
   const handleSubmit = () => {
     if (answeredCorrectly || canonical.length === 0) {
@@ -84,54 +88,103 @@ function RomajiInputAnswer({
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={(event) => {
-        event.preventDefault();
-        handleSubmit();
-      }}
-      sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', alignItems: 'center' }}
-    >
-      <TextField
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-        placeholder={t('exercise.romajiInputPlaceholder')}
-        autoComplete="off"
-        spellCheck={false}
-        autoFocus
-        focused={answeredCorrectly || undefined}
-        color={answeredCorrectly ? 'success' : undefined}
-        error={isWrong}
-        slotProps={{
-          input: { readOnly: answeredCorrectly },
-          htmlInput: {
-            'aria-label': t('exercise.romajiInputPlaceholder'),
-            lang: 'en',
-            autoCapitalize: 'none',
-            autoCorrect: 'off'
-          }
+    <Stack spacing={4} sx={{ alignItems: 'center' }}>
+      <Box aria-live="polite" sx={{ display: 'grid', justifyItems: 'center' }}>
+        <Link
+          component="button"
+          type="button"
+          variant="body1"
+          underline="hover"
+          onClick={() => setRevealed(true)}
+          sx={{
+            gridArea: '1 / 1',
+            lineHeight: 1.66,
+            visibility: answerShown ? 'hidden' : 'visible'
+          }}
+        >
+          {t('exercise.showAnswer')}
+        </Link>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{
+            gridArea: '1 / 1',
+            alignItems: 'baseline',
+            flexWrap: 'wrap',
+            visibility: answerShown ? 'visible' : 'hidden'
+          }}
+        >
+          {!answeredCorrectly && (
+            <Link
+              component="button"
+              type="button"
+              variant="body1"
+              underline="hover"
+              onClick={() => setRevealed(false)}
+              sx={{ lineHeight: 1.66 }}
+            >
+              {t('exercise.hideAnswer')}
+            </Link>
+          )}
+          <Typography
+            lang="en"
+            variant="body1"
+            sx={{ color: 'text.secondary', fontWeight: 500, lineHeight: 1.66 }}
+          >
+            {correctRomaji}
+          </Typography>
+        </Stack>
+      </Box>
+
+      <Box
+        component="form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSubmit();
         }}
-        sx={{
-          maxWidth: 200,
-          '& .MuiOutlinedInput-root': { height: 48 },
-          '& .MuiOutlinedInput-notchedOutline': { borderWidth: 1 },
-          '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderWidth: 1
-          },
-          '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
-            borderWidth: 1
-          }
-        }}
-      />
-      <Button
-        type="submit"
-        variant="contained"
-        disabled={answeredCorrectly}
-        sx={{ height: 48, flexShrink: 0 }}
+        sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', alignItems: 'center' }}
       >
-        {t('exercise.check')}
-      </Button>
-    </Box>
+        <TextField
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          placeholder={t('exercise.romajiInputPlaceholder')}
+          autoComplete="off"
+          spellCheck={false}
+          autoFocus
+          focused={answeredCorrectly || undefined}
+          color={answeredCorrectly ? 'success' : undefined}
+          error={isWrong}
+          slotProps={{
+            input: { readOnly: answeredCorrectly },
+            htmlInput: {
+              'aria-label': t('exercise.romajiInputPlaceholder'),
+              lang: 'en',
+              autoCapitalize: 'none',
+              autoCorrect: 'off'
+            }
+          }}
+          sx={{
+            maxWidth: 200,
+            '& .MuiOutlinedInput-root': { height: 48 },
+            '& .MuiOutlinedInput-notchedOutline': { borderWidth: 1 },
+            '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderWidth: 1
+            },
+            '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
+              borderWidth: 1
+            }
+          }}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          disabled={answeredCorrectly}
+          sx={{ height: 48, flexShrink: 0 }}
+        >
+          {t('exercise.check')}
+        </Button>
+      </Box>
+    </Stack>
   );
 }
 
@@ -177,7 +230,7 @@ export function ExerciseQuizPanel({
 
       <Box
         sx={{
-          mb: 4,
+          mb: mode === 'romaji' ? 1.5 : 4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -216,11 +269,11 @@ export function ExerciseQuizPanel({
                 sx={{
                   color: 'text.secondary',
                   position: 'absolute',
-                  left: '100%',
+                  right: '100%',
                   top: 0,
                   bottom: 0,
                   my: 'auto',
-                  ml: 0.5
+                  mr: 0.5
                 }}
               >
                 <VolumeUpIcon sx={{ fontSize: 32 }} />
@@ -259,6 +312,7 @@ export function ExerciseQuizPanel({
       {mode === 'romaji' && (
         <RomajiInputAnswer
           key={questionNumber}
+          correctRomaji={question.correctItem.romaji}
           answeredCorrectly={answeredCorrectly}
           wrongAnswers={wrongAnswers}
           onAnswer={onAnswer}
@@ -286,14 +340,14 @@ export function ExerciseQuizPanel({
                 variant="outlined"
                 onClick={() => onAnswer(value)}
                 disabled={answeredCorrectly || isWrongAnswer}
-              sx={{
-                py: 2,
-                fontSize: characterOptions ? '1.5rem' : '1rem',
-                borderWidth: 1,
-                '&.Mui-disabled': { borderWidth: 1 },
-                ...(showCorrect && resultBorderSx('correct')),
-                ...(showWrong && resultBorderSx('wrong'))
-              }}
+                sx={{
+                  py: 2,
+                  fontSize: characterOptions ? '1.5rem' : '1rem',
+                  borderWidth: 1,
+                  '&.Mui-disabled': { borderWidth: 1 },
+                  ...(showCorrect && resultBorderSx('correct')),
+                  ...(showWrong && resultBorderSx('wrong'))
+                }}
               >
                 {characterOptions && <KanaDisplay cell={item} variant="option" />}
                 {!characterOptions && item.romaji}

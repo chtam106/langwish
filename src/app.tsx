@@ -17,6 +17,7 @@ const ScriptPairExercisePage = lazy(
   () => import('@/pages/alphabet/exercise/script-pair/index.tsx')
 );
 const WritingExercisePage = lazy(() => import('@/pages/alphabet/exercise/writing/index.tsx'));
+const SentenceExercisePage = lazy(() => import('@/pages/alphabet/exercise/sentence/index.tsx'));
 const CoursePage = lazy(() => import('@/pages/course/course-page.tsx'));
 const FrontendReferencePage = lazy(() => import('@/pages/course/frontend-reference.tsx'));
 const LessonPage = lazy(() => import('@/pages/course/lesson-page.tsx'));
@@ -66,6 +67,7 @@ function App() {
           <Route path={routes.alphabet.exercise.listen} element={<ListenExercisePage />} />
           <Route path={routes.alphabet.exercise.scriptPair} element={<ScriptPairExercisePage />} />
           <Route path={routes.alphabet.exercise.writing} element={<WritingExercisePage />} />
+          <Route path={routes.alphabet.exercise.sentence} element={<SentenceExercisePage />} />
         </Route>
       </Routes>
     </Suspense>

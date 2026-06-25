@@ -2,6 +2,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DrawOutlinedIcon from '@mui/icons-material/DrawOutlined';
 import HeadphonesOutlinedIcon from '@mui/icons-material/HeadphonesOutlined';
+import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
 import SpellcheckOutlinedIcon from '@mui/icons-material/SpellcheckOutlined';
 import SwapHorizOutlinedIcon from '@mui/icons-material/SwapHorizOutlined';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
@@ -45,6 +46,12 @@ function ExerciseHubPage() {
       title: t('exercise.writing'),
       description: t('exercise.writingDescription'),
       icon: DrawOutlinedIcon
+    },
+    {
+      to: routes.alphabet.exercise.sentence,
+      title: t('exercise.sentence'),
+      description: t('exercise.sentenceDescription'),
+      icon: NotesOutlinedIcon
     }
   ];
 
