@@ -19,6 +19,7 @@ import {
   type CourseLevel,
   type Lesson
 } from '@/constants/courses/index.ts';
+import { AiDisclaimer } from '@/components/ai-disclaimer';
 import { GrammarPointCard } from '@/components/grammar-point-card';
 import { Heading } from '@/components/heading';
 import { PageContainer } from '@/components/page-container';
@@ -214,6 +215,8 @@ function LessonPage({ level }: LessonPageProps) {
               {t('common.back')}
             </Button>
           </Box>
+
+          <AiDisclaimer text={t('course.aiDisclaimer')} sx={{ mb: 2.5 }} />
 
           <Stack
             direction="row"
