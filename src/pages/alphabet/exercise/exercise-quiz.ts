@@ -12,6 +12,13 @@ export type ExerciseMode = 'romaji' | 'character' | 'listen' | 'script-pair';
 export type ScriptPairDirection = 'hiragana-to-katakana' | 'katakana-to-hiragana' | 'mixed';
 export type ResolvedScriptPairDirection = 'hiragana-to-katakana' | 'katakana-to-hiragana';
 
+/** One syllable with both scripts kept together, so pairing is just a field read. */
+export type KanaEntry = {
+  romaji: string;
+  hiragana: AlphabetCell;
+  katakana: AlphabetCell;
+};
+
 export type QuizQuestion = {
   mode: ExerciseMode;
   correctItem: AlphabetCell;
@@ -28,40 +35,29 @@ export type QuizSession = {
 };
 
 /**
- * Map alternative romaji spellings to a single canonical form so equivalent
- * inputs collapse together: Kunrei/typo spellings (si/shi, ti/chi, ...) and the
- * homophone pairs ぢ/じ (di/ji) and づ/ず (du/zu). Both the user's input and the
- * expected answer are canonicalized before comparison, otherwise the chart's
- * `du`/`di` spellings could never be matched.
+ * Each kana accepts exactly one romaji spelling (the one shown in the chart).
+ * Typed input is only trimmed/lowercased before being matched against it - no
+ * alternate spellings (Kunrei, homophones) are accepted.
  */
-const ROMAJI_ALIASES: Record<string, string> = {
-  si: 'shi',
-  ti: 'chi',
-  tu: 'tsu',
-  hu: 'fu',
-  zi: 'ji',
-  di: 'ji',
-  du: 'zu',
-  sya: 'sha',
-  syu: 'shu',
-  syo: 'sho',
-  tya: 'cha',
-  tyu: 'chu',
-  tyo: 'cho',
-  zya: 'ja',
-  zyu: 'ju',
-  zyo: 'jo',
-  jya: 'ja',
-  jyu: 'ju',
-  jyo: 'jo',
-  cya: 'cha',
-  cyu: 'chu',
-  cyo: 'cho'
-};
+export function normalizeRomajiInput(value: string) {
+  return value.trim().toLowerCase();
+}
 
-export function canonicalizeRomaji(value: string) {
-  const normalized = value.trim().toLowerCase();
-  return ROMAJI_ALIASES[normalized] ?? normalized;
+// Hiragana and katakana chart items share the same structure and order, so the
+// two flattened arrays line up index-for-index and can be zipped into entries.
+function getKanaEntries(scope: ExerciseScope): KanaEntry[] {
+  const hiragana = getAlphabetItems('hiragana', scope);
+  const katakana = getAlphabetItems('katakana', scope);
+
+  return hiragana.map((cell, index) => ({
+    romaji: cell.romaji,
+    hiragana: cell,
+    katakana: katakana[index]!
+  }));
+}
+
+function otherScript(script: Script): Script {
+  return script === 'hiragana' ? 'katakana' : 'hiragana';
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -75,36 +71,19 @@ function shuffle<T>(items: T[]): T[] {
   return copy;
 }
 
-function findScriptPair(allItems: AlphabetCell[], correctItem: AlphabetCell) {
-  return allItems.find(
-    (item) => item.romaji === correctItem.romaji && item.char !== correctItem.char
-  );
-}
-
 function pickOptionItems(
-  allItems: AlphabetCell[],
+  pool: AlphabetCell[],
   correctItem: AlphabetCell,
-  includeScriptPair = false
+  pair?: AlphabetCell
 ): AlphabetCell[] {
-  const paired = includeScriptPair ? findScriptPair(allItems, correctItem) : undefined;
-  const otherItems = allItems.filter((item) => item.romaji !== correctItem.romaji);
-  const distractorCount = paired ? Math.min(2, otherItems.length) : Math.min(3, otherItems.length);
+  const otherItems = pool.filter((item) => item.romaji !== correctItem.romaji);
+  const distractorCount = Math.min(pair ? 2 : 3, otherItems.length);
 
   return shuffle([
     correctItem,
-    ...(paired ? [paired] : []),
+    ...(pair ? [pair] : []),
     ...shuffle(otherItems).slice(0, distractorCount)
   ]);
-}
-
-function getCharacterCorrectAnswers(
-  correctItem: AlphabetCell,
-  allItems: AlphabetCell[],
-  includeScriptPair: boolean
-) {
-  const paired = includeScriptPair ? findScriptPair(allItems, correctItem) : undefined;
-
-  return paired ? [correctItem.char, paired.char] : [correctItem.char];
 }
 
 function resolvePairDirection(direction: ScriptPairDirection): ResolvedScriptPairDirection {
@@ -123,25 +102,56 @@ function getPromptScript(pairDirection: ResolvedScriptPairDirection): Script {
   return pairDirection === 'hiragana-to-katakana' ? 'hiragana' : 'katakana';
 }
 
-function getItemByRomaji(script: Script, scope: ExerciseScope, romaji: string) {
-  return getAlphabetItems(script, scope).find((item) => item.romaji === romaji);
+// A single turn: the syllable plus which script's glyph is its subject. In
+// "all script" modes both scripts of every entry become their own turn.
+type QuizDeckItem = {
+  entry: KanaEntry;
+  script: Script;
+};
+
+function buildDeck(
+  entries: KanaEntry[],
+  script: ExerciseScript,
+  mode: ExerciseMode
+): QuizDeckItem[] {
+  if (mode === 'script-pair') {
+    return entries.map((entry) => ({ entry, script: 'hiragana' }));
+  }
+
+  if (script === 'all') {
+    return entries.flatMap((entry) => [
+      { entry, script: 'hiragana' as Script },
+      { entry, script: 'katakana' as Script }
+    ]);
+  }
+
+  return entries.map((entry) => ({ entry, script }));
 }
 
 function buildQuestion(
-  correctItem: AlphabetCell,
-  allItems: AlphabetCell[],
+  deckItem: QuizDeckItem,
+  entries: KanaEntry[],
   mode: ExerciseMode,
   script: ExerciseScript
 ): QuizQuestion {
-  const includeScriptPair = script === 'all' && (mode === 'character' || mode === 'listen');
-  const optionItems = pickOptionItems(allItems, correctItem, includeScriptPair);
+  const { entry, script: itemScript } = deckItem;
+  const correctItem = entry[itemScript];
+  const isAllScript = script === 'all';
+  const includeScriptPair = isAllScript && (mode === 'character' || mode === 'listen');
+  const pair = includeScriptPair ? entry[otherScript(itemScript)] : undefined;
+
+  const pool = isAllScript
+    ? entries.flatMap((item) => [item.hiragana, item.katakana])
+    : entries.map((item) => item[itemScript]);
+
+  const optionItems = pickOptionItems(pool, correctItem, pair);
 
   if (mode === 'romaji') {
     return {
       mode,
       correctItem,
       optionItems,
-      correctAnswers: [canonicalizeRomaji(correctItem.romaji)]
+      correctAnswers: [entry.romaji]
     };
   }
 
@@ -149,43 +159,30 @@ function buildQuestion(
     mode,
     correctItem,
     optionItems,
-    correctAnswers: getCharacterCorrectAnswers(correctItem, allItems, includeScriptPair)
+    correctAnswers: pair ? [correctItem.char, pair.char] : [correctItem.char]
   };
 }
 
 function buildScriptPairQuestion(
-  promptRomaji: string,
-  scope: ExerciseScope,
+  entry: KanaEntry,
+  entries: KanaEntry[],
   pairDirection: ScriptPairDirection
 ): QuizQuestion {
   const resolvedDirection = resolvePairDirection(pairDirection);
   const promptScript = getPromptScript(resolvedDirection);
   const answerScript = getAnswerScript(resolvedDirection);
-  const promptItem = getItemByRomaji(promptScript, scope, promptRomaji);
-  const correctItem = getItemByRomaji(answerScript, scope, promptRomaji);
-
-  if (!promptItem || !correctItem) {
-    throw new Error(`Missing script pair for romaji: ${promptRomaji}`);
-  }
-
-  const allAnswerItems = getAlphabetItems(answerScript, scope);
+  const promptItem = entry[promptScript];
+  const correctItem = entry[answerScript];
+  const pool = entries.map((item) => item[answerScript]);
 
   return {
     mode: 'script-pair',
     promptItem,
     correctItem,
     pairDirection: resolvedDirection,
-    optionItems: pickOptionItems(allAnswerItems, correctItem),
+    optionItems: pickOptionItems(pool, correctItem),
     correctAnswers: [correctItem.char]
   };
-}
-
-function getSessionItems(script: ExerciseScript, scope: ExerciseScope): AlphabetCell[] {
-  if (script === 'all') {
-    return [...getAlphabetItems('hiragana', scope), ...getAlphabetItems('katakana', scope)];
-  }
-
-  return getAlphabetItems(script, scope);
 }
 
 export function createQuizSession(
@@ -194,30 +191,31 @@ export function createQuizSession(
   scope: ExerciseScope = 'all',
   pairDirection: ScriptPairDirection = 'hiragana-to-katakana'
 ): QuizSession {
-  const allItems = getSessionItems(script, scope);
-  let remaining = shuffle([...allItems]);
+  const entries = getKanaEntries(scope);
+  const deck = buildDeck(entries, script, mode);
+  let remaining = shuffle([...deck]);
 
   return {
     get remaining() {
       return remaining.length;
     },
-    total: allItems.length,
+    total: deck.length,
     next() {
-      if (allItems.length === 0) {
+      if (deck.length === 0) {
         throw new Error(`No alphabet items for scope: ${scope}`);
       }
 
       if (remaining.length === 0) {
-        remaining = shuffle([...allItems]);
+        remaining = shuffle([...deck]);
       }
 
-      const correctItem = remaining.pop()!;
+      const deckItem = remaining.pop()!;
 
       if (mode === 'script-pair') {
-        return buildScriptPairQuestion(correctItem.romaji, scope, pairDirection);
+        return buildScriptPairQuestion(deckItem.entry, entries, pairDirection);
       }
 
-      return buildQuestion(correctItem, allItems, mode, script);
+      return buildQuestion(deckItem, entries, mode, script);
     }
   };
 }

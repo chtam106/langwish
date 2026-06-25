@@ -2,9 +2,9 @@ import { useState } from 'react';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { Box, Button, IconButton, Link, Paper, Stack, TextField, Typography } from '@mui/material';
 import {
-  canonicalizeRomaji,
   getOptionValue,
   isQuizAnswerCorrect,
+  normalizeRomajiInput,
   usesCharacterOptions,
   type ExerciseMode,
   type ExerciseScope,
@@ -47,16 +47,16 @@ function RomajiInputAnswer({
   const [value, setValue] = useState('');
   const [revealed, setRevealed] = useState(false);
 
-  const canonical = canonicalizeRomaji(value);
-  const isWrong = !answeredCorrectly && canonical.length > 0 && wrongAnswers.includes(canonical);
+  const normalized = normalizeRomajiInput(value);
+  const isWrong = !answeredCorrectly && normalized.length > 0 && wrongAnswers.includes(normalized);
   const answerShown = revealed;
 
   const handleSubmit = () => {
-    if (answeredCorrectly || canonical.length === 0) {
+    if (answeredCorrectly || normalized.length === 0) {
       return;
     }
 
-    onAnswer(canonical);
+    onAnswer(normalized);
   };
 
   return (

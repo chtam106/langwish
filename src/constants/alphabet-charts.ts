@@ -69,8 +69,8 @@ const bilingualChartRows: BilingualChartRow[] = [
     ],
     dakuten: [
       { romaji: 'da', hiragana: 'だ', katakana: 'ダ' },
-      { romaji: 'di', hiragana: 'ぢ', katakana: 'ヂ' },
-      { romaji: 'du', hiragana: 'づ', katakana: 'ヅ' },
+      { romaji: 'ji', hiragana: 'ぢ', katakana: 'ヂ' },
+      { romaji: 'zu', hiragana: 'づ', katakana: 'ヅ' },
       { romaji: 'de', hiragana: 'で', katakana: 'デ' },
       { romaji: 'do', hiragana: 'ど', katakana: 'ド' }
     ]
@@ -255,7 +255,9 @@ function buildRomajiToCharMap(
       }
 
       for (const cell of group) {
-        if (cell) {
+        // First occurrence wins: じ/ず own the `ji`/`zu` keys so yoon base
+        // lookups (じゃ etc.) resolve to じ, not the homophone ぢ/づ.
+        if (cell && !(cell.romaji in map)) {
           map[cell.romaji] = cell[script];
         }
       }
