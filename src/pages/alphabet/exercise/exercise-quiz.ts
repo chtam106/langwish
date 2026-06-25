@@ -28,40 +28,12 @@ export type QuizSession = {
 };
 
 /**
- * Map alternative romaji spellings to a single canonical form so equivalent
- * inputs collapse together: Kunrei/typo spellings (si/shi, ti/chi, ...) and the
- * homophone pairs ぢ/じ (di/ji) and づ/ず (du/zu). Both the user's input and the
- * expected answer are canonicalized before comparison, otherwise the chart's
- * `du`/`di` spellings could never be matched.
+ * Each kana accepts exactly one romaji spelling (the one shown in the chart).
+ * Typed input is only trimmed/lowercased before being matched against it - no
+ * alternate spellings (Kunrei, homophones) are accepted.
  */
-const ROMAJI_ALIASES: Record<string, string> = {
-  si: 'shi',
-  ti: 'chi',
-  tu: 'tsu',
-  hu: 'fu',
-  zi: 'ji',
-  di: 'ji',
-  du: 'zu',
-  sya: 'sha',
-  syu: 'shu',
-  syo: 'sho',
-  tya: 'cha',
-  tyu: 'chu',
-  tyo: 'cho',
-  zya: 'ja',
-  zyu: 'ju',
-  zyo: 'jo',
-  jya: 'ja',
-  jyu: 'ju',
-  jyo: 'jo',
-  cya: 'cha',
-  cyu: 'chu',
-  cyo: 'cho'
-};
-
-export function canonicalizeRomaji(value: string) {
-  const normalized = value.trim().toLowerCase();
-  return ROMAJI_ALIASES[normalized] ?? normalized;
+export function normalizeRomajiInput(value: string) {
+  return value.trim().toLowerCase();
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -141,7 +113,7 @@ function buildQuestion(
       mode,
       correctItem,
       optionItems,
-      correctAnswers: [canonicalizeRomaji(correctItem.romaji)]
+      correctAnswers: [correctItem.romaji]
     };
   }
 

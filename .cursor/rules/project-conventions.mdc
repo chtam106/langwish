@@ -37,6 +37,11 @@ alwaysApply: true
 - Use ONLY US-keyboard ASCII punctuation in non-Japanese text (UI strings, EN/VI content, code, comments, docs). NEVER use em dash (`—`) or en dash (`–`); use a hyphen `-` (as a separator write ` - `, for ranges write `N5-N1` not `N5–N1`). Avoid other "smart"/typographic unicode (curly quotes `“”‘’`, ellipsis `…`) too: use `"`, `'`, `...`.
 - Japanese CONTENT may use Japanese punctuation (`、。「」〜・` etc.); the rule only applies to the non-Japanese parts of a string.
 
+## Alphabet romaji matching
+- Each kana accepts EXACTLY ONE romaji - the spelling shown in the chart (`AlphabetCell.romaji`). The romaji quiz's `correctAnswers` is just `[correctItem.romaji]`; typed input is only normalized with `normalizeRomajiInput` (trim + lowercase) before an exact match. Do NOT add alternate-spelling aliasing (no Kunrei si/shi, tya/cha, no homophone fuzziness) in the alphabet quiz.
+- Use Hepburn for the homophone kana: ぢ/ヂ = `ji`, づ/ヅ = `zu` (same as じ/ず). This means `ji`/`zu` are duplicated in the chart; `buildRomajiToCharMap` (in `src/constants/alphabet-charts.ts`) is first-occurrence-wins so じ/ず keep those keys and yoon base lookups (じゃ etc.) stay correct.
+- The sentence exercise keeps its OWN separate canonicalizer in `sentence/transliterate.ts` - independent of the alphabet quiz.
+
 ## i18n
 - UI chrome text lives in `src/i18n/translations.ts` as nested keys; both `en` and `vi` MUST be kept in sync. Read via `const { t, locale } = useTranslation()`.
 - Bilingual CONTENT data (Japanese + meanings) is stored in data files as `Record<Locale, string>` (type `Bilingual`) and rendered with `value[locale]`, not as translation keys.
