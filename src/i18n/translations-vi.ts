@@ -242,6 +242,7 @@ export const viTranslations: TranslationTree = {
     groupYoonRows: 'Hàng yoon',
     rowDefault: 'Hàng',
     yoonRowDefault: 'Hàng yoon',
+    rowToLast: 'Đến hàng cuối',
     rowLabel: 'Hàng {{name}} ({{char}})'
   },
   course: {

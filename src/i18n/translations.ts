@@ -250,6 +250,7 @@ const en: TranslationTree = {
     groupYoonRows: 'Yoon rows',
     rowDefault: 'Row',
     yoonRowDefault: 'Yoon row',
+    rowToLast: 'To last row',
     rowLabel: '{{name}} row ({{char}})'
   },
   course: {
