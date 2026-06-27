@@ -291,7 +291,7 @@ function KanaSample({ cell }: KanaSampleProps) {
   const { t } = useTranslation();
 
   return (
-    <Stack spacing={0.5} sx={{ alignItems: 'center', width: { xs: 52, sm: 60 } }}>
+    <Stack spacing={0.5} sx={{ alignItems: 'center', width: { xs: 56, sm: 64 } }}>
       {Boolean(kanaStrokes[cell.char]) && <KanaStrokeOrder char={cell.char} size={48} />}
       {!kanaStrokes[cell.char] && (
         <Box
@@ -323,7 +323,11 @@ function KanaSample({ cell }: KanaSampleProps) {
           <KanaDisplay cell={cell} variant="chart" />
         </Box>
       )}
-      <Typography lang="ja" variant="h5" component="span" sx={{ fontWeight: 600, lineHeight: 1 }}>
+      <Typography
+        lang="ja"
+        component="span"
+        sx={{ fontWeight: 600, lineHeight: 1, fontSize: '1.9rem' }}
+      >
         {cell.char}
       </Typography>
     </Stack>
@@ -513,7 +517,7 @@ function WritingExercisePage() {
     <ExercisePageLayout
       title={t('exercise.writing')}
       subtitle={t('exercise.writingDescription')}
-      note={<HintText>{t('exercise.writingStrokeHint')}</HintText>}
+      note={mode === 'row' && <HintText>{t('exercise.writingStrokeHint')}</HintText>}
     >
       <Box sx={{ width: '100%', maxWidth: { xs: '100%', sm: 380, md: 420 }, mx: 'auto' }}>
         <Stack spacing={2}>
