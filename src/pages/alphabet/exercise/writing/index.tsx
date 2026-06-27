@@ -22,6 +22,7 @@ import {
   hiraganaChartRows,
   katakanaChartRows
 } from '@/constants/alphabet-charts.ts';
+import { HintText } from '@/components/hint-text';
 import { KanaDisplay } from '@/components/kana-display';
 import { KanaStrokeOrder } from '@/components/kana-stroke-order';
 import { kanaStrokes } from '@/constants/kana-strokes.ts';
@@ -290,7 +291,7 @@ function KanaSample({ cell }: KanaSampleProps) {
   const { t } = useTranslation();
 
   return (
-    <Stack spacing={0.5} sx={{ alignItems: 'center', width: { xs: 46, sm: 56 } }}>
+    <Stack spacing={0.5} sx={{ alignItems: 'center', width: { xs: 52, sm: 60 } }}>
       {Boolean(kanaStrokes[cell.char]) && <KanaStrokeOrder char={cell.char} size={48} />}
       {!kanaStrokes[cell.char] && (
         <Box
@@ -322,8 +323,8 @@ function KanaSample({ cell }: KanaSampleProps) {
           <KanaDisplay cell={cell} variant="chart" />
         </Box>
       )}
-      <Typography variant="caption" color="text.secondary">
-        {cell.romaji}
+      <Typography lang="ja" variant="h5" component="span" sx={{ fontWeight: 600, lineHeight: 1 }}>
+        {cell.char}
       </Typography>
     </Stack>
   );
@@ -509,7 +510,11 @@ function WritingExercisePage() {
   };
 
   return (
-    <ExercisePageLayout title={t('exercise.writing')} subtitle={t('exercise.writingDescription')}>
+    <ExercisePageLayout
+      title={t('exercise.writing')}
+      subtitle={t('exercise.writingDescription')}
+      note={<HintText>{t('exercise.writingStrokeHint')}</HintText>}
+    >
       <Box sx={{ width: '100%', maxWidth: { xs: '100%', sm: 380, md: 420 }, mx: 'auto' }}>
         <Stack spacing={2}>
           <FormControl fullWidth>
@@ -590,9 +595,9 @@ function WritingExercisePage() {
                 </IconButton>
                 <Stack
                   direction="row"
-                  spacing={{ xs: 0.25, sm: 0.75 }}
+                  spacing={{ xs: 0.5, sm: 1 }}
                   useFlexGap
-                  sx={{ flex: 1, flexWrap: 'wrap', justifyContent: 'center', minHeight: 80 }}
+                  sx={{ flex: 1, flexWrap: 'wrap', justifyContent: 'center', minHeight: 84 }}
                 >
                   {cells.map((cell) => (
                     <KanaSample key={`${script}:${cell.char}`} cell={cell} />

@@ -197,6 +197,8 @@ const en: TranslationTree = {
     writingReveal: 'Show answer',
     writingHideAnswer: 'Hide answer',
     writingNext: 'Next character',
+    writingStrokeHint:
+      'Tap a character to replay its stroke order. Strokes follow handwriting style, so they can look a little different from the printed chart.',
     sentence: 'Sentence transcription',
     sentenceTitle: 'Read the sentence, type the romaji',
     sentenceDescription: 'Read a kana sentence and type its romaji.',

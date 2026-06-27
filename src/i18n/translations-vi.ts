@@ -190,6 +190,8 @@ export const viTranslations: TranslationTree = {
     writingReveal: 'Xem đáp án',
     writingHideAnswer: 'Ẩn đáp án',
     writingNext: 'Chữ khác',
+    writingStrokeHint:
+      'Bấm vào một chữ để xem lại thứ tự nét. Nét theo thể viết tay nên có thể trông hơi khác với kiểu chữ in trong bảng.',
     sentence: 'Phiên âm câu',
     sentenceTitle: 'Đọc câu và gõ phiên âm romaji',
     sentenceDescription: 'Nhìn câu viết bằng kana và gõ phiên âm romaji.',
