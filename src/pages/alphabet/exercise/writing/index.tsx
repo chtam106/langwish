@@ -23,6 +23,8 @@ import {
   katakanaChartRows
 } from '@/constants/alphabet-charts.ts';
 import { KanaDisplay } from '@/components/kana-display';
+import { KanaStrokeOrder } from '@/components/kana-stroke-order';
+import { kanaStrokes } from '@/constants/kana-strokes.ts';
 import { useTranslation } from '@/i18n/use-translation.ts';
 import { ExercisePageLayout } from '@/pages/alphabet/exercise/exercise-page-layout.tsx';
 import type { Script } from '@/pages/alphabet/exercise/exercise-quiz.ts';
@@ -279,40 +281,47 @@ type KanaSampleProps = {
   cell: AlphabetCell;
 };
 
-/** A reference glyph in the on-screen (gothic) font; tapping plays its audio. */
+/**
+ * A reference kana for the row practice. When stroke data is available it shows
+ * an animated stroke-order guide (tap to replay); otherwise it falls back to a
+ * static glyph that plays its audio on tap.
+ */
 function KanaSample({ cell }: KanaSampleProps) {
   const { t } = useTranslation();
 
   return (
     <Stack spacing={0.5} sx={{ alignItems: 'center', width: { xs: 46, sm: 56 } }}>
-      <Box
-        role="button"
-        tabIndex={0}
-        aria-label={t('common.playAudio')}
-        onClick={() => speakJapanese(cell.char)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            speakJapanese(cell.char);
-          }
-        }}
-        sx={{
-          width: { xs: 40, sm: 48 },
-          height: { xs: 40, sm: 48 },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          borderRadius: 1,
-          '&:focus-visible': {
-            outline: '2px solid',
-            outlineColor: 'primary.main',
-            outlineOffset: 2
-          }
-        }}
-      >
-        <KanaDisplay cell={cell} variant="chart" />
-      </Box>
+      {Boolean(kanaStrokes[cell.char]) && <KanaStrokeOrder char={cell.char} size={48} />}
+      {!kanaStrokes[cell.char] && (
+        <Box
+          role="button"
+          tabIndex={0}
+          aria-label={t('common.playAudio')}
+          onClick={() => speakJapanese(cell.char)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              speakJapanese(cell.char);
+            }
+          }}
+          sx={{
+            width: { xs: 40, sm: 48 },
+            height: { xs: 40, sm: 48 },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            borderRadius: 1,
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: 'primary.main',
+              outlineOffset: 2
+            }
+          }}
+        >
+          <KanaDisplay cell={cell} variant="chart" />
+        </Box>
+      )}
       <Typography variant="caption" color="text.secondary">
         {cell.romaji}
       </Typography>
@@ -399,39 +408,43 @@ function RomajiPromptPractice({ script, rowIndex }: RomajiPromptPracticeProps) {
           >
             {cell.romaji}
           </Typography>
-          <Typography
-            component="p"
-            lang="ja"
-            role="button"
-            tabIndex={revealed ? 0 : -1}
-            aria-hidden={!revealed}
-            aria-label={t('common.playAudio')}
-            onClick={() => {
-              if (revealed) {
-                speakJapanese(cell.char);
-              }
-            }}
-            onKeyDown={(event) => {
-              if (revealed && (event.key === 'Enter' || event.key === ' ')) {
-                event.preventDefault();
-                speakJapanese(cell.char);
-              }
-            }}
-            sx={{
-              position: 'absolute',
-              left: '100%',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              ml: 2,
-              fontSize: { xs: 48, sm: 56 },
-              lineHeight: 1,
-              visibility: revealed ? 'visible' : 'hidden',
-              cursor: revealed ? 'pointer' : 'default',
-              color: 'primary.main'
-            }}
-          >
-            {cell.char}
-          </Typography>
+          {revealed && (
+            <Box
+              sx={{
+                position: 'absolute',
+                left: '100%',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                ml: 2
+              }}
+            >
+              {Boolean(kanaStrokes[cell.char]) && <KanaStrokeOrder char={cell.char} size={64} />}
+              {!kanaStrokes[cell.char] && (
+                <Typography
+                  component="p"
+                  lang="ja"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={t('common.playAudio')}
+                  onClick={() => speakJapanese(cell.char)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      speakJapanese(cell.char);
+                    }
+                  }}
+                  sx={{
+                    fontSize: { xs: 48, sm: 56 },
+                    lineHeight: 1,
+                    cursor: 'pointer',
+                    color: 'primary.main'
+                  }}
+                >
+                  {cell.char}
+                </Typography>
+              )}
+            </Box>
+          )}
         </Box>
       </Stack>
 
