@@ -32,12 +32,6 @@ function drawCanvasGuides(ctx: CanvasRenderingContext2D, width: number, height: 
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, width, height);
-
-  ctx.strokeStyle = 'rgba(0, 0, 0, 0.14)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.rect(0.5, 0.5, width - 1, height - 1);
-  ctx.stroke();
 }
 
 function configurePen(ctx: CanvasRenderingContext2D) {
