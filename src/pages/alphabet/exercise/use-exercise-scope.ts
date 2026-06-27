@@ -69,7 +69,7 @@ export function useExerciseScope(
   const rowFromIndex = rowScopeOptions.findIndex((option) => option.value === effectiveRowFrom);
 
   // From is freely selectable across every row; the To picker is what adapts to
-  // stay valid (see handleRowFromSelectChange resetting it to "To the end").
+  // stay valid (see handleRowFromSelectChange snapping it level with From).
   const rowFromSelectOptions = useMemo<RowSelectOption[]>(() => {
     if (!showRowRangeControls) {
       return rowScopeOptions;
@@ -129,7 +129,7 @@ export function useExerciseScope(
 
     const nextRowFrom = value as ExerciseRowScope;
     // Keep To when it's still valid (From at or before To, including the
-    // open-ended "to the end"); otherwise snap To back level with From.
+    // open-ended "to last row"); otherwise snap To back level with From.
     const rowToBeforeFrom =
       rowTo &&
       rowScopeOptions.findIndex((option) => option.value === rowTo) <
