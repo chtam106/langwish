@@ -46,6 +46,42 @@ function configurePen(ctx: CanvasRenderingContext2D) {
   ctx.strokeStyle = '#101828';
 }
 
+/**
+ * Run an action once per tap reliably across input types. On touch/pen the
+ * action fires on `pointerup` (which lands on the first tap, unlike the
+ * synthetic click over the canvas overlay), and the following click is
+ * de-duplicated. The flag resets on every `pointerdown` so a missing click
+ * never poisons the next tap. Mouse and keyboard fall through to `onClick`.
+ */
+function useTapAction(action: () => void) {
+  const handledRef = useRef(false);
+
+  const onPointerDown = useCallback(() => {
+    handledRef.current = false;
+  }, []);
+
+  const onPointerUp = useCallback(
+    (event: PointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+        handledRef.current = true;
+        action();
+      }
+    },
+    [action]
+  );
+
+  const onClick = useCallback(() => {
+    if (handledRef.current) {
+      handledRef.current = false;
+      return;
+    }
+
+    action();
+  }, [action]);
+
+  return { onPointerDown, onPointerUp, onClick };
+}
+
 type WritingCanvasProps = {
   ariaLabel: string;
   clearLabel: string;
@@ -187,6 +223,9 @@ function WritingCanvas({ ariaLabel, clearLabel, undoLabel }: WritingCanvasProps)
     ctx.closePath();
   }, [getContext]);
 
+  const undoTap = useTapAction(undoStroke);
+  const clearTap = useTapAction(redrawCanvas);
+
   return (
     <Box sx={{ position: 'relative', width: '100%' }}>
       <Stack
@@ -197,7 +236,7 @@ function WritingCanvas({ ariaLabel, clearLabel, undoLabel }: WritingCanvasProps)
         <IconButton
           aria-label={undoLabel}
           size="small"
-          onClick={undoStroke}
+          {...undoTap}
           sx={{ touchAction: 'manipulation' }}
         >
           <UndoOutlinedIcon sx={{ fontSize: 28 }} />
@@ -205,7 +244,7 @@ function WritingCanvas({ ariaLabel, clearLabel, undoLabel }: WritingCanvasProps)
         <IconButton
           aria-label={clearLabel}
           size="small"
-          onClick={redrawCanvas}
+          {...clearTap}
           sx={{ touchAction: 'manipulation' }}
         >
           <CleaningServicesOutlinedIcon sx={{ fontSize: 28, transform: 'rotate(30deg)' }} />
