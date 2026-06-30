@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
-import { ErrorFallback } from '@/components/error-fallback';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Menu } from '@/components/menu';
 import { PageMeta } from '@/components/page-meta';
 import { loadJapaneseUiFont } from '@/theme/fonts.ts';
 import * as Sentry from '@sentry/react';
+import { ErrorBoundary } from '@/components/error-boundary';
 
 const drawerWidth = 320;
 
@@ -16,23 +16,12 @@ function AppLayout() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [globalError, setGlobalError] = useState(false);
 
   useEffect(() => {
     if (location.pathname !== '/') {
       void loadJapaneseUiFont();
     }
   }, [location.pathname]);
-
-  useEffect(() => {
-    const handleError = () => setGlobalError(true);
-    window.addEventListener('error', handleError);
-    window.addEventListener('unhandledrejection', handleError);
-    return () => {
-      window.removeEventListener('error', handleError);
-      window.removeEventListener('unhandledrejection', handleError);
-    };
-  }, []);
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
@@ -63,8 +52,10 @@ function AppLayout() {
         }}
       >
         <Toolbar />
-        <Sentry.ErrorBoundary fallback={() => <ErrorFallback />}>
-          {globalError ? <ErrorFallback /> : <Outlet />}
+        <Sentry.ErrorBoundary>
+          <ErrorBoundary>
+            <Outlet />
+          </ErrorBoundary>
         </Sentry.ErrorBoundary>
         <Footer />
       </Box>

@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 
-function Bomb(): never {
-  throw new Error('[Sentry test] Render error from /sentry-test');
-}
-
 function SentryTestPage() {
-  const [crash, setCrash] = useState(false);
-
+  const handleThrow = () => {
+    throw new Error('[Sentry test] Render error from /sentry-test');
+  };
   return (
     <Box
       sx={{
@@ -22,10 +18,9 @@ function SentryTestPage() {
       <Typography variant="h5" sx={{ fontWeight: 600 }}>
         Sentry test
       </Typography>
-      <Button variant="contained" color="error" onClick={() => setCrash(true)}>
+      <Button variant="contained" color="error" onClick={handleThrow}>
         Throw error
       </Button>
-      {crash && <Bomb />}
     </Box>
   );
 }
