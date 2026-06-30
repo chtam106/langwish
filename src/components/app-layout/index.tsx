@@ -52,7 +52,7 @@ function AppLayout() {
         }}
       >
         <Toolbar />
-        <Sentry.ErrorBoundary fallback={<ErrorFallback />}>
+        <Sentry.ErrorBoundary fallback={() => <ErrorFallback />}>
           <Outlet />
         </Sentry.ErrorBoundary>
         <Footer />

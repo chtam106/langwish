@@ -31,7 +31,7 @@ async function bootstrap() {
     <StrictMode>
       <ThemeProvider theme={appTheme}>
         <CssBaseline />
-        <Sentry.ErrorBoundary fallback={<ErrorFallback />}>
+        <Sentry.ErrorBoundary fallback={() => <ErrorFallback />}>
           <BrowserRouter basename={routerBasename || undefined}>
             <LanguageProvider
               initialTranslations={
